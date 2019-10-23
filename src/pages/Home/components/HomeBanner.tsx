@@ -9,11 +9,11 @@ interface Iprops {
 }
 
 const HomeBanner: FC<Iprops> = ({banner}) => {
-  return (
+  return banner.uri ? (
     <View style={{height: 120}}>
       <Image style={{width, flex: 1}} source={banner} />
     </View>
-  )
+  ) : null
 }
 
 export default HomeBanner
