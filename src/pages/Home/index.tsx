@@ -4,6 +4,7 @@ import {View, SafeAreaView, ScrollView, StatusBar} from 'react-native'
 import HomeSearch from './components/HomeSearch'
 import HomeMenus from './components/HomeMenus'
 import HomeCategories from './components/HomeCategories'
+import HomePrice from './components/HomePrice'
 import HomeBanner from './components/HomeBanner'
 import HomeRecommends from './components/HomeRecommends'
 import Loading from '../../utils/Loading'
@@ -13,10 +14,18 @@ interface Iprops {
 }
 
 interface Istate {
+  price: {
+    month: number
+    average: number
+    trend: number
+  }
   recommends: IrecommendItem[]
   searchText: string
   recommendCategory: TrecommendCategory
   loading: boolean
+  banner: {
+    uri: string
+  }
 }
 
 class Home extends PureComponent<Iprops, Istate> {
@@ -28,15 +37,44 @@ class Home extends PureComponent<Iprops, Istate> {
   constructor(props: Iprops) {
     super(props)
     this.state = {
+      price: {
+        month: 0,
+        average: 0,
+        trend: 0,
+      },
       recommends: [],
       searchText: '',
       recommendCategory: 'second',
       loading: false,
+      banner: {
+        uri: '',
+      },
     }
   }
 
   componentDidMount() {
-    this.requestData()
+    this.initData()
+  }
+  initData = async () => {
+    this.setState({
+      loading: true,
+    })
+    try {
+      const [{result: assets}, {result: recommends}] = await Promise.all([
+        api.getHomeAssets(),
+        api.getRecommend(),
+      ])
+      const {price, banner} = assets
+      this.setState({
+        price,
+        banner,
+        recommends,
+      })
+    } finally {
+      this.setState({
+        loading: false,
+      })
+    }
   }
 
   requestData = async () => {
@@ -62,7 +100,14 @@ class Home extends PureComponent<Iprops, Istate> {
   }
 
   render() {
-    const {recommends, searchText, recommendCategory, loading} = this.state
+    const {
+      recommends,
+      searchText,
+      recommendCategory,
+      loading,
+      price,
+      banner,
+    } = this.state
     const {changeSearchText, changeRecommendCategory} = this
     const {navigation} = this.props
     const searchProps = {searchText, changeSearchText, navigation}
@@ -81,7 +126,8 @@ class Home extends PureComponent<Iprops, Istate> {
                 <HomeSearch {...searchProps} />
                 <HomeMenus />
                 <HomeCategories />
-                <HomeBanner />
+                <HomePrice price={price} />
+                <HomeBanner banner={banner} />
                 <HomeRecommends {...recommendProps} />
               </View>
             </Loading>
