@@ -1,6 +1,8 @@
 import React, {PureComponent} from 'react'
-import {View, Text} from 'react-native'
-
+import {View, SafeAreaView, ScrollView, Text} from 'react-native'
+import UserInformation from './components/UserInformation'
+import UserConcern from './components/UserConcern'
+import UserProprietor from './components/UserProprietor'
 class User extends PureComponent {
   static navigationOptions = () => {
     return {
@@ -9,9 +11,15 @@ class User extends PureComponent {
   }
   render() {
     return (
-      <View style={{flex: 1}}>
-        <Text>hello world</Text>
-      </View>
+      <SafeAreaView>
+        <ScrollView>
+          <View style={{flex: 1}}>
+            <UserInformation />
+            <UserConcern />
+            <UserProprietor />
+          </View>
+        </ScrollView>
+      </SafeAreaView>
     )
   }
 }
