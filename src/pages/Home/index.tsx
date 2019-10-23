@@ -4,7 +4,7 @@ import {View, SafeAreaView, ScrollView, StatusBar} from 'react-native'
 import HomeSearch from './components/HomeSearch'
 import HomeMenus from './components/HomeMenus'
 import HomeCategories from './components/HomeCategories'
-import HomeCarousels from './components/HomeCarousels'
+import HomeBanner from './components/HomeBanner'
 import HomeRecommends from './components/HomeRecommends'
 import Loading from '../../utils/Loading'
 import api from '../../api'
@@ -13,9 +13,6 @@ interface Iprops {
 }
 
 interface Istate {
-  businessMenus: ImenuItem[]
-  categories: IcategoryItem[]
-  carousels: Icarousel[]
   recommends: IrecommendItem[]
   searchText: string
   recommendCategory: TrecommendCategory
@@ -31,9 +28,6 @@ class Home extends PureComponent<Iprops, Istate> {
   constructor(props: Iprops) {
     super(props)
     this.state = {
-      businessMenus: [],
-      categories: [],
-      carousels: [],
       recommends: [],
       searchText: '',
       recommendCategory: 'second',
@@ -42,37 +36,18 @@ class Home extends PureComponent<Iprops, Istate> {
   }
 
   componentDidMount() {
-    this.requestStaticData()
-    this.requestRecommendData()
+    this.requestData()
   }
 
-  requestStaticData = async () => {
-    this.setState({
-      loading: true,
-    })
-    try {
-      const {result} = await api.getHomeStatic()
-      const {businessMenus, categories, carousels} = result
-      this.setState({
-        businessMenus,
-        categories,
-        carousels,
-      })
-    } finally {
-      this.setState({
-        loading: false,
-      })
-    }
-  }
-
-  requestRecommendData = async () => {
+  requestData = async () => {
+    this.setState({loading: true})
     try {
       const {result: recommends} = await api.getRecommend()
       this.setState({
         recommends,
       })
-    } catch (err) {
-      console.log(err)
+    } finally {
+      this.setState({loading: false})
     }
   }
 
@@ -82,20 +57,12 @@ class Home extends PureComponent<Iprops, Istate> {
   changeRecommendCategory = (recommendCategory: TrecommendCategory) => {
     if (recommendCategory !== this.state.recommendCategory) {
       this.setState({recommendCategory})
-      this.requestRecommendData()
+      this.requestData()
     }
   }
 
   render() {
-    const {
-      businessMenus,
-      categories,
-      carousels,
-      recommends,
-      searchText,
-      recommendCategory,
-      loading,
-    } = this.state
+    const {recommends, searchText, recommendCategory, loading} = this.state
     const {changeSearchText, changeRecommendCategory} = this
     const {navigation} = this.props
     const searchProps = {searchText, changeSearchText, navigation}
@@ -112,9 +79,9 @@ class Home extends PureComponent<Iprops, Istate> {
             <Loading isShow={loading}>
               <View style={{flex: 1}}>
                 <HomeSearch {...searchProps} />
-                <HomeMenus menus={businessMenus} />
-                <HomeCategories categories={categories} />
-                <HomeCarousels carousels={carousels} />
+                <HomeMenus />
+                <HomeCategories />
+                <HomeBanner />
                 <HomeRecommends {...recommendProps} />
               </View>
             </Loading>

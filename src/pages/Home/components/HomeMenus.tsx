@@ -1,16 +1,39 @@
 import React, {FC} from 'react'
 import {View, Text, Image, StyleSheet} from 'react-native'
 
-interface Iprops {
-  menus: ImenuItem[]
-}
-
-const HomeMenus: FC<Iprops> = ({menus}) => {
+const HomeMenus: FC = () => {
+  const menus = [
+    {
+      name: '二手房',
+      uri:
+        'https://i.qfangimg.com/resource/qfang-mobile/static/img/nav-sale.png',
+    },
+    {
+      name: '新房',
+      uri:
+        'https://i.qfangimg.com/resource/qfang-mobile/static/img/nav-newhouse.png',
+    },
+    {
+      name: '租房',
+      uri:
+        'https://i.qfangimg.com/resource/qfang-mobile/static/img/nav-rent.png',
+    },
+    {
+      name: '商业办公',
+      uri:
+        'https://i.qfangimg.com/resource/qfang-mobile/static/img/nav-office.png',
+    },
+    {
+      name: '海外',
+      uri:
+        'https://i.qfangimg.com/resource/qfang-mobile/static/img/nav-overseas.png',
+    },
+  ]
   return (
     <View style={style.menuWarpper}>
-      {menus.map(menu => {
+      {menus.map((menu, index) => {
         return (
-          <View style={style.menuBox} key={menu.id}>
+          <View style={style.menuBox} key={index}>
             <Image style={style.itemImage} source={menu} />
             <Text style={style.itemName}>{menu.name}</Text>
           </View>
