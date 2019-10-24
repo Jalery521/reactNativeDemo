@@ -14,11 +14,11 @@ const HomePrice: FC<Iprops> = ({price}) => {
     <View style={style.priceWrapper}>
       <View style={style.priceTitle}>
         <Text style={style.priceCategory}>深圳二手房房价</Text>
-        <Text>〉</Text>
+        <Text>></Text>
       </View>
       <View style={style.priceContent}>
         <View style={style.contentItem}>
-          <View style={style.itemBox}>
+          <View style={style.itemBox}></View>
             <Text style={style.itemNumber}>{price.average}</Text>
             <Text style={style.itemNumber}> 元/㎡</Text>
           </View>
