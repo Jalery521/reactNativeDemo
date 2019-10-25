@@ -25,7 +25,7 @@ const HomeCategories: FC = () => {
     },
   ]
   return (
-    <View style={style.categoryWarpper}>
+    <View style={style.categoryWrapper}>
       {categories.map((category, index) => {
         return (
           <View style={style.categoryItem} key={index}>
@@ -39,7 +39,7 @@ const HomeCategories: FC = () => {
 }
 
 const style = StyleSheet.create({
-  categoryWarpper: {
+  categoryWrapper: {
     margin: 20,
     flexDirection: 'row',
     justifyContent: 'space-between',

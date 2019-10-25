@@ -1,5 +1,5 @@
 import React, {FC} from 'react'
-import {View, Text, Image, Dimensions} from 'react-native'
+import {View, Text, Image, Dimensions, StyleSheet} from 'react-native'
 const {width} = Dimensions.get('window')
 const UserInformation: FC = () => {
   return (
@@ -72,5 +72,7 @@ const UserInformation: FC = () => {
     </View>
   )
 }
+
+const style = StyleSheet.create({})
 
 export default UserInformation

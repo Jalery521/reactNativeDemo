@@ -13,39 +13,34 @@ const HomeRecommends: FC<Iprops> = ({
   changeRecommendCategory,
 }) => {
   return (
-    <View style={{padding: 20}}>
-      <View
-        style={{
-          height: 40,
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-        }}>
-        <Text style={{fontSize: 18, fontWeight: 'bold'}}>为您推荐</Text>
-        <View style={{flexDirection: 'row', paddingTop: 4}}>
+    <View style={style.recommendWrapper}>
+      <View style={style.recommendCategory}>
+        <Text style={style.recommendTitle}>为您推荐</Text>
+        <View style={style.categoryBox}>
           <Text
             onPress={() => changeRecommendCategory('second')}
-            style={{
-              fontSize: 12,
-              color: recommendCategory === 'second' ? '#ffb200' : '#666',
-            }}>
+            style={[
+              {color: recommendCategory === 'second' ? '#ffb200' : '#666'},
+              style.font12,
+            ]}>
             二手房
           </Text>
           <Text
             onPress={() => changeRecommendCategory('new')}
-            style={{
-              fontSize: 12,
-              marginLeft: 12,
-              color: recommendCategory === 'new' ? '#ffb200' : '#666',
-            }}>
+            style={[
+              {color: recommendCategory === 'new' ? '#ffb200' : '#666'},
+              style.marginL12,
+              style.font12,
+            ]}>
             新房
           </Text>
           <Text
             onPress={() => changeRecommendCategory('rent')}
-            style={{
-              fontSize: 12,
-              marginLeft: 12,
-              color: recommendCategory === 'rent' ? '#ffb200' : '#666',
-            }}>
+            style={[
+              {color: recommendCategory === 'rent' ? '#ffb200' : '#666'},
+              style.marginL12,
+              style.font12,
+            ]}>
             租房
           </Text>
         </View>
@@ -54,32 +49,24 @@ const HomeRecommends: FC<Iprops> = ({
         {recommends.map(recommend => {
           return (
             <View key={recommend.id} style={style.recommendItem}>
-              <View style={{flexDirection: 'row'}}>
-                <Image style={{width: 100, height: 80}} source={recommend} />
-                <View style={{paddingLeft: 10}}>
-                  <Text style={{fontSize: 16}}>{recommend.title}</Text>
+              <View style={style.flexRow}>
+                <Image style={style.itemImg} source={recommend} />
+                <View>
+                  <Text style={style.descTitle}>{recommend.title}</Text>
                   {recommendCategory === 'new' ? (
                     <Text>{recommend.tags.join('  ')}</Text>
                   ) : (
-                    <Text style={{fontSize: 12, color: '#666'}}>
-                      {recommend.desc}
-                    </Text>
+                    <Text style={style.descTags}>{recommend.desc}</Text>
                   )}
                   {recommendCategory === 'second' ? (
-                    <View style={{flexDirection: 'row'}}>
-                      <Text style={{color: '#ff6d6d', fontWeight: 'bold'}}>
-                        {recommend.total}
-                      </Text>
-                      <Text style={{marginLeft: 10, color: '#999'}}>
-                        {recommend.price}
-                      </Text>
+                    <View style={style.flexRow}>
+                      <Text style={style.totalPrice}>{recommend.total}</Text>
+                      <Text style={style.averagePrice}>{recommend.price}</Text>
                     </View>
                   ) : (
-                    <Text style={{color: '#ff6d6d', fontWeight: 'bold'}}>
-                      {recommend.price}
-                    </Text>
+                    <Text style={style.totalPrice}>{recommend.price}</Text>
                   )}
-                  <View style={{flexDirection: 'row'}}>
+                  <View style={style.flexRow}>
                     {recommend.traits.map(trait => {
                       return (
                         <Text style={style.houseTrait} key={trait}>
@@ -91,11 +78,9 @@ const HomeRecommends: FC<Iprops> = ({
                 </View>
               </View>
               {recommendCategory === 'new' ? (
-                <View style={{flexDirection: 'row', paddingLeft: 20}}>
+                <View style={[style.marginL12, style.flexRow]}>
                   <Text style={style.saleIcon}>惠</Text>
-                  <Text style={{marginLeft: 10, color: '#698bb3'}}>
-                    {recommend.sale}
-                  </Text>
+                  <Text style={style.saleDesc}>{recommend.sale}</Text>
                 </View>
               ) : null}
             </View>
@@ -107,12 +92,57 @@ const HomeRecommends: FC<Iprops> = ({
 }
 
 const style = StyleSheet.create({
+  recommendWrapper: {
+    margin: 20,
+  },
+  recommendCategory: {
+    height: 40,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  recommendTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  categoryBox: {
+    flexDirection: 'row',
+    paddingTop: 4,
+  },
+  font12: {
+    fontSize: 12,
+  },
+  marginL12: {
+    marginLeft: 12,
+  },
   recommendItem: {
     borderBottomColor: '#ccc',
     borderBottomWidth: 1,
     borderStyle: 'solid',
     paddingBottom: 15,
     paddingTop: 10,
+  },
+  flexRow: {
+    flexDirection: 'row',
+  },
+  itemImg: {
+    width: 100,
+    height: 80,
+    marginRight: 10,
+  },
+  descTitle: {
+    fontSize: 16,
+  },
+  descTags: {
+    fontSize: 12,
+    color: '#666',
+  },
+  totalPrice: {
+    color: '#ff6d6d',
+    fontWeight: 'bold',
+  },
+  averagePrice: {
+    marginLeft: 10,
+    color: '#999',
   },
   houseTrait: {
     color: '#75919e',
@@ -127,6 +157,10 @@ const style = StyleSheet.create({
     paddingLeft: 2,
     paddingRight: 2,
     borderRadius: 2,
+  },
+  saleDesc: {
+    marginLeft: 10,
+    color: '#698bb3',
   },
 })
 

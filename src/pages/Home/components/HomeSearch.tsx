@@ -17,7 +17,7 @@ const HomeSearch: FC<Iprops> = ({searchText, changeSearchText, navigation}) => {
       <View style={style.searchContent}>
         <Text style={style.searchCity}>深圳</Text>
         <View style={style.inputWarpper}>
-          <Text style={{fontSize: 12}}>放大镜</Text>
+          <Text style={style.font12}>放大镜</Text>
           <TextInput
             style={style.searchInput}
             placeholder='你想找的小区、商圈'
@@ -65,6 +65,9 @@ const style = StyleSheet.create({
   personIcon: {
     width: 40,
     textAlign: 'right',
+  },
+  font12: {
+    fontSize: 12,
   },
 })
 

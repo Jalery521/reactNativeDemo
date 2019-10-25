@@ -1,5 +1,5 @@
 import React, {FC} from 'react'
-import {View, Text} from 'react-native'
+import {View, Text, StyleSheet} from 'react-native'
 
 interface Iprops {
   price: {
@@ -11,39 +11,25 @@ interface Iprops {
 
 const HomePrice: FC<Iprops> = ({price}) => {
   return (
-    <View style={{margin: 20}}>
-      <View style={{height: 50, flexDirection: 'row', alignItems: 'center'}}>
-        <Text style={{fontSize: 16, fontWeight: 'bold', flex: 1}}>
-          深圳二手房房价
-        </Text>
+    <View style={style.priceWrapper}>
+      <View style={style.priceTitle}>
+        <Text style={style.priceCategory}>深圳二手房房价</Text>
         <Text>〉</Text>
       </View>
-      <View style={{height: 60, flexDirection: 'row'}}>
-        <View style={{flex: 1}}>
-          <View
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-              marginBottom: 5,
-            }}>
-            <Text style={{fontSize: 16, fontWeight: 'bold'}}>
-              {price.average}
-            </Text>
-            <Text style={{color: '#666', fontSize: 12}}> 元/㎡</Text>
+      <View style={style.priceContent}>
+        <View style={style.contentItem}>
+          <View style={style.itemBox}>
+            <Text style={style.itemNumber}>{price.average}</Text>
+            <Text style={style.itemNumber}> 元/㎡</Text>
           </View>
           <Text>{price.month}月均价</Text>
         </View>
-        <View style={{flex: 1}}>
-          <View
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-              marginBottom: 5,
-            }}>
-            <Text style={{fontSize: 16, fontWeight: 'bold', color: '#ff5860'}}>
+        <View style={style.contentItem}>
+          <View style={style.itemBox}>
+            <Text style={[style.itemNumber, style.redNumber]}>
               {price.trend}
             </Text>
-            <Text style={{color: '#ff5860', fontSize: 12}}> %</Text>
+            <Text style={[style.redNumber, style.font12]}> %</Text>
           </View>
           <Text>环比上月</Text>
         </View>
@@ -51,4 +37,43 @@ const HomePrice: FC<Iprops> = ({price}) => {
     </View>
   )
 }
+
+const style = StyleSheet.create({
+  priceWrapper: {
+    margin: 20,
+  },
+  priceTitle: {
+    height: 50,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  priceCategory: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    flex: 1,
+  },
+  priceContent: {
+    height: 60,
+    flexDirection: 'row',
+  },
+  contentItem: {
+    flex: 1,
+  },
+  itemBox: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 5,
+  },
+  itemNumber: {
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  redNumber: {
+    color: '#ff5860',
+  },
+  font12: {
+    fontSize: 12,
+  },
+})
+
 export default HomePrice

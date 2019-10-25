@@ -30,7 +30,7 @@ const HomeMenus: FC = () => {
     },
   ]
   return (
-    <View style={style.menuWarpper}>
+    <View style={style.menuWrapper}>
       {menus.map((menu, index) => {
         return (
           <View style={style.menuBox} key={index}>
@@ -44,7 +44,7 @@ const HomeMenus: FC = () => {
 }
 
 const style = StyleSheet.create({
-  menuWarpper: {
+  menuWrapper: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingLeft: 20,
