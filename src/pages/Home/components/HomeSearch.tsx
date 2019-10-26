@@ -1,5 +1,6 @@
 import React, {FC} from 'react'
 import {View, Text, TextInput, StyleSheet} from 'react-native'
+import Icon from 'react-native-vector-icons/FontAwesome'
 
 interface Iprops {
   searchText: string
@@ -17,7 +18,7 @@ const HomeSearch: FC<Iprops> = ({searchText, changeSearchText, navigation}) => {
       <View style={style.searchContent}>
         <Text style={style.searchCity}>深圳</Text>
         <View style={style.inputWarpper}>
-          <Text style={style.font12}>放大镜</Text>
+          <Icon name='search' size={16} color='#999' />
           <TextInput
             style={style.searchInput}
             placeholder='你想找的小区、商圈'
@@ -26,16 +27,20 @@ const HomeSearch: FC<Iprops> = ({searchText, changeSearchText, navigation}) => {
           />
         </View>
       </View>
-      <Text style={style.personIcon} onPress={toUser}>
-        人员
-      </Text>
+      {/* <Text >
+       
+      </Text> */}
+      <View style={style.personIcon}>
+        <Icon onPress={toUser} name='user-o' size={22} color='#888' />
+      </View>
     </View>
   )
 }
 
 const style = StyleSheet.create({
   searchWarpper: {
-    padding: 20,
+    margin: 20,
+    marginRight: 10,
     flexDirection: 'row',
     alignItems: 'center',
   },
@@ -64,7 +69,8 @@ const style = StyleSheet.create({
   },
   personIcon: {
     width: 40,
-    textAlign: 'right',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   font12: {
     fontSize: 12,

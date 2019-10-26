@@ -1,6 +1,6 @@
 import React, {FC} from 'react'
 import {View, Text, StyleSheet} from 'react-native'
-
+import Icon from 'react-native-vector-icons/FontAwesome'
 interface Iprops {
   price: {
     month: number
@@ -14,15 +14,15 @@ const HomePrice: FC<Iprops> = ({price}) => {
     <View style={style.priceWrapper}>
       <View style={style.priceTitle}>
         <Text style={style.priceCategory}>深圳二手房房价</Text>
-        <Text>></Text>
+        <Icon name='angle-right' size={22} color='#999' />
       </View>
       <View style={style.priceContent}>
         <View style={style.contentItem}>
-          <View style={style.itemBox}></View>
+          <View style={style.itemBox}>
             <Text style={style.itemNumber}>{price.average}</Text>
-            <Text style={style.itemNumber}> 元/㎡</Text>
+            <Text style={style.color999}> 元/㎡</Text>
           </View>
-          <Text>{price.month}月均价</Text>
+          <Text style={style.color999}>{price.month}月均价</Text>
         </View>
         <View style={style.contentItem}>
           <View style={style.itemBox}>
@@ -31,7 +31,10 @@ const HomePrice: FC<Iprops> = ({price}) => {
             </Text>
             <Text style={[style.redNumber, style.font12]}> %</Text>
           </View>
-          <Text>环比上月</Text>
+          <View style={style.priceTrend}>
+            <Text style={style.color999}>环比上月</Text>
+            <Icon name='caret-up' size={22} color='#ff5860' />
+          </View>
         </View>
       </View>
     </View>
@@ -49,7 +52,6 @@ const style = StyleSheet.create({
   },
   priceCategory: {
     fontSize: 16,
-    fontWeight: 'bold',
     flex: 1,
   },
   priceContent: {
@@ -62,17 +64,24 @@ const style = StyleSheet.create({
   itemBox: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 5,
+    marginBottom: 8,
   },
   itemNumber: {
     fontSize: 16,
     fontWeight: 'bold',
+  },
+  color999: {
+    color: '#999',
   },
   redNumber: {
     color: '#ff5860',
   },
   font12: {
     fontSize: 12,
+  },
+  priceTrend: {
+    flexDirection: 'row',
+    alignItems: 'center',
   },
 })
 

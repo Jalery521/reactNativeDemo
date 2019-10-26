@@ -78,7 +78,7 @@ const HomeRecommends: FC<Iprops> = ({
                 </View>
               </View>
               {recommendCategory === 'new' ? (
-                <View style={[style.marginL12, style.flexRow]}>
+                <View style={[style.marginT12, style.marginL12, style.flexRow]}>
                   <Text style={style.saleIcon}>惠</Text>
                   <Text style={style.saleDesc}>{recommend.sale}</Text>
                 </View>
@@ -114,6 +114,9 @@ const style = StyleSheet.create({
   marginL12: {
     marginLeft: 12,
   },
+  marginT12: {
+    marginTop: 12,
+  },
   recommendItem: {
     borderBottomColor: '#ccc',
     borderBottomWidth: 1,
@@ -147,8 +150,8 @@ const style = StyleSheet.create({
   houseTrait: {
     color: '#75919e',
     backgroundColor: '#effaff',
-    padding: 5,
-    borderRadius: 3,
+    padding: 2,
+    borderRadius: 2,
     marginRight: 5,
   },
   saleIcon: {

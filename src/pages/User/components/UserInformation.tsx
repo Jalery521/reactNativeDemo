@@ -1,5 +1,6 @@
 import React, {FC} from 'react'
 import {View, Text, Image, Dimensions, StyleSheet} from 'react-native'
+import Icon from 'react-native-vector-icons/FontAwesome'
 const {width} = Dimensions.get('window')
 const UserInformation: FC = () => {
   return (
@@ -24,9 +25,18 @@ const UserInformation: FC = () => {
         />
         <Text style={style.loginBtn}>登录/注册</Text>
         <View style={style.userRecords}>
-          <Text style={style.recordItem}>浏览记录 ></Text>
-          <Text style={style.recordItem}>我的订阅 ></Text>
-          <Text style={style.recordItem}>我的预约 ></Text>
+          <View style={style.recordItem}>
+            <Text style={style.marginR6}>浏览记录</Text>
+            <Icon name='angle-right' size={18} color='#999' />
+          </View>
+          <View style={style.recordItem}>
+            <Text style={style.marginR6}>我的订阅</Text>
+            <Icon name='angle-right' size={18} color='#999' />
+          </View>
+          <View style={style.recordItem}>
+            <Text style={style.marginR6}>我的预约</Text>
+            <Icon name='angle-right' size={18} color='#999' />
+          </View>
         </View>
       </View>
     </View>
@@ -81,7 +91,13 @@ const style = StyleSheet.create({
     padding: 20,
     justifyContent: 'space-between',
   },
-  recordItem: {fontSize: 16},
+  recordItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  marginR6: {
+    marginRight: 6,
+  },
 })
 
 export default UserInformation
