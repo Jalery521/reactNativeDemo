@@ -7,7 +7,8 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "build:iconfont": "iconfonttojson ./src/font/iconfont.css"
   },
   "dependencies": {
     "react": "16.9.0",
@@ -15,7 +16,6 @@
     "react-native-gesture-handler": "^1.4.1",
     "react-native-reanimated": "^1.3.0",
     "react-native-screens": "^2.0.0-alpha.5",
-    "react-native-swiper": "^1.6.0-rc.3",
     "react-native-vector-icons": "^6.6.0",
     "react-navigation": "^4.0.10",
     "react-navigation-stack": "^1.10.2"

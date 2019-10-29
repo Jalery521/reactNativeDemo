@@ -45,10 +45,9 @@ const HomeMenus: FC = () => {
 
 const style = StyleSheet.create({
   menuWrapper: {
+    marginTop: 15,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingLeft: 20,
-    paddingRight: 20,
   },
   menuBox: {
     width: 60,

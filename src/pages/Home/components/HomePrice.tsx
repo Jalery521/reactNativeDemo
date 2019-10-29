@@ -1,6 +1,6 @@
 import React, {FC} from 'react'
 import {View, Text, StyleSheet} from 'react-native'
-import Icon from 'react-native-vector-icons/FontAwesome'
+import Icon from '../../../components/Icon'
 interface Iprops {
   price: {
     month: number
@@ -14,7 +14,7 @@ const HomePrice: FC<Iprops> = ({price}) => {
     <View style={style.priceWrapper}>
       <View style={style.priceTitle}>
         <Text style={style.priceCategory}>深圳二手房房价</Text>
-        <Icon name='angle-right' size={22} color='#999' />
+        <Icon name='arrowright' size={14} color='#999' />
       </View>
       <View style={style.priceContent}>
         <View style={style.contentItem}>
@@ -33,7 +33,7 @@ const HomePrice: FC<Iprops> = ({price}) => {
           </View>
           <View style={style.priceTrend}>
             <Text style={style.color999}>环比上月</Text>
-            <Icon name='caret-up' size={22} color='#ff5860' />
+            <Icon name='shangjiantou' size={10} color='#ff5860' />
           </View>
         </View>
       </View>
@@ -43,7 +43,7 @@ const HomePrice: FC<Iprops> = ({price}) => {
 
 const style = StyleSheet.create({
   priceWrapper: {
-    margin: 20,
+    marginTop: 15,
   },
   priceTitle: {
     height: 50,

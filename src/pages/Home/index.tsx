@@ -1,13 +1,21 @@
 import React, {PureComponent} from 'react'
-import {View, SafeAreaView, ScrollView, StatusBar} from 'react-native'
+import {
+  View,
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+} from 'react-native'
 
 import HomeSearch from './components/HomeSearch'
 import HomeMenus from './components/HomeMenus'
+import HomeFeature from './components/HomeFeature'
 import HomeCategories from './components/HomeCategories'
 import HomePrice from './components/HomePrice'
 import HomeBanner from './components/HomeBanner'
 import HomeRecommends from './components/HomeRecommends'
-import Loading from '../../utils/Loading'
+import CommonFooter from '../../components/CommonFooter'
+import Loading from '../../components/Loading'
 import api from '../../api'
 interface Iprops {
   navigation: any
@@ -122,13 +130,17 @@ class Home extends PureComponent<Iprops, Istate> {
         <SafeAreaView>
           <ScrollView>
             <Loading isShow={loading}>
-              <View style={{flex: 1}}>
-                <HomeSearch {...searchProps} />
-                <HomeMenus />
-                <HomeCategories />
-                <HomePrice price={price} />
-                <HomeBanner banner={banner} />
-                <HomeRecommends {...recommendProps} />
+              <View style={style.homeWrapper}>
+                <View style={style.whiteCol}>
+                  <HomeSearch {...searchProps} />
+                  <HomeMenus />
+                  <HomeFeature />
+                  <HomeCategories />
+                  <HomePrice price={price} />
+                  <HomeBanner banner={banner} />
+                  <HomeRecommends {...recommendProps} />
+                </View>
+                <CommonFooter siteName='深圳' />
               </View>
             </Loading>
           </ScrollView>
@@ -137,5 +149,17 @@ class Home extends PureComponent<Iprops, Istate> {
     )
   }
 }
+
+const style = StyleSheet.create({
+  homeWrapper: {
+    flex: 1,
+    backgroundColor: '#f5f5f5',
+  },
+  whiteCol: {
+    padding: 20,
+    paddingTop: 10,
+    backgroundColor: 'white',
+  },
+})
 
 export default Home

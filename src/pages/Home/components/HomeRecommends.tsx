@@ -46,9 +46,14 @@ const HomeRecommends: FC<Iprops> = ({
         </View>
       </View>
       <View>
-        {recommends.map(recommend => {
+        {recommends.map((recommend, index) => {
           return (
-            <View key={recommend.id} style={style.recommendItem}>
+            <View
+              key={recommend.id}
+              style={[
+                style.recommendItem,
+                index > 0 ? style.recommendDivider : null,
+              ]}>
               <View style={style.flexRow}>
                 <Image style={style.itemImg} source={recommend} />
                 <View>
@@ -93,7 +98,7 @@ const HomeRecommends: FC<Iprops> = ({
 
 const style = StyleSheet.create({
   recommendWrapper: {
-    margin: 20,
+    marginTop: 15,
   },
   recommendCategory: {
     height: 40,
@@ -118,11 +123,13 @@ const style = StyleSheet.create({
     marginTop: 12,
   },
   recommendItem: {
-    borderBottomColor: '#ccc',
-    borderBottomWidth: 1,
+    paddingBottom: 20,
+    paddingTop: 15,
+  },
+  recommendDivider: {
+    borderTopColor: '#f0f0f0',
+    borderTopWidth: 1,
     borderStyle: 'solid',
-    paddingBottom: 15,
-    paddingTop: 10,
   },
   flexRow: {
     flexDirection: 'row',

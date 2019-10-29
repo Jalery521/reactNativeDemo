@@ -1,5 +1,5 @@
 import React, {PureComponent} from 'react'
-import {View, SafeAreaView, ScrollView, Text} from 'react-native'
+import {View, SafeAreaView, ScrollView, StyleSheet} from 'react-native'
 import UserInformation from './components/UserInformation'
 import UserConcern from './components/UserConcern'
 import UserProprietor from './components/UserProprietor'
@@ -13,7 +13,7 @@ class User extends PureComponent {
     return (
       <SafeAreaView>
         <ScrollView>
-          <View style={{flex: 1}}>
+          <View style={style.userWrapper}>
             <UserInformation />
             <UserConcern />
             <UserProprietor />
@@ -23,5 +23,13 @@ class User extends PureComponent {
     )
   }
 }
+
+const style = StyleSheet.create({
+  userWrapper: {
+    flex: 1,
+    paddingLeft: 15,
+    paddingRight: 15,
+  },
+})
 
 export default User

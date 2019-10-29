@@ -17,6 +17,9 @@ const HomeBanner: FC<Iprops> = ({banner}) => {
 }
 const style = StyleSheet.create({
   bannerWrapper: {
+    marginTop: 15,
+    marginLeft: -20,
+    marginRight: -20,
     height: 120,
   },
   bannerImg: {

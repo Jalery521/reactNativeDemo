@@ -1,6 +1,6 @@
 import React, {FC} from 'react'
 import {View, Text, Image, Dimensions, StyleSheet} from 'react-native'
-import Icon from 'react-native-vector-icons/FontAwesome'
+import Icon from '../../../components/Icon'
 const {width} = Dimensions.get('window')
 const UserInformation: FC = () => {
   return (
@@ -27,15 +27,15 @@ const UserInformation: FC = () => {
         <View style={style.userRecords}>
           <View style={style.recordItem}>
             <Text style={style.marginR6}>浏览记录</Text>
-            <Icon name='angle-right' size={18} color='#999' />
+            <Icon name='arrowright' size={10} color='#999' />
           </View>
           <View style={style.recordItem}>
             <Text style={style.marginR6}>我的订阅</Text>
-            <Icon name='angle-right' size={18} color='#999' />
+            <Icon name='arrowright' size={10} color='#999' />
           </View>
           <View style={style.recordItem}>
             <Text style={style.marginR6}>我的预约</Text>
-            <Icon name='angle-right' size={18} color='#999' />
+            <Icon name='arrowright' size={10} color='#999' />
           </View>
         </View>
       </View>
@@ -63,8 +63,8 @@ const style = StyleSheet.create({
   informationBox: {
     alignItems: 'center',
     position: 'absolute',
-    left: 15,
-    right: 15,
+    left: 0,
+    right: 0,
     bottom: 0,
     height: 135,
     backgroundColor: '#fff',
@@ -96,7 +96,7 @@ const style = StyleSheet.create({
     alignItems: 'center',
   },
   marginR6: {
-    marginRight: 6,
+    marginRight: 5,
   },
 })
 
