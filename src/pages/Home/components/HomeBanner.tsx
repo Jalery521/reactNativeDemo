@@ -1,7 +1,8 @@
 import React, {FC} from 'react'
-import {Image, View, Dimensions, StyleSheet} from 'react-native'
+import {Image, View, Dimensions} from 'react-native'
 const {width} = Dimensions.get('window')
-
+const bannerWidth = width - 40
+const bannerHeight = (bannerWidth / 640) * 200
 interface Iprops {
   banner: {
     uri: string
@@ -10,21 +11,12 @@ interface Iprops {
 
 const HomeBanner: FC<Iprops> = ({banner}) => {
   return banner.uri ? (
-    <View style={style.bannerWrapper}>
-      <Image style={style.bannerImg} source={banner} />
+    <View style={{marginTop: 15}}>
+      <Image
+        style={{width: bannerWidth, height: bannerHeight}}
+        source={banner}
+      />
     </View>
   ) : null
 }
-const style = StyleSheet.create({
-  bannerWrapper: {
-    marginTop: 15,
-    marginLeft: -20,
-    marginRight: -20,
-    height: 120,
-  },
-  bannerImg: {
-    width,
-    flex: 1,
-  },
-})
 export default HomeBanner

@@ -1,19 +1,32 @@
 import React, {PureComponent} from 'react'
-import {View, SafeAreaView, ScrollView, StyleSheet} from 'react-native'
+import {View, SafeAreaView, ScrollView} from 'react-native'
+import HeaderLeft from '../../components/HeaderNavigation/HeaderLeft'
+import HeaderRight from '../../components/HeaderNavigation/HeaderRight'
 import UserInformation from './components/UserInformation'
 import UserConcern from './components/UserConcern'
 import UserProprietor from './components/UserProprietor'
-class User extends PureComponent {
-  static navigationOptions = () => {
+
+interface Iprops {
+  navigation: any
+}
+
+class User extends PureComponent<Iprops> {
+  static navigationOptions = ({navigation}: Iprops) => {
     return {
-      header: null,
+      title: '个人中心',
+      headerLeft: () => <HeaderLeft navigation={navigation} />,
+      headerRight: () => <HeaderRight navigation={navigation} />,
     }
+  }
+
+  constructor(props: Iprops) {
+    super(props)
   }
   render() {
     return (
       <SafeAreaView>
         <ScrollView>
-          <View style={style.userWrapper}>
+          <View style={{flex: 1, paddingLeft: 15, paddingRight: 15}}>
             <UserInformation />
             <UserConcern />
             <UserProprietor />
@@ -23,13 +36,5 @@ class User extends PureComponent {
     )
   }
 }
-
-const style = StyleSheet.create({
-  userWrapper: {
-    flex: 1,
-    paddingLeft: 15,
-    paddingRight: 15,
-  },
-})
 
 export default User

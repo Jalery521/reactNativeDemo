@@ -1,11 +1,5 @@
 import React, {PureComponent} from 'react'
-import {
-  View,
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-} from 'react-native'
+import {View, SafeAreaView, ScrollView, StatusBar} from 'react-native'
 
 import HomeSearch from './components/HomeSearch'
 import HomeMenus from './components/HomeMenus'
@@ -37,10 +31,8 @@ interface Istate {
 }
 
 class Home extends PureComponent<Iprops, Istate> {
-  static navigationOptions = () => {
-    return {
-      header: null,
-    }
+  static navigationOptions = {
+    header: null,
   }
   constructor(props: Iprops) {
     super(props)
@@ -130,8 +122,13 @@ class Home extends PureComponent<Iprops, Istate> {
         <SafeAreaView>
           <ScrollView>
             <Loading isShow={loading}>
-              <View style={style.homeWrapper}>
-                <View style={style.whiteCol}>
+              <View style={{flex: 1, backgroundColor: '#f5f5f5'}}>
+                <View
+                  style={{
+                    padding: 20,
+                    paddingTop: 10,
+                    backgroundColor: 'white',
+                  }}>
                   <HomeSearch {...searchProps} />
                   <HomeMenus />
                   <HomeFeature />
@@ -149,17 +146,5 @@ class Home extends PureComponent<Iprops, Istate> {
     )
   }
 }
-
-const style = StyleSheet.create({
-  homeWrapper: {
-    flex: 1,
-    backgroundColor: '#f5f5f5',
-  },
-  whiteCol: {
-    padding: 20,
-    paddingTop: 10,
-    backgroundColor: 'white',
-  },
-})
 
 export default Home

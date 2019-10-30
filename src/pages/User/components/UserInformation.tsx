@@ -13,7 +13,6 @@ const UserInformation: FC = () => {
               'https://i.qfangimg.com/resource/qfang-mobile/static/img/user-center-bg.png',
           }}
         />
-        <Text style={style.informationTitle}>个人中心</Text>
       </View>
       <View style={style.informationBox}>
         <Image
@@ -45,7 +44,7 @@ const UserInformation: FC = () => {
 
 const style = StyleSheet.create({
   informationWrapper: {
-    height: 210,
+    height: 180,
     flex: 1,
     position: 'relative',
   },
