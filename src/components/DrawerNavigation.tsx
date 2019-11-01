@@ -5,16 +5,17 @@ const {width} = Dimensions.get('window')
 const drawerWidth = width / 2
 
 interface Iprops {
-  isShow: boolean
+  navigation: any
 }
-const DrawerNavigation: FC<Iprops> = ({isShow}) => {
-  return isShow ? (
+
+const DrawerNavigation: FC<Iprops> = ({navigation}) => {
+  return (
     <View style={style.modalWrapper}>
       <View style={style.drawerWrapper}>
         <View></View>
       </View>
     </View>
-  ) : null
+  )
 }
 const style = StyleSheet.create({
   modalWrapper: {

@@ -1,30 +1,26 @@
 import React, {PureComponent} from 'react'
 import {View, SafeAreaView, ScrollView} from 'react-native'
-import HeaderLeft from '../../components/HeaderNavigation/HeaderLeft'
-import HeaderRight from '../../components/HeaderNavigation/HeaderRight'
 import UserInformation from './components/UserInformation'
 import UserConcern from './components/UserConcern'
 import UserProprietor from './components/UserProprietor'
-
+import HeaderNavigation from '../../components/HeaderNavigation'
 interface Iprops {
   navigation: any
 }
 
 class User extends PureComponent<Iprops> {
-  static navigationOptions = ({navigation}: Iprops) => {
-    return {
-      title: '个人中心',
-      headerLeft: () => <HeaderLeft navigation={navigation} />,
-      headerRight: () => <HeaderRight navigation={navigation} />,
-    }
+  static navigationOptions = {
+    header: null,
   }
 
   constructor(props: Iprops) {
     super(props)
   }
   render() {
+    const {navigation} = this.props
     return (
       <SafeAreaView>
+        <HeaderNavigation title='个人中心' navigation={navigation} />
         <ScrollView>
           <View style={{flex: 1, paddingLeft: 15, paddingRight: 15}}>
             <UserInformation />

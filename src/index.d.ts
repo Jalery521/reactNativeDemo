@@ -11,3 +11,6 @@ interface IrecommendItem {
   traits: string[]
   sale: string
 }
+interface Istore {
+  drawerStatus: boolean
+}
