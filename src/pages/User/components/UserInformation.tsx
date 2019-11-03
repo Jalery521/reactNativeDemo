@@ -1,8 +1,16 @@
 import React, {FC} from 'react'
 import {View, Text, Image, Dimensions, StyleSheet} from 'react-native'
+import {connect} from 'react-redux'
+import {changeLoginStatus} from '../../../store/reducer/actions'
 import Icon from '../../../components/Icon'
 const {width} = Dimensions.get('window')
-const UserInformation: FC = () => {
+
+interface Iprops {
+  changeLoginStatus: () => void
+  isLogined: boolean
+}
+
+const UserInformation: FC<Iprops> = ({changeLoginStatus, isLogined}) => {
   return (
     <View style={style.informationWrapper}>
       <View style={style.bgWrapper}>
@@ -22,7 +30,14 @@ const UserInformation: FC = () => {
               'https://i.qfangimg.com/resource/qfang-mobile/static/img/default-portrait.png',
           }}
         />
-        <Text style={style.loginBtn}>登录/注册</Text>
+        {isLogined ? (
+          <Text style={style.loginBtn}>已登录</Text>
+        ) : (
+          <Text onPress={changeLoginStatus} style={style.loginBtn}>
+            登录/注册
+          </Text>
+        )}
+
         <View style={style.userRecords}>
           <View style={style.recordItem}>
             <Text style={style.marginR6}>浏览记录</Text>
@@ -98,5 +113,12 @@ const style = StyleSheet.create({
     marginRight: 5,
   },
 })
-
-export default UserInformation
+const mapStateToProps = (store: Istore) => {
+  return {
+    isLogined: store.isLogined,
+  }
+}
+export default connect(
+  mapStateToProps,
+  {changeLoginStatus},
+)(UserInformation)

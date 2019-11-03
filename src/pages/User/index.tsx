@@ -6,6 +6,7 @@ import UserProprietor from './components/UserProprietor'
 import {withNavigation} from '../../utils'
 interface Iprops {
   navigation: any
+  isLogined: boolean
 }
 
 class User extends PureComponent<Iprops> {
@@ -13,6 +14,7 @@ class User extends PureComponent<Iprops> {
     super(props)
   }
   render() {
+    const {isLogined} = this.props
     return (
       <SafeAreaView>
         <ScrollView>
@@ -28,5 +30,4 @@ class User extends PureComponent<Iprops> {
 }
 
 const params = {title: '个人中心', isBack: true}
-
 export default withNavigation(params)(User)

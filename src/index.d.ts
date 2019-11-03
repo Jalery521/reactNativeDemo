@@ -13,4 +13,5 @@ interface IrecommendItem {
 }
 interface Istore {
   drawerStatus: boolean
+  isLogined: boolean
 }

@@ -5,3 +5,9 @@ export const changeDrawerStatus = () => {
     type: EacionType.CHANGE_DRAWER_STATUS,
   }
 }
+
+export const changeLoginStatus = () => {
+  return {
+    type: EacionType.CHANGE_LOGIN_STATUS,
+  }
+}
