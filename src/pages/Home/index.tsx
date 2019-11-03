@@ -9,7 +9,7 @@ import HomePrice from './components/HomePrice'
 import HomeBanner from './components/HomeBanner'
 import HomeRecommends from './components/HomeRecommends'
 import CommonFooter from '../../components/CommonFooter'
-import Loading from '../../components/Loading'
+import {Loading} from '../../utils'
 import api from '../../api'
 interface Iprops {
   navigation: any

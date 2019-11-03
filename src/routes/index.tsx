@@ -5,7 +5,7 @@ import User from '../pages/User'
 export default createStackNavigator(
   {
     Home,
-    User,
+    User: User as any,
   },
   {
     initialRouteName: 'Home',

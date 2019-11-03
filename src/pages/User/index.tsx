@@ -3,24 +3,18 @@ import {View, SafeAreaView, ScrollView} from 'react-native'
 import UserInformation from './components/UserInformation'
 import UserConcern from './components/UserConcern'
 import UserProprietor from './components/UserProprietor'
-import HeaderNavigation from '../../components/HeaderNavigation'
+import {withNavigation} from '../../utils'
 interface Iprops {
   navigation: any
 }
 
 class User extends PureComponent<Iprops> {
-  static navigationOptions = {
-    header: null,
-  }
-
   constructor(props: Iprops) {
     super(props)
   }
   render() {
-    const {navigation} = this.props
     return (
       <SafeAreaView>
-        <HeaderNavigation title='个人中心' navigation={navigation} />
         <ScrollView>
           <View style={{flex: 1, paddingLeft: 15, paddingRight: 15}}>
             <UserInformation />
@@ -33,4 +27,6 @@ class User extends PureComponent<Iprops> {
   }
 }
 
-export default User
+const params = {title: '个人中心', isBack: true}
+
+export default withNavigation(params)(User)
