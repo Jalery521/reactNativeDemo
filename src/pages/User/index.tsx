@@ -14,12 +14,12 @@ class User extends PureComponent<Iprops> {
     super(props)
   }
   render() {
-    const {isLogined} = this.props
+    const {navigation} = this.props
     return (
       <SafeAreaView>
         <ScrollView>
-          <View style={{flex: 1, paddingLeft: 15, paddingRight: 15}}>
-            <UserInformation />
+          <View style={{padding: 15, paddingTop: 0}}>
+            <UserInformation navigation={navigation} />
             <UserConcern />
             <UserProprietor />
           </View>

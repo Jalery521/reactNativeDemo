@@ -122,7 +122,7 @@ class Home extends PureComponent<Iprops, Istate> {
         <SafeAreaView>
           <ScrollView>
             <Loading isShow={loading}>
-              <View style={{flex: 1, backgroundColor: '#f5f5f5'}}>
+              <View style={{backgroundColor: '#f5f5f5'}}>
                 <View
                   style={{
                     padding: 20,

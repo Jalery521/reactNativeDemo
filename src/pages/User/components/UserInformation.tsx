@@ -1,16 +1,17 @@
 import React, {FC} from 'react'
 import {View, Text, Image, Dimensions, StyleSheet} from 'react-native'
 import {connect} from 'react-redux'
-import {changeLoginStatus} from '../../../store/reducer/actions'
 import Icon from '../../../components/Icon'
 const {width} = Dimensions.get('window')
 
 interface Iprops {
-  changeLoginStatus: () => void
+  navigation: any
   isLogined: boolean
 }
 
-const UserInformation: FC<Iprops> = ({changeLoginStatus, isLogined}) => {
+const UserInformation: FC<Iprops> = props => {
+  const {isLogined, navigation} = props
+
   return (
     <View style={style.informationWrapper}>
       <View style={style.bgWrapper}>
@@ -33,7 +34,9 @@ const UserInformation: FC<Iprops> = ({changeLoginStatus, isLogined}) => {
         {isLogined ? (
           <Text style={style.loginBtn}>已登录</Text>
         ) : (
-          <Text onPress={changeLoginStatus} style={style.loginBtn}>
+          <Text
+            onPress={() => navigation.navigate('Login')}
+            style={style.loginBtn}>
             登录/注册
           </Text>
         )}
@@ -118,7 +121,4 @@ const mapStateToProps = (store: Istore) => {
     isLogined: store.isLogined,
   }
 }
-export default connect(
-  mapStateToProps,
-  {changeLoginStatus},
-)(UserInformation)
+export default connect(mapStateToProps)(UserInformation)
