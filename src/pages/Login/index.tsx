@@ -30,6 +30,7 @@ class Login extends PureComponent<Iprops, Istate> {
 
   render() {
     const {pageType} = this.state
+    const {navigation} = this.props
     return (
       <SafeAreaView>
         <ScrollView>
@@ -37,7 +38,10 @@ class Login extends PureComponent<Iprops, Istate> {
             {pageType === 'loginByPhone' ? (
               <LoginByPhone handleCutPageType={this.handleCutPageType} />
             ) : (
-              <LoginByPassword handleCutPageType={this.handleCutPageType} />
+              <LoginByPassword
+                handleCutPageType={this.handleCutPageType}
+                navigation={navigation}
+              />
             )}
             <Text
               style={{

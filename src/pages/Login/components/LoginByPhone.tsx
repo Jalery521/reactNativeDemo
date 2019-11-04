@@ -8,7 +8,7 @@ import {
   Alert,
   TouchableOpacity,
 } from 'react-native'
-import commonStyle from './style'
+import commonStyle from '../style'
 import {TpageType} from '../index'
 interface Iprops {
   handleCutPageType: (pageType: TpageType) => void
@@ -24,7 +24,7 @@ const LoginByPhone: FC<Iprops> = props => {
   const {handleCutPageType} = props
   // 点击了获取验证码
   function handleGetCode() {
-    if (!phoneNumber || !/[1-9]\11/.test(phoneNumber)) {
+    if (!phoneNumber || !/^[1][3,5,7,8,9,0][1-9]{9}$/.test(phoneNumber)) {
       Alert.alert('', '请填写正确的手机号码', [{text: '确定'}])
       return
     }

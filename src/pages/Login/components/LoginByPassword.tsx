@@ -8,17 +8,18 @@ import {
   Alert,
   TouchableOpacity,
 } from 'react-native'
-import commonStyle from './style'
+import commonStyle from '../style'
 import {TpageType} from '../index'
 interface Iprops {
   handleCutPageType: (pageType: TpageType) => void
+  navigation: any
 }
 
 const LoginByPhone: FC<Iprops> = props => {
   const [regionCode, changeRegionCode] = useState('+86')
   const [phoneNumber, changePhoneNumber] = useState('')
   const [password, changePassword] = useState('')
-  const {handleCutPageType} = props
+  const {handleCutPageType, navigation} = props
 
   function handleLogin() {
     Alert.alert('你点击了登陆')
@@ -68,7 +69,7 @@ const LoginByPhone: FC<Iprops> = props => {
           </Text>
           <Text style={style.partitionLine}>|</Text>
           <Text
-            onPress={() => handleCutPageType('loginByPhone')}
+            onPress={() => navigation.navigate('ForgetPassword')}
             style={commonStyle.cutTypeText}>
             忘记密码
           </Text>
