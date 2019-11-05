@@ -8,21 +8,40 @@ import {
   Alert,
   TouchableOpacity,
 } from 'react-native'
+import {connect} from 'react-redux'
+import {pickUserInfo} from '../../../store/reducer/actions'
 import commonStyle from '../style'
 import {TpageType} from '../index'
 interface Iprops {
   handleCutPageType: (pageType: TpageType) => void
+  pickUserInfo: any
   navigation: any
+  initPhoneNumber: string
+  initPassword: string
 }
 
 const LoginByPhone: FC<Iprops> = props => {
   const [regionCode, changeRegionCode] = useState('+86')
   const [phoneNumber, changePhoneNumber] = useState('')
   const [password, changePassword] = useState('')
-  const {handleCutPageType, navigation} = props
+  const {
+    handleCutPageType,
+    navigation,
+    initPassword,
+    initPhoneNumber,
+    pickUserInfo,
+  } = props
 
-  function handleLogin() {
-    Alert.alert('你点击了登陆')
+  async function handleLogin() {
+    if (
+      initPhoneNumber !== `${regionCode}${phoneNumber}` ||
+      initPassword !== password
+    ) {
+      Alert.alert('', '手机号或密码错误', [{text: '确定'}])
+      return
+    }
+    await pickUserInfo()
+    navigation.navigate('User')
   }
 
   return (
@@ -91,5 +110,13 @@ const style = StyleSheet.create({
     marginRight: 20,
   },
 })
-
-export default LoginByPhone
+const mapStateToProps = (store: Istore) => {
+  return {
+    initPhoneNumber: store.phoneNumber,
+    initPassword: store.password,
+  }
+}
+export default connect(
+  mapStateToProps,
+  {pickUserInfo},
+)(LoginByPhone)

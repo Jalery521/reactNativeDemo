@@ -11,11 +11,16 @@ import {
   Dimensions,
   TouchableOpacity,
 } from 'react-native'
+import {connect} from 'react-redux'
+import {changeUserPassword, wipeLoginData} from '../../store/reducer/actions'
 import {withNavigation} from '../../utils'
 import commonStyle from './style'
 const {height} = Dimensions.get('window')
 interface Iprops {
   navigation: any
+  initPhoneNumber: string
+  wipeLoginData: () => void
+  changeUserPassword: (password: string) => void
 }
 
 interface Istate {
@@ -27,7 +32,7 @@ interface Istate {
   password: string
 }
 
-class ForgetPassword extends PureComponent<Iprops, Istate> {
+class ResetPassword extends PureComponent<Iprops, Istate> {
   private countTimer: any
   constructor(props: Iprops) {
     super(props)
@@ -46,13 +51,32 @@ class ForgetPassword extends PureComponent<Iprops, Istate> {
     this.setState({...this.state, [key]: val})
   }
 
-  handleLogin = () => {
-    Alert.alert('你点击了登陆')
+  handleSubmit = () => {
+    const {initPhoneNumber, changeUserPassword, navigation} = this.props
+    const {regionCode, phoneNumber, password, verifyCode} = this.state
+    if (initPhoneNumber !== `${regionCode}${phoneNumber}`) {
+      Alert.alert('', '手机号码错误', [{text: '确定'}])
+      return
+    }
+    if (!/^[1-9][0-9]{5}$/.test(verifyCode)) {
+      Alert.alert('', '验证码错误', [{text: '确定'}])
+      return
+    }
+    changeUserPassword(password)
+    Alert.alert('', '请使用新密码登陆', [
+      {
+        text: '确定',
+        onPress() {
+          wipeLoginData()
+          navigation.navigate('User')
+        },
+      },
+    ])
   }
 
   handleGetCode = () => {
     const {phoneNumber} = this.state
-    if (!phoneNumber || /^[1][3,5,7,8,9,0][1-9]{9}$/.test(phoneNumber)) {
+    if (!phoneNumber || !/^[1][35789][1-9]{9}$/.test(phoneNumber)) {
       Alert.alert('', '请填写正确的手机号码', [{text: '确定'}])
       return
     }
@@ -152,7 +176,7 @@ class ForgetPassword extends PureComponent<Iprops, Istate> {
               <TouchableOpacity
                 activeOpacity={0.8}
                 style={commonStyle.loginBtn}
-                onPress={this.handleLogin}>
+                onPress={this.handleSubmit}>
                 <Text style={commonStyle.loginText}>确认</Text>
               </TouchableOpacity>
             </View>
@@ -192,4 +216,19 @@ const params = {
   isBack: true,
   title: '重置密码',
 }
-export default withNavigation(params)(ForgetPassword)
+
+const mapStateToProps = (store: Istore) => {
+  return {
+    initPhoneNumber: store.phoneNumber,
+  }
+}
+// export default withNavigation(params)(
+//   connect(
+//     mapStateToProps,
+//     {changeUserPassword, wipeLoginData},
+//   )(ResetPassword),
+// )
+export default connect(
+  mapStateToProps,
+  {changeUserPassword, wipeLoginData},
+)(withNavigation(params)(ResetPassword) as any)

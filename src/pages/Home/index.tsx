@@ -10,7 +10,7 @@ import HomeBanner from './components/HomeBanner'
 import HomeRecommends from './components/HomeRecommends'
 import CommonFooter from '../../components/CommonFooter'
 import {Loading} from '../../utils'
-import api from '../../api'
+import {getHomeAssets} from '../../api'
 interface Iprops {
   navigation: any
 }
@@ -64,7 +64,7 @@ class Home extends PureComponent<Iprops, Istate> {
       loading: true,
     })
     try {
-      const {result} = await api.getHomeAssets()
+      const {result} = await getHomeAssets()
       const {price, banner, recommends} = result
       this.setState({
         price,

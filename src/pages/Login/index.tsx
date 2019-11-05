@@ -36,7 +36,10 @@ class Login extends PureComponent<Iprops, Istate> {
         <ScrollView>
           <View style={{padding: 20, height: height - 80}}>
             {pageType === 'loginByPhone' ? (
-              <LoginByPhone handleCutPageType={this.handleCutPageType} />
+              <LoginByPhone
+                handleCutPageType={this.handleCutPageType}
+                navigation={navigation}
+              />
             ) : (
               <LoginByPassword
                 handleCutPageType={this.handleCutPageType}

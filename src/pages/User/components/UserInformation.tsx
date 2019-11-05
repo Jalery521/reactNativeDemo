@@ -7,11 +7,11 @@ const {width} = Dimensions.get('window')
 interface Iprops {
   navigation: any
   isLogined: boolean
+  userInfo: any
 }
 
 const UserInformation: FC<Iprops> = props => {
-  const {isLogined, navigation} = props
-
+  const {isLogined, navigation, userInfo} = props
   return (
     <View style={style.informationWrapper}>
       <View style={style.bgWrapper}>
@@ -24,15 +24,24 @@ const UserInformation: FC<Iprops> = props => {
         />
       </View>
       <View style={style.informationBox}>
-        <Image
-          style={style.userAvatar}
-          source={{
-            uri:
-              'https://i.qfangimg.com/resource/qfang-mobile/static/img/default-portrait.png',
-          }}
-        />
         {isLogined ? (
-          <Text style={style.loginBtn}>已登录</Text>
+          <Image
+            style={style.userAvatar}
+            source={{
+              uri: userInfo.avatar,
+            }}
+          />
+        ) : (
+          <Image
+            style={style.userAvatar}
+            source={{
+              uri:
+                'https://i.qfangimg.com/resource/qfang-mobile/static/img/default-portrait.png',
+            }}
+          />
+        )}
+        {isLogined ? (
+          <Text style={style.loginBtn}>{userInfo.nickName}</Text>
         ) : (
           <Text
             onPress={() => navigation.navigate('Login')}
@@ -119,6 +128,7 @@ const style = StyleSheet.create({
 const mapStateToProps = (store: Istore) => {
   return {
     isLogined: store.isLogined,
+    userInfo: store.userInfo,
   }
 }
 export default connect(mapStateToProps)(UserInformation)

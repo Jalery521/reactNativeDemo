@@ -8,10 +8,15 @@ import {
   Alert,
   TouchableOpacity,
 } from 'react-native'
+import {connect} from 'react-redux'
+import {pickUserInfo} from '../../../store/reducer/actions'
 import commonStyle from '../style'
 import {TpageType} from '../index'
 interface Iprops {
   handleCutPageType: (pageType: TpageType) => void
+  pickUserInfo: any
+  initPhoneNumber: string
+  navigation: any
 }
 
 const LoginByPhone: FC<Iprops> = props => {
@@ -21,23 +26,34 @@ const LoginByPhone: FC<Iprops> = props => {
   const [verifyCode, changeVerifyCode] = useState('')
   const [countNumber, changeCountNumber] = useState(59)
   const countTimer = useRef(null as any)
-  const {handleCutPageType} = props
+  const {handleCutPageType, initPhoneNumber, pickUserInfo, navigation} = props
   // 点击了获取验证码
   function handleGetCode() {
-    if (!phoneNumber || !/^[1][3,5,7,8,9,0][1-9]{9}$/.test(phoneNumber)) {
-      Alert.alert('', '请填写正确的手机号码', [{text: '确定'}])
+    if (!phoneNumber) {
+      Alert.alert('', '请填写手机号码', [{text: '确定'}])
+      return
+    }
+    if (!/^[1][35789][1-9]{9}$/.test(phoneNumber)) {
+      Alert.alert('', '手机格式不正确', [{text: '确定'}])
       return
     }
     changeIsGetCode(true)
   }
 
-  function handleLogin() {
-    Alert.alert('你点击了登陆')
+  async function handleLogin() {
+    if (
+      initPhoneNumber !== `${regionCode}${phoneNumber}` ||
+      !/^[1-9][0-9]{5}$/.test(verifyCode)
+    ) {
+      Alert.alert('', '手机号或验证码错误', [{text: '确定'}])
+      return
+    }
+    await pickUserInfo()
+    navigation.navigate('User')
   }
 
   useEffect(() => {
     if (isGetCode) {
-      countTimer.current && clearInterval(countTimer.current)
       countTimer.current = setInterval(function() {
         if (countNumber === 50) {
           const number = Math.ceil(Math.random() * 899999 + 100000)
@@ -46,11 +62,17 @@ const LoginByPhone: FC<Iprops> = props => {
         if (countNumber === 1) {
           changeCountNumber(59)
           changeIsGetCode(false)
+          changeVerifyCode('')
           clearInterval(countTimer.current)
         } else {
           changeCountNumber(countNumber - 1)
         }
       }, 1000)
+    }
+    return () => {
+      if (isGetCode) {
+        countTimer.current && clearInterval(countTimer.current)
+      }
     }
   })
 
@@ -128,5 +150,13 @@ const style = StyleSheet.create({
     alignItems: 'center',
   },
 })
+const mapStateToProps = (store: Istore) => {
+  return {
+    initPhoneNumber: store.phoneNumber,
+  }
+}
 
-export default LoginByPhone
+export default connect(
+  mapStateToProps,
+  {pickUserInfo},
+)(LoginByPhone)
