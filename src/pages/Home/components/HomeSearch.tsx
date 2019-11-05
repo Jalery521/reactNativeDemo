@@ -1,80 +1,58 @@
 import React, {FC, useState} from 'react'
-import {View, Text, TextInput, StyleSheet} from 'react-native'
+import {Modal, View, Text, Picker, TextInput} from 'react-native'
 import Icon from '../../../components/Icon'
-
-interface Iprops {
-  navigation: any
-}
-
-const HomeSearch: FC<Iprops> = ({navigation}) => {
+const pickerOptions = [
+  {
+    name: '二手房',
+    value: 'second',
+  },
+  {
+    name: '租房',
+    value: 'rent',
+  },
+  {
+    name: '新房',
+    value: 'new',
+  },
+  {
+    name: '写字楼（租）',
+    value: 'office_rent',
+  },
+  {
+    name: '写字楼（售）',
+    value: 'office_sale',
+  },
+]
+const HomeSearch: FC = () => {
+  const [category, changeCategory] = useState('second')
   const [searchText, changeSearchText] = useState('')
   return (
-    <View style={style.searchWarpper}>
-      <View style={style.searchContent}>
-        <Text style={style.searchCity}>深圳</Text>
-        <View style={style.inputWarpper}>
-          <Icon name='sousuo' size={16} color='#999' />
-          <TextInput
-            style={style.searchInput}
-            placeholder='你想找的小区、商圈'
-            value={searchText}
-            onChangeText={val => changeSearchText(val.trim())}
-          />
+    <Modal>
+      <View>
+        <View>
+          <Picker
+            selectedValue={category}
+            onValueChange={val => changeCategory(val)}>
+            {pickerOptions.map(option => {
+              return (
+                <Picker.Item
+                  key={option.value}
+                  label={option.name}
+                  value={option.value}
+                />
+              )
+            })}
+          </Picker>
         </View>
-      </View>
-      {/* <Text >
-
-      </Text> */}
-      <View style={style.personIcon}>
-        <Icon
-          onPress={() => navigation.navigate('User')}
-          name='customuser'
-          size={28}
-          color='#888'
+        <Icon name='sousuo' size={16} color='#999' />
+        <TextInput
+          value={searchText}
+          onChangeText={val => changeSearchText(val.trim())}
         />
       </View>
-    </View>
+      <Text>取消</Text>
+    </Modal>
   )
 }
-
-const style = StyleSheet.create({
-  searchWarpper: {
-    marginRight: -10,
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  searchContent: {
-    flex: 1,
-    borderColor: '#ccc',
-    borderStyle: 'solid',
-    borderWidth: 1,
-    flexDirection: 'row',
-    height: 50,
-    alignItems: 'center',
-    borderRadius: 4,
-  },
-  searchCity: {
-    width: 60,
-    textAlign: 'center',
-  },
-  inputWarpper: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  searchInput: {
-    paddingLeft: 8,
-    height: 50,
-    flex: 1,
-  },
-  personIcon: {
-    width: 40,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  font12: {
-    fontSize: 12,
-  },
-})
 
 export default HomeSearch

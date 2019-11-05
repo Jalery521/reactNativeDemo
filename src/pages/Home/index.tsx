@@ -1,7 +1,7 @@
 import React, {PureComponent} from 'react'
 import {View, SafeAreaView, ScrollView, StatusBar} from 'react-native'
 import {IrecommendItem} from './index.d'
-import HomeSearch from './components/HomeSearch'
+import HomeHeader from './components/HomeHeader'
 import HomeMenus from './components/HomeMenus'
 import HomeFeature from './components/HomeFeature'
 import HomeCategories from './components/HomeCategories'
@@ -94,7 +94,7 @@ class Home extends PureComponent<Iprops, Istate> {
                     paddingTop: 10,
                     backgroundColor: 'white',
                   }}>
-                  <HomeSearch navigation={navigation} />
+                  <HomeHeader navigation={navigation} />
                   <HomeMenus />
                   <HomeFeature />
                   <HomeCategories />
