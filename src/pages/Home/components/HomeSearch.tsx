@@ -1,18 +1,13 @@
-import React, {FC} from 'react'
+import React, {FC, useState} from 'react'
 import {View, Text, TextInput, StyleSheet} from 'react-native'
 import Icon from '../../../components/Icon'
 
 interface Iprops {
-  searchText: string
-  changeSearchText: (searchText: string) => void
   navigation: any
 }
 
-const HomeSearch: FC<Iprops> = ({searchText, changeSearchText, navigation}) => {
-  function toUser() {
-    navigation.navigate('User')
-  }
-
+const HomeSearch: FC<Iprops> = ({navigation}) => {
+  const [searchText, changeSearchText] = useState('')
   return (
     <View style={style.searchWarpper}>
       <View style={style.searchContent}>
@@ -31,7 +26,12 @@ const HomeSearch: FC<Iprops> = ({searchText, changeSearchText, navigation}) => {
 
       </Text> */}
       <View style={style.personIcon}>
-        <Icon onPress={toUser} name='customuser' size={28} color='#888' />
+        <Icon
+          onPress={() => navigation.navigate('User')}
+          name='customuser'
+          size={28}
+          color='#888'
+        />
       </View>
     </View>
   )

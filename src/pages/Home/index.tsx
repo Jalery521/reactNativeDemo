@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react'
 import {View, SafeAreaView, ScrollView, StatusBar} from 'react-native'
-
+import {IrecommendItem} from './index.d'
 import HomeSearch from './components/HomeSearch'
 import HomeMenus from './components/HomeMenus'
 import HomeFeature from './components/HomeFeature'
@@ -21,9 +21,11 @@ interface Istate {
     average: number
     trend: number
   }
-  recommends: IrecommendItem[]
-  searchText: string
-  recommendCategory: TrecommendCategory
+  recommends: {
+    new: IrecommendItem[]
+    rent: IrecommendItem[]
+    second: IrecommendItem[]
+  }
   loading: boolean
   banner: {
     uri: string
@@ -42,9 +44,11 @@ class Home extends PureComponent<Iprops, Istate> {
         average: 0,
         trend: 0,
       },
-      recommends: [],
-      searchText: '',
-      recommendCategory: 'second',
+      recommends: {
+        second: [],
+        rent: [],
+        new: [],
+      },
       loading: false,
       banner: {
         uri: '',
@@ -53,18 +57,15 @@ class Home extends PureComponent<Iprops, Istate> {
   }
 
   componentDidMount() {
-    this.initData()
+    this.requestData()
   }
-  initData = async () => {
+  requestData = async () => {
     this.setState({
       loading: true,
     })
     try {
-      const [{result: assets}, {result: recommends}] = await Promise.all([
-        api.getHomeAssets(),
-        api.getRecommend(),
-      ])
-      const {price, banner} = assets
+      const {result} = await api.getHomeAssets()
+      const {price, banner, recommends} = result
       this.setState({
         price,
         banner,
@@ -77,45 +78,9 @@ class Home extends PureComponent<Iprops, Istate> {
     }
   }
 
-  requestData = async () => {
-    this.setState({loading: true})
-    try {
-      const {result: recommends} = await api.getRecommend()
-      this.setState({
-        recommends,
-      })
-    } finally {
-      this.setState({loading: false})
-    }
-  }
-
-  changeSearchText = (searchText: string) => {
-    this.setState({searchText})
-  }
-  changeRecommendCategory = (recommendCategory: TrecommendCategory) => {
-    if (recommendCategory !== this.state.recommendCategory) {
-      this.setState({recommendCategory})
-      this.requestData()
-    }
-  }
-
   render() {
-    const {
-      recommends,
-      searchText,
-      recommendCategory,
-      loading,
-      price,
-      banner,
-    } = this.state
-    const {changeSearchText, changeRecommendCategory} = this
+    const {recommends, loading, price, banner} = this.state
     const {navigation} = this.props
-    const searchProps = {searchText, changeSearchText, navigation}
-    const recommendProps = {
-      recommendCategory,
-      recommends,
-      changeRecommendCategory,
-    }
     return (
       <>
         <StatusBar backgroundColor='#fff' barStyle='dark-content' />
@@ -129,13 +94,13 @@ class Home extends PureComponent<Iprops, Istate> {
                     paddingTop: 10,
                     backgroundColor: 'white',
                   }}>
-                  <HomeSearch {...searchProps} />
+                  <HomeSearch navigation={navigation} />
                   <HomeMenus />
                   <HomeFeature />
                   <HomeCategories />
                   <HomePrice price={price} />
                   <HomeBanner banner={banner} />
-                  <HomeRecommends {...recommendProps} />
+                  <HomeRecommends recommends={recommends} />
                 </View>
                 <CommonFooter siteName='深圳' />
               </View>

@@ -163,7 +163,7 @@ class ForgetPassword extends PureComponent<Iprops, Istate> {
               color: '#999',
               textAlign: 'center',
             }}>
-            登录即表示同意《Q房网用户协议》
+            登录即表示同意《qfangwang用户协议》
           </Text>
         </ScrollView>
       </SafeAreaView>

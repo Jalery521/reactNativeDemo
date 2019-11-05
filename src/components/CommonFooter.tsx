@@ -10,7 +10,7 @@ const CommonFooter: FC<Iprops> = ({siteName}) => {
   return (
     <View style={style.footerWrapper}>
       <View style={style.footerSite}>
-        <Text style={style.siteName}>Q房网{siteName}站</Text>
+        <Text style={style.siteName}>qfangwang{siteName}站</Text>
         <Icon name='jiantouxia' size={12} color='#999' />
       </View>
       <View style={style.linksBox}>

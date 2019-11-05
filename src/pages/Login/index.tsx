@@ -49,7 +49,7 @@ class Login extends PureComponent<Iprops, Istate> {
                 color: '#999',
                 textAlign: 'center',
               }}>
-              登录即表示同意《Q房网隐私协议》及《Q房网用户协议》
+              登录即表示同意《qfangwang隐私协议》及《qfangwang用户协议》
             </Text>
           </View>
         </ScrollView>

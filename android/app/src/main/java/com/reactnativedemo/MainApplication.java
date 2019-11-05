@@ -1,4 +1,4 @@
-package com.reactnativedemo;
+package com.qfangwang;
 
 import android.app.Application;
 import android.content.Context;

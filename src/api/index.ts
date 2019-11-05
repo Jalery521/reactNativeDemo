@@ -5,7 +5,4 @@ export default {
   getHomeAssets() {
     return fetch(`${BASE_URL}/getHomeAssets`).then(res => res.json())
   },
-  getRecommend() {
-    return fetch(`${BASE_URL}/getRecommend`).then(res => res.json())
-  },
 }

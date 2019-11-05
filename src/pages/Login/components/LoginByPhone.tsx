@@ -58,7 +58,7 @@ const LoginByPhone: FC<Iprops> = props => {
     <View style={{flex: 1}}>
       <Text style={commonStyle.titleName}>手机快捷登陆</Text>
       <Text style={style.loginTips}>
-        未注册过的手机号将自动创建Q房网账号，经纪人不会看到您的手机号
+        未注册过的手机号将自动创建qfangwang账号，经纪人不会看到您的手机号
       </Text>
       <View style={commonStyle.contentBox}>
         <View style={commonStyle.formItem}>
