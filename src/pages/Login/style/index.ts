@@ -26,7 +26,6 @@ export default StyleSheet.create({
     height: 30,
     width: 120,
     color: '#666',
-    fontSize: 12,
     backgroundColor: '#eaeaea',
   },
   phoneInput: {

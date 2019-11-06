@@ -105,9 +105,7 @@ class ResetPassword extends PureComponent<Iprops, Istate> {
   }
 
   componentWillUnmount() {
-    if (this.countTimer) {
-      clearInterval(this.countTimer)
-    }
+    this.countTimer && clearInterval(this.countTimer)
   }
 
   render() {

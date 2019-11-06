@@ -3,6 +3,7 @@ interface Istore {
   isLogined: boolean
   phoneNumber: string
   password: string
+  searchHistory: string[]
   userInfo: {
     nickName: string
     id: string

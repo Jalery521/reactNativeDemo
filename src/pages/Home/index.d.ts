@@ -9,3 +9,8 @@ export interface IrecommendItem {
   traits: string[]
   sale: string
 }
+
+interface IhotHistoryItem {
+  id: string
+  name: string
+}

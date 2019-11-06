@@ -4,19 +4,20 @@ import Icon from '../../../components/Icon'
 
 interface Iprops {
   navigation: any
+  handleChangeIsShow: () => void
 }
 
-const HomeHeader: FC<Iprops> = ({navigation}) => {
+const HomeHeader: FC<Iprops> = props => {
+  const {handleChangeIsShow, navigation} = props
   return (
-    <View style={style.searchWarpper}>
-      <View style={style.searchContent}>
-        <Text style={style.searchCity}>深圳</Text>
+    <View style={style.headerWarpper}>
+      <View style={style.headerContent}>
+        <Text style={style.headerCity}>深圳</Text>
         <View style={style.inputWarpper}>
           <Icon name='sousuo' size={16} color='#999' />
-          <TextInput
-            style={style.searchInput}
-            placeholder='你想找的小区、商圈'
-          />
+          <Text onPress={handleChangeIsShow} style={style.headerInput}>
+            你想找的小区、商圈
+          </Text>
         </View>
       </View>
       {/* <Text >
@@ -35,34 +36,40 @@ const HomeHeader: FC<Iprops> = ({navigation}) => {
 }
 
 const style = StyleSheet.create({
-  searchWarpper: {
+  headerWarpper: {
     marginRight: -10,
     flexDirection: 'row',
     alignItems: 'center',
   },
-  searchContent: {
+  headerContent: {
     flex: 1,
     borderColor: '#ccc',
     borderStyle: 'solid',
     borderWidth: 1,
     flexDirection: 'row',
-    height: 50,
+    height: 48,
     alignItems: 'center',
     borderRadius: 4,
   },
-  searchCity: {
+  headerCity: {
     width: 60,
+    lineHeight: 20,
+    borderRightColor: '#eee',
+    borderRightWidth: 2,
+    borderStyle: 'solid',
     textAlign: 'center',
   },
   inputWarpper: {
     flex: 1,
+    paddingLeft: 15,
     flexDirection: 'row',
     alignItems: 'center',
   },
-  searchInput: {
+  headerInput: {
     paddingLeft: 8,
-    height: 50,
+    lineHeight: 48,
     flex: 1,
+    color: '#ccd0db',
   },
   personIcon: {
     width: 40,

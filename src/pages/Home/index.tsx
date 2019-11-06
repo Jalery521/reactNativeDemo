@@ -1,7 +1,8 @@
 import React, {PureComponent} from 'react'
 import {View, SafeAreaView, ScrollView, StatusBar} from 'react-native'
-import {IrecommendItem} from './index.d'
+import {IrecommendItem, IhotHistoryItem} from './index.d'
 import HomeHeader from './components/HomeHeader'
+import HomeSearch from './components/HomeSearch'
 import HomeMenus from './components/HomeMenus'
 import HomeFeature from './components/HomeFeature'
 import HomeCategories from './components/HomeCategories'
@@ -27,9 +28,11 @@ interface Istate {
     second: IrecommendItem[]
   }
   loading: boolean
+  isShow: boolean
   banner: {
     uri: string
   }
+  hotSearch: IhotHistoryItem[]
 }
 
 class Home extends PureComponent<Iprops, Istate> {
@@ -53,6 +56,8 @@ class Home extends PureComponent<Iprops, Istate> {
       banner: {
         uri: '',
       },
+      hotSearch: [],
+      isShow: false,
     }
   }
 
@@ -65,11 +70,13 @@ class Home extends PureComponent<Iprops, Istate> {
     })
     try {
       const {result} = await getHomeAssets()
-      const {price, banner, recommends} = result
+      console.log(result)
+      const {price, banner, recommends, hotSearch} = result
       this.setState({
         price,
         banner,
         recommends,
+        hotSearch,
       })
     } finally {
       this.setState({
@@ -77,9 +84,15 @@ class Home extends PureComponent<Iprops, Istate> {
       })
     }
   }
+  handleChangeIsShow = () => {
+    const {isShow} = this.state
+    this.setState({
+      isShow: !isShow,
+    })
+  }
 
   render() {
-    const {recommends, loading, price, banner} = this.state
+    const {recommends, loading, price, banner, isShow, hotSearch} = this.state
     const {navigation} = this.props
     return (
       <>
@@ -87,6 +100,11 @@ class Home extends PureComponent<Iprops, Istate> {
         <SafeAreaView>
           <ScrollView>
             <Loading isShow={loading}>
+              <HomeSearch
+                isShow={isShow}
+                handleChangeIsShow={this.handleChangeIsShow}
+                hotSearch={hotSearch}
+              />
               <View style={{backgroundColor: '#f5f5f5'}}>
                 <View
                   style={{
@@ -94,7 +112,10 @@ class Home extends PureComponent<Iprops, Istate> {
                     paddingTop: 10,
                     backgroundColor: 'white',
                   }}>
-                  <HomeHeader navigation={navigation} />
+                  <HomeHeader
+                    handleChangeIsShow={this.handleChangeIsShow}
+                    navigation={navigation}
+                  />
                   <HomeMenus />
                   <HomeFeature />
                   <HomeCategories />

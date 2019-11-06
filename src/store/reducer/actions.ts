@@ -35,6 +35,19 @@ export const changeUserInfo = (payload: any) => {
   }
 }
 
+export const addSearchHistory = (payload: string) => {
+  return {
+    type: EacionType.ADD_SEARCH_HISTORY,
+    payload,
+  }
+}
+
+export const clearSearchHistory = () => {
+  return {
+    type: EacionType.CLEAR_SEARCH_HISTORY,
+  }
+}
+
 export const pickUserInfo = () => {
   return (dispatch: any) => {
     return new Promise(resolve => {
