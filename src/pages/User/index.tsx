@@ -9,25 +9,23 @@ interface Iprops {
   isLogined: boolean
 }
 
-class User extends PureComponent<Iprops> {
+class UserScreen extends PureComponent<Iprops> {
   constructor(props: Iprops) {
     super(props)
   }
   render() {
     const {navigation} = this.props
     return (
-      <SafeAreaView>
-        <ScrollView>
-          <View style={{padding: 15, paddingTop: 0}}>
-            <UserInformation navigation={navigation} />
-            <UserConcern />
-            <UserProprietor />
-          </View>
-        </ScrollView>
-      </SafeAreaView>
+      <ScrollView>
+        <View style={{padding: 15, paddingTop: 0}}>
+          <UserInformation navigation={navigation} />
+          <UserConcern />
+          <UserProprietor />
+        </View>
+      </ScrollView>
     )
   }
 }
 
 const params = {title: '个人中心', isBack: true}
-export default withNavigation(params)(User)
+export default withNavigation(params)(UserScreen)

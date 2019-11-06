@@ -17,15 +17,15 @@ interface Iprops {
 }
 
 interface Istate {
-  price: {
+  priceTrend: {
     month: number
     average: number
     trend: number
   }
   recommends: {
-    new: IrecommendItem[]
-    rent: IrecommendItem[]
-    second: IrecommendItem[]
+    newRecommends: IrecommendItem[]
+    rentRecommends: IrecommendItem[]
+    secondRecommends: IrecommendItem[]
   }
   loading: boolean
   isShow: boolean
@@ -35,22 +35,22 @@ interface Istate {
   hotSearch: IhotHistoryItem[]
 }
 
-class Home extends PureComponent<Iprops, Istate> {
+class HomeScreen extends PureComponent<Iprops, Istate> {
   static navigationOptions = {
     header: null,
   }
   constructor(props: Iprops) {
     super(props)
     this.state = {
-      price: {
+      priceTrend: {
         month: 0,
         average: 0,
         trend: 0,
       },
       recommends: {
-        second: [],
-        rent: [],
-        new: [],
+        secondRecommends: [],
+        rentRecommends: [],
+        newRecommends: [],
       },
       loading: false,
       banner: {
@@ -70,10 +70,9 @@ class Home extends PureComponent<Iprops, Istate> {
     })
     try {
       const {result} = await getHomeAssets()
-      console.log(result)
-      const {price, banner, recommends, hotSearch} = result
+      const {priceTrend, banner, recommends, hotSearch} = result
       this.setState({
-        price,
+        priceTrend,
         banner,
         recommends,
         hotSearch,
@@ -92,45 +91,50 @@ class Home extends PureComponent<Iprops, Istate> {
   }
 
   render() {
-    const {recommends, loading, price, banner, isShow, hotSearch} = this.state
+    const {
+      recommends,
+      loading,
+      priceTrend,
+      banner,
+      isShow,
+      hotSearch,
+    } = this.state
     const {navigation} = this.props
     return (
       <>
         <StatusBar backgroundColor='#fff' barStyle='dark-content' />
-        <SafeAreaView>
-          <ScrollView>
-            <Loading isShow={loading}>
-              <HomeSearch
-                isShow={isShow}
-                handleChangeIsShow={this.handleChangeIsShow}
-                hotSearch={hotSearch}
-              />
-              <View style={{backgroundColor: '#f5f5f5'}}>
-                <View
-                  style={{
-                    padding: 20,
-                    paddingTop: 10,
-                    backgroundColor: 'white',
-                  }}>
-                  <HomeHeader
-                    handleChangeIsShow={this.handleChangeIsShow}
-                    navigation={navigation}
-                  />
-                  <HomeMenus />
-                  <HomeFeature />
-                  <HomeCategories />
-                  <HomePrice price={price} />
-                  <HomeBanner banner={banner} />
-                  <HomeRecommends recommends={recommends} />
-                </View>
-                <CommonFooter siteName='深圳' />
+        <HomeSearch
+          isShow={isShow}
+          handleChangeIsShow={this.handleChangeIsShow}
+          hotSearch={hotSearch}
+        />
+        <ScrollView>
+          <Loading isShow={loading}>
+            <View style={{backgroundColor: '#f5f5f5'}}>
+              <View
+                style={{
+                  padding: 20,
+                  paddingTop: 10,
+                  backgroundColor: '#fff',
+                }}>
+                <HomeHeader
+                  handleChangeIsShow={this.handleChangeIsShow}
+                  navigation={navigation}
+                />
+                <HomeMenus navigation={navigation} />
+                <HomeFeature />
+                <HomeCategories />
+                <HomePrice priceTrend={priceTrend} />
+                <HomeBanner banner={banner} />
+                <HomeRecommends recommends={recommends} />
               </View>
-            </Loading>
-          </ScrollView>
-        </SafeAreaView>
+              <CommonFooter siteName='深圳' />
+            </View>
+          </Loading>
+        </ScrollView>
       </>
     )
   }
 }
 
-export default Home
+export default HomeScreen

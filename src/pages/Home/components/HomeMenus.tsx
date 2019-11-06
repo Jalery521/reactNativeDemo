@@ -1,42 +1,62 @@
 import React, {FC} from 'react'
-import {View, Text, Image, StyleSheet} from 'react-native'
+import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native'
 
-const HomeMenus: FC = () => {
-  const menus = [
-    {
-      name: '二手房',
-      uri:
-        'https://i.qfangimg.com/resource/qfang-mobile/static/img/nav-sale.png',
-    },
-    {
-      name: '新房',
-      uri:
-        'https://i.qfangimg.com/resource/qfang-mobile/static/img/nav-newhouse.png',
-    },
-    {
-      name: '租房',
-      uri:
-        'https://i.qfangimg.com/resource/qfang-mobile/static/img/nav-rent.png',
-    },
-    {
-      name: '商业办公',
-      uri:
-        'https://i.qfangimg.com/resource/qfang-mobile/static/img/nav-office.png',
-    },
-    {
-      name: '海外',
-      uri:
-        'https://i.qfangimg.com/resource/qfang-mobile/static/img/nav-overseas.png',
-    },
-  ]
+interface ImenuItem {
+  name: string
+  uri: string
+  value: TTransactionType
+}
+
+interface Iprops {
+  navigation: any
+}
+
+const menus: ImenuItem[] = [
+  {
+    name: '二手房',
+    uri: 'https://i.qfangimg.com/resource/qfang-mobile/static/img/nav-sale.png',
+    value: 'SECOND',
+  },
+  {
+    name: '新房',
+    uri:
+      'https://i.qfangimg.com/resource/qfang-mobile/static/img/nav-newhouse.png',
+    value: 'NEW',
+  },
+  {
+    name: '租房',
+    uri: 'https://i.qfangimg.com/resource/qfang-mobile/static/img/nav-rent.png',
+    value: 'RENT',
+  },
+  {
+    name: '商业办公',
+    uri:
+      'https://i.qfangimg.com/resource/qfang-mobile/static/img/nav-office.png',
+    value: 'OFFICE',
+  },
+  {
+    name: '海外',
+    uri:
+      'https://i.qfangimg.com/resource/qfang-mobile/static/img/nav-overseas.png',
+    value: 'OVERSEAS',
+  },
+]
+const HomeMenus: FC<Iprops> = ({navigation}) => {
+  function handleNavigation({value}: ImenuItem) {
+    navigation.navigate(value)
+  }
   return (
     <View style={style.menuWrapper}>
       {menus.map((menu, index) => {
         return (
-          <View style={style.menuBox} key={index}>
+          <TouchableOpacity
+            activeOpacity={0.8}
+            style={style.menuBox}
+            onPress={() => handleNavigation(menu)}
+            key={index}>
             <Image style={style.itemImage} source={menu} />
             <Text style={style.itemName}>{menu.name}</Text>
-          </View>
+          </TouchableOpacity>
         )
       })}
     </View>
@@ -60,7 +80,7 @@ const style = StyleSheet.create({
   itemName: {
     fontSize: 14,
     color: '#333',
-    lineHeight: 20,
+    lineHeight: 24,
     textAlign: 'center',
   },
 })

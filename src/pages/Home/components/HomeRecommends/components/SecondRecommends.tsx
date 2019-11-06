@@ -9,7 +9,7 @@ interface Iprops {
 const SecondRecommends: FC<Iprops> = ({recommends}) => {
   return (
     <View>
-      {recommends.length
+      {recommends && recommends.length
         ? recommends.map((recommend, index) => {
             return (
               <View

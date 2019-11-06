@@ -1,14 +1,16 @@
 import {createStackNavigator} from 'react-navigation-stack'
-import Home from '../pages/Home'
-import User from '../pages/User'
-import Login from '../pages/Login'
-import ResetPassword from '../pages/Login/ResetPassword'
+import HomeScreen from '../pages/Home'
+import UserScreen from '../pages/User'
+import LoginScreen from '../pages/Login'
+import ResetPasswordScreen from '../pages/Login/ResetPassword'
+import SecondScreen from '../pages/Second'
 export default createStackNavigator(
   {
-    Home,
-    User: User as any,
-    Login: Login as any,
-    ForgetPassword: ResetPassword as any,
+    Home: HomeScreen,
+    User: UserScreen as any,
+    Login: LoginScreen as any,
+    ForgetPassword: ResetPasswordScreen as any,
+    Second: SecondScreen as any,
   },
   {
     initialRouteName: 'Home',

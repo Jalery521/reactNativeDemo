@@ -1,5 +1,11 @@
 import React, {FC} from 'react'
-import {Modal, View, ActivityIndicator} from 'react-native'
+import {
+  Modal,
+  View,
+  ActivityIndicator,
+  StatusBar,
+  SafeAreaView,
+} from 'react-native'
 import Icon from '../components/Icon'
 interface IwithNavigationParams {
   isBack?: boolean

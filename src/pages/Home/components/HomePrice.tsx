@@ -2,14 +2,14 @@ import React, {FC} from 'react'
 import {View, Text, StyleSheet} from 'react-native'
 import Icon from '../../../components/Icon'
 interface Iprops {
-  price: {
+  priceTrend: {
     month: number
     average: number
     trend: number
   }
 }
 
-const HomePrice: FC<Iprops> = ({price}) => {
+const HomePrice: FC<Iprops> = ({priceTrend}) => {
   return (
     <View style={style.priceWrapper}>
       <View style={style.priceTitle}>
@@ -19,15 +19,15 @@ const HomePrice: FC<Iprops> = ({price}) => {
       <View style={style.priceContent}>
         <View style={style.contentItem}>
           <View style={style.itemBox}>
-            <Text style={style.itemNumber}>{price.average}</Text>
+            <Text style={style.itemNumber}>{priceTrend.average}</Text>
             <Text style={style.color999}> 元/㎡</Text>
           </View>
-          <Text style={style.color999}>{price.month}月均价</Text>
+          <Text style={style.color999}>{priceTrend.month}月均价</Text>
         </View>
         <View style={style.contentItem}>
           <View style={style.itemBox}>
             <Text style={[style.itemNumber, style.redNumber]}>
-              {price.trend}
+              {priceTrend.trend}
             </Text>
             <Text style={[style.redNumber, style.font12]}> %</Text>
           </View>

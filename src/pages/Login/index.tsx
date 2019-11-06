@@ -14,7 +14,7 @@ interface Istate {
   pageType: TpageType
 }
 
-class Login extends PureComponent<Iprops, Istate> {
+class LoginScreen extends PureComponent<Iprops, Istate> {
   constructor(props: Iprops) {
     super(props)
     this.state = {
@@ -32,31 +32,29 @@ class Login extends PureComponent<Iprops, Istate> {
     const {pageType} = this.state
     const {navigation} = this.props
     return (
-      <SafeAreaView>
-        <ScrollView>
-          <View style={{padding: 20, height: height - 80}}>
-            {pageType === 'loginByPhone' ? (
-              <LoginByPhone
-                handleCutPageType={this.handleCutPageType}
-                navigation={navigation}
-              />
-            ) : (
-              <LoginByPassword
-                handleCutPageType={this.handleCutPageType}
-                navigation={navigation}
-              />
-            )}
-            <Text
-              style={{
-                fontSize: 14,
-                color: '#999',
-                textAlign: 'center',
-              }}>
-              登录即表示同意《qfangwang隐私协议》及《qfangwang用户协议》
-            </Text>
-          </View>
-        </ScrollView>
-      </SafeAreaView>
+      <ScrollView>
+        <View style={{padding: 20, height: height - 80}}>
+          {pageType === 'loginByPhone' ? (
+            <LoginByPhone
+              handleCutPageType={this.handleCutPageType}
+              navigation={navigation}
+            />
+          ) : (
+            <LoginByPassword
+              handleCutPageType={this.handleCutPageType}
+              navigation={navigation}
+            />
+          )}
+          <Text
+            style={{
+              fontSize: 14,
+              color: '#999',
+              textAlign: 'center',
+            }}>
+            登录即表示同意《qfangwang隐私协议》及《qfangwang用户协议》
+          </Text>
+        </View>
+      </ScrollView>
     )
   }
 }
@@ -64,4 +62,4 @@ const params = {
   isBack: true,
   title: '登陆',
 }
-export default withNavigation(params)(Login)
+export default withNavigation(params)(LoginScreen)
