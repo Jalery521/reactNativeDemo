@@ -29,7 +29,6 @@ const pickerOptions = [
 interface Iprops {
   handleChangeIsShow: () => void
   addSearchHistory: (text: string) => void
-  isShow: boolean
   hotSearch: IhotHistoryItem[]
   historyData: string[]
 }
@@ -38,13 +37,7 @@ type Icategory = 'second' | 'rent' | 'new' | 'office_rent' | 'office_sale'
 const HomeSearch: FC<Iprops> = props => {
   const [category, changeCategory] = useState('second' as Icategory)
   const [searchText, changeSearchText] = useState('')
-  const {
-    isShow,
-    handleChangeIsShow,
-    hotSearch,
-    historyData,
-    addSearchHistory,
-  } = props
+  const {handleChangeIsShow, hotSearch, historyData, addSearchHistory} = props
   function handleAddHistory(text: string) {
     text = text.trim()
     if (!historyData.includes(text)) {
@@ -57,68 +50,64 @@ const HomeSearch: FC<Iprops> = props => {
   }
 
   return (
-    <Modal visible={isShow} animationType='slide'>
-      <View>
-        <View style={style.searchContent}>
-          <View style={style.pickerWrapper}>
-            <Picker
-              style={style.pickerBox}
-              selectedValue={category}
-              onValueChange={changeCategory}>
-              {pickerOptions.map(option => {
-                return (
-                  <Picker.Item
-                    key={option.value}
-                    label={option.name}
-                    value={option.value}
-                  />
-                )
-              })}
-            </Picker>
-          </View>
-          <View style={style.inputWrapper}>
-            <Icon name='sousuo' size={18} color='#999' />
-            <TextInput
-              placeholder='你想找的小区、商圈'
-              value={searchText}
-              onChangeText={val => changeSearchText(val.trim())}
-              onSubmitEditing={({nativeEvent: {text}}) =>
-                handleAddHistory(text)
-              }
-            />
-          </View>
-          <Text style={style.cancelBtn} onPress={handleChangeIsShow}>
-            取消
-          </Text>
-        </View>
-        {historyData.length ? (
-          <View style={style.historyContent}>
-            {historyData.map(history => {
+    <View>
+      <View style={style.searchContent}>
+        <View style={style.pickerWrapper}>
+          <Picker
+            style={style.pickerBox}
+            selectedValue={category}
+            onValueChange={changeCategory}>
+            {pickerOptions.map(option => {
               return (
-                <Text style={style.historyItem} key={history}>
-                  {history}
-                </Text>
+                <Picker.Item
+                  key={option.value}
+                  label={option.name}
+                  value={option.value}
+                />
               )
             })}
-          </View>
-        ) : (
-          <View style={{padding: 15}}>
-            <Text style={style.hotTitle}>热门搜索</Text>
-            <View style={style.hotContent}>
-              {hotSearch && hotSearch.length
-                ? hotSearch.map(hot => {
-                    return (
-                      <Text key={hot.id} style={style.hotItem}>
-                        {hot.name}
-                      </Text>
-                    )
-                  })
-                : null}
-            </View>
-          </View>
-        )}
+          </Picker>
+        </View>
+        <View style={style.inputWrapper}>
+          <Icon name='sousuo' size={18} color='#999' />
+          <TextInput
+            placeholder='你想找的小区、商圈'
+            value={searchText}
+            onChangeText={val => changeSearchText(val.trim())}
+            onSubmitEditing={({nativeEvent: {text}}) => handleAddHistory(text)}
+          />
+        </View>
+        <Text style={style.cancelBtn} onPress={handleChangeIsShow}>
+          取消
+        </Text>
       </View>
-    </Modal>
+      {historyData.length ? (
+        <View style={style.historyContent}>
+          {historyData.map(history => {
+            return (
+              <Text style={style.historyItem} key={history}>
+                {history}
+              </Text>
+            )
+          })}
+        </View>
+      ) : (
+        <View style={{padding: 15}}>
+          <Text style={style.hotTitle}>热门搜索</Text>
+          <View style={style.hotContent}>
+            {hotSearch && hotSearch.length
+              ? hotSearch.map(hot => {
+                  return (
+                    <Text key={hot.id} style={style.hotItem}>
+                      {hot.name}
+                    </Text>
+                  )
+                })
+              : null}
+          </View>
+        </View>
+      )}
+    </View>
   )
 }
 

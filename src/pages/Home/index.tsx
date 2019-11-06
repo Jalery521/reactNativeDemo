@@ -103,33 +103,35 @@ class HomeScreen extends PureComponent<Iprops, Istate> {
     return (
       <>
         <StatusBar backgroundColor='#fff' barStyle='dark-content' />
-        <HomeSearch
-          isShow={isShow}
-          handleChangeIsShow={this.handleChangeIsShow}
-          hotSearch={hotSearch}
-        />
         <ScrollView>
           <Loading isShow={loading}>
-            <View style={{backgroundColor: '#f5f5f5'}}>
-              <View
-                style={{
-                  padding: 20,
-                  paddingTop: 10,
-                  backgroundColor: '#fff',
-                }}>
-                <HomeHeader
-                  handleChangeIsShow={this.handleChangeIsShow}
-                  navigation={navigation}
-                />
-                <HomeMenus navigation={navigation} />
-                <HomeFeature />
-                <HomeCategories />
-                <HomePrice priceTrend={priceTrend} />
-                <HomeBanner banner={banner} />
-                <HomeRecommends recommends={recommends} />
+            {isShow ? (
+              <HomeSearch
+                handleChangeIsShow={this.handleChangeIsShow}
+                hotSearch={hotSearch}
+              />
+            ) : (
+              <View style={{backgroundColor: '#f5f5f5'}}>
+                <View
+                  style={{
+                    padding: 20,
+                    paddingTop: 10,
+                    backgroundColor: '#fff',
+                  }}>
+                  <HomeHeader
+                    handleChangeIsShow={this.handleChangeIsShow}
+                    navigation={navigation}
+                  />
+                  <HomeMenus navigation={navigation} />
+                  <HomeFeature />
+                  <HomeCategories />
+                  <HomePrice priceTrend={priceTrend} />
+                  <HomeBanner banner={banner} />
+                  <HomeRecommends recommends={recommends} />
+                </View>
+                <CommonFooter siteName='深圳' />
               </View>
-              <CommonFooter siteName='深圳' />
-            </View>
+            )}
           </Loading>
         </ScrollView>
       </>
