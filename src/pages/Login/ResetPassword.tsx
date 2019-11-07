@@ -8,14 +8,13 @@ import {
   StyleSheet,
   Picker,
   Alert,
-  Dimensions,
   TouchableOpacity,
 } from 'react-native'
 import {connect} from 'react-redux'
 import {changeUserPassword, wipeLoginData} from '../../store/reducer/actions'
-import {withNavigation} from '../../utils'
 import commonStyle from './style'
-const {height} = Dimensions.get('window')
+import {height} from '../../utils'
+import NavHeader from '../../components/NavHeader'
 interface Iprops {
   navigation: any
   initPhoneNumber: string
@@ -119,71 +118,75 @@ class ResetPasswordScreen extends PureComponent<Iprops, Istate> {
     } = this.state
     return (
       <ScrollView>
-        <View style={{padding: 20, height: height - 80}}>
-          <Text style={commonStyle.titleName}>设置密码</Text>
-          <View style={commonStyle.contentBox}>
-            <View style={commonStyle.formItem}>
-              <View style={commonStyle.pickerWrapper}>
-                <Picker
-                  style={commonStyle.pickerBox}
-                  selectedValue={regionCode}
-                  onValueChange={val => this.changeFormItem('regionCode', val)}>
-                  <Picker.Item label='+86' value='+86' />
-                  <Picker.Item label='+852' value='+852' />
-                  <Picker.Item label='+853' value='+853' />
-                  <Picker.Item label='+886' value='+886' />
-                </Picker>
+        <SafeAreaView style={{flex: 1}}>
+          <View style={{padding: 20, height: height - 80}}>
+            <Text style={commonStyle.titleName}>设置密码</Text>
+            <View style={commonStyle.contentBox}>
+              <View style={commonStyle.formItem}>
+                <View style={commonStyle.pickerWrapper}>
+                  <Picker
+                    style={commonStyle.pickerBox}
+                    selectedValue={regionCode}
+                    onValueChange={val =>
+                      this.changeFormItem('regionCode', val)
+                    }>
+                    <Picker.Item label='+86' value='+86' />
+                    <Picker.Item label='+852' value='+852' />
+                    <Picker.Item label='+853' value='+853' />
+                    <Picker.Item label='+886' value='+886' />
+                  </Picker>
+                </View>
+                <TextInput
+                  style={commonStyle.phoneInput}
+                  placeholder='请输入手机号'
+                  value={phoneNumber}
+                  onChangeText={val =>
+                    this.changeFormItem('phoneNumber', val.trim())
+                  }
+                />
+                {isGetCode ? (
+                  <Text>{countNumber} 秒后重试</Text>
+                ) : (
+                  <Text onPress={this.handleGetCode} style={style.getCodeBtn}>
+                    获取验证码
+                  </Text>
+                )}
               </View>
-              <TextInput
-                style={commonStyle.phoneInput}
-                placeholder='请输入手机号'
-                value={phoneNumber}
-                onChangeText={val =>
-                  this.changeFormItem('phoneNumber', val.trim())
-                }
-              />
-              {isGetCode ? (
-                <Text>{countNumber} 秒后重试</Text>
-              ) : (
-                <Text onPress={this.handleGetCode} style={style.getCodeBtn}>
-                  获取验证码
-                </Text>
-              )}
+              <View style={commonStyle.formItem}>
+                <TextInput
+                  placeholder='请输入验证码'
+                  value={verifyCode}
+                  onChangeText={val =>
+                    this.changeFormItem('verifyCode', val.trim())
+                  }
+                />
+              </View>
+              <View style={commonStyle.formItem}>
+                <TextInput
+                  placeholder='新密码(6-12位字母+数字)'
+                  value={password}
+                  onChangeText={val =>
+                    this.changeFormItem('password', val.trim())
+                  }
+                />
+              </View>
+              <TouchableOpacity
+                activeOpacity={0.8}
+                style={commonStyle.loginBtn}
+                onPress={this.handleSubmit}>
+                <Text style={commonStyle.loginText}>确认</Text>
+              </TouchableOpacity>
             </View>
-            <View style={commonStyle.formItem}>
-              <TextInput
-                placeholder='请输入验证码'
-                value={verifyCode}
-                onChangeText={val =>
-                  this.changeFormItem('verifyCode', val.trim())
-                }
-              />
-            </View>
-            <View style={commonStyle.formItem}>
-              <TextInput
-                placeholder='新密码(6-12位字母+数字)'
-                value={password}
-                onChangeText={val =>
-                  this.changeFormItem('password', val.trim())
-                }
-              />
-            </View>
-            <TouchableOpacity
-              activeOpacity={0.8}
-              style={commonStyle.loginBtn}
-              onPress={this.handleSubmit}>
-              <Text style={commonStyle.loginText}>确认</Text>
-            </TouchableOpacity>
+            <Text
+              style={{
+                fontSize: 14,
+                color: '#999',
+                textAlign: 'center',
+              }}>
+              登录即表示同意《qfangwang用户协议》
+            </Text>
           </View>
-        </View>
-        <Text
-          style={{
-            fontSize: 14,
-            color: '#999',
-            textAlign: 'center',
-          }}>
-          登录即表示同意《qfangwang用户协议》
-        </Text>
+        </SafeAreaView>
       </ScrollView>
     )
   }
@@ -225,4 +228,4 @@ const mapStateToProps = (store: Istore) => {
 export default connect(
   mapStateToProps,
   {changeUserPassword, wipeLoginData},
-)(withNavigation(params)(ResetPasswordScreen) as any)
+)(NavHeader(params)(ResetPasswordScreen) as any)

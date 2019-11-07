@@ -1,8 +1,8 @@
 import React, {FC} from 'react'
-import {View, Text, Image, Dimensions, StyleSheet} from 'react-native'
+import {View, Text, Image, StyleSheet} from 'react-native'
 import {connect} from 'react-redux'
 import Icon from '../../../components/Icon'
-const {width} = Dimensions.get('window')
+import {width} from '../../../utils'
 
 interface Iprops {
   navigation: any

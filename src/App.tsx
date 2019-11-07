@@ -7,11 +7,9 @@ import store from './store'
 const Navigator = createAppContainer(routes)
 const App: FC = () => {
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: '#fff'}}>
-      <Provider store={store}>
-        <Navigator />
-      </Provider>
-    </SafeAreaView>
+    <Provider store={store}>
+      <Navigator />
+    </Provider>
   )
 }
 

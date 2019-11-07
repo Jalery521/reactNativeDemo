@@ -3,7 +3,7 @@ import {View, SafeAreaView, ScrollView} from 'react-native'
 import UserInformation from './components/UserInformation'
 import UserConcern from './components/UserConcern'
 import UserProprietor from './components/UserProprietor'
-import {withNavigation} from '../../utils'
+import NavHeader from '../../components/NavHeader'
 interface Iprops {
   navigation: any
   isLogined: boolean
@@ -17,15 +17,17 @@ class UserScreen extends PureComponent<Iprops> {
     const {navigation} = this.props
     return (
       <ScrollView>
-        <View style={{padding: 15, paddingTop: 0}}>
-          <UserInformation navigation={navigation} />
-          <UserConcern />
-          <UserProprietor />
-        </View>
+        <SafeAreaView style={{flex: 1}}>
+          <View style={{padding: 15, paddingTop: 0}}>
+            <UserInformation navigation={navigation} />
+            <UserConcern />
+            <UserProprietor />
+          </View>
+        </SafeAreaView>
       </ScrollView>
     )
   }
 }
 
 const params = {title: '个人中心', isBack: true}
-export default withNavigation(params)(UserScreen)
+export default NavHeader(params)(UserScreen)

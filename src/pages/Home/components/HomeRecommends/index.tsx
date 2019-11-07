@@ -3,18 +3,15 @@ import {View, Text, StyleSheet} from 'react-native'
 import NewRecomends from './components/NewRecommends'
 import RentRecommends from './components/RentRecommends'
 import SecondRecommends from './components/SecondRecommends'
-import {IrecommendItem} from '../../index.d'
 interface Iprops {
   recommends: {
-    newRecommends: IrecommendItem[]
-    rentRecommends: IrecommendItem[]
-    secondRecommends: IrecommendItem[]
+    newRecommends: IhouseItem[]
+    rentRecommends: IhouseItem[]
+    secondRecommends: IhouseItem[]
   }
 }
 const HomeRecommends: FC<Iprops> = ({recommends}) => {
-  const [recommendCategory, changeRecommendCategory] = useState(
-    'SECOND' as TTransactionType,
-  )
+  const [recommendCategory, changeRecommendCategory] = useState('SECOND')
   const {secondRecommends, newRecommends, rentRecommends} = recommends
 
   return (

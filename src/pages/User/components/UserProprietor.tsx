@@ -1,7 +1,7 @@
 import React, {FC} from 'react'
-import {View, Image, Text, StyleSheet, Dimensions} from 'react-native'
+import {View, Image, Text, StyleSheet} from 'react-native'
 import Icon from '../../../components/Icon'
-const {width} = Dimensions.get('window')
+import {width} from '../../../utils'
 const estimateWidth = width - 30
 const estimateHeight = (width / 686) * 201
 const UserProprietor: FC = () => {

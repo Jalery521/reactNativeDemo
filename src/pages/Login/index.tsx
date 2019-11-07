@@ -1,9 +1,9 @@
 import React, {PureComponent} from 'react'
-import {SafeAreaView, Text, View, ScrollView, Dimensions} from 'react-native'
-import {withNavigation} from '../../utils'
+import {SafeAreaView, Text, View, ScrollView} from 'react-native'
+import NavHeader from '../../components/NavHeader'
 import LoginByPassword from './components/LoginByPassword'
 import LoginByPhone from './components/LoginByPhone'
-const {height} = Dimensions.get('window')
+import {height} from '../../utils'
 interface Iprops {
   navigation: any
 }
@@ -33,27 +33,29 @@ class LoginScreen extends PureComponent<Iprops, Istate> {
     const {navigation} = this.props
     return (
       <ScrollView>
-        <View style={{padding: 20, height: height - 80}}>
-          {pageType === 'loginByPhone' ? (
-            <LoginByPhone
-              handleCutPageType={this.handleCutPageType}
-              navigation={navigation}
-            />
-          ) : (
-            <LoginByPassword
-              handleCutPageType={this.handleCutPageType}
-              navigation={navigation}
-            />
-          )}
-          <Text
-            style={{
-              fontSize: 14,
-              color: '#999',
-              textAlign: 'center',
-            }}>
-            登录即表示同意《qfangwang隐私协议》及《qfangwang用户协议》
-          </Text>
-        </View>
+        <SafeAreaView style={{flex: 1}}>
+          <View style={{padding: 20, height: height - 80}}>
+            {pageType === 'loginByPhone' ? (
+              <LoginByPhone
+                handleCutPageType={this.handleCutPageType}
+                navigation={navigation}
+              />
+            ) : (
+              <LoginByPassword
+                handleCutPageType={this.handleCutPageType}
+                navigation={navigation}
+              />
+            )}
+            <Text
+              style={{
+                fontSize: 14,
+                color: '#999',
+                textAlign: 'center',
+              }}>
+              登录即表示同意《qfangwang隐私协议》及《qfangwang用户协议》
+            </Text>
+          </View>
+        </SafeAreaView>
       </ScrollView>
     )
   }
@@ -62,4 +64,4 @@ const params = {
   isBack: true,
   title: '登陆',
 }
-export default withNavigation(params)(LoginScreen)
+export default NavHeader(params)(LoginScreen)

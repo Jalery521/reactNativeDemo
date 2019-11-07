@@ -4,7 +4,7 @@ import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native'
 interface ImenuItem {
   name: string
   uri: string
-  value: TTransactionType
+  value: string
 }
 
 interface Iprops {
@@ -15,30 +15,30 @@ const menus: ImenuItem[] = [
   {
     name: '二手房',
     uri: 'https://i.qfangimg.com/resource/qfang-mobile/static/img/nav-sale.png',
-    value: 'SECOND',
+    value: 'Second',
   },
   {
     name: '新房',
     uri:
       'https://i.qfangimg.com/resource/qfang-mobile/static/img/nav-newhouse.png',
-    value: 'NEW',
+    value: 'New',
   },
   {
     name: '租房',
     uri: 'https://i.qfangimg.com/resource/qfang-mobile/static/img/nav-rent.png',
-    value: 'RENT',
+    value: 'Rent',
   },
   {
     name: '商业办公',
     uri:
       'https://i.qfangimg.com/resource/qfang-mobile/static/img/nav-office.png',
-    value: 'OFFICE',
+    value: 'Office',
   },
   {
     name: '海外',
     uri:
       'https://i.qfangimg.com/resource/qfang-mobile/static/img/nav-overseas.png',
-    value: 'OVERSEAS',
+    value: 'Overseas',
   },
 ]
 const HomeMenus: FC<Iprops> = ({navigation}) => {

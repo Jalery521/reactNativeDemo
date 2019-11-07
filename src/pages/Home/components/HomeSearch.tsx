@@ -1,5 +1,5 @@
 import React, {FC, useState} from 'react'
-import {Modal, View, Text, Picker, TextInput, StyleSheet} from 'react-native'
+import {View, Text, Picker, TextInput, StyleSheet} from 'react-native'
 import {connect} from 'react-redux'
 import Icon from '../../../components/Icon'
 import {addSearchHistory} from '../../../store/reducer/actions'
@@ -69,7 +69,7 @@ const HomeSearch: FC<Iprops> = props => {
           </Picker>
         </View>
         <View style={style.inputWrapper}>
-          <Icon name='sousuo' size={18} color='#999' />
+          <Icon name='sousuo' size={16} color='#a0a0a0' />
           <TextInput
             placeholder='你想找的小区、商圈'
             value={searchText}

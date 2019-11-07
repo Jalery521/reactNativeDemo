@@ -1,6 +1,6 @@
 import React, {FC} from 'react'
-import {Image, View, Dimensions} from 'react-native'
-const {width} = Dimensions.get('window')
+import {Image, View} from 'react-native'
+import {width} from './../../../utils'
 const bannerWidth = width - 40
 const bannerHeight = (bannerWidth / 640) * 200
 interface Iprops {

@@ -1,5 +1,5 @@
-import React, {FC, useState} from 'react'
-import {View, Text, TextInput, StyleSheet} from 'react-native'
+import React, {FC} from 'react'
+import {View, Text, StyleSheet} from 'react-native'
 import Icon from '../../../components/Icon'
 
 interface Iprops {
@@ -14,7 +14,7 @@ const HomeHeader: FC<Iprops> = props => {
       <View style={style.headerContent}>
         <Text style={style.headerCity}>深圳</Text>
         <View style={style.inputWarpper}>
-          <Icon name='sousuo' size={16} color='#999' />
+          <Icon name='sousuo' size={16} color='#a0a0a0' />
           <Text onPress={handleChangeIsShow} style={style.headerInput}>
             你想找的小区、商圈
           </Text>

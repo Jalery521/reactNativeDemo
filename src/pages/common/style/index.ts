@@ -1,10 +1,10 @@
 import {StyleSheet} from 'react-native'
 export default StyleSheet.create({
-  recommendItem: {
+  houseItem: {
     paddingBottom: 20,
     paddingTop: 15,
   },
-  recommendDivider: {
+  houseDivider: {
     borderTopColor: '#f0f0f0',
     borderTopWidth: 1,
     borderStyle: 'solid',

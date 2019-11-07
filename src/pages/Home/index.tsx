@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react'
 import {View, SafeAreaView, ScrollView, StatusBar} from 'react-native'
-import {IrecommendItem, IhotHistoryItem} from './index.d'
+import {IhotHistoryItem} from './index.d'
 import HomeHeader from './components/HomeHeader'
 import HomeSearch from './components/HomeSearch'
 import HomeMenus from './components/HomeMenus'
@@ -9,8 +9,8 @@ import HomeCategories from './components/HomeCategories'
 import HomePrice from './components/HomePrice'
 import HomeBanner from './components/HomeBanner'
 import HomeRecommends from './components/HomeRecommends'
-import CommonFooter from '../../components/CommonFooter'
-import {Loading} from '../../utils'
+import Footer from '../../components/Footer'
+import Loading from '../../components/Loading'
 import {getHomeAssets} from '../../api'
 interface Iprops {
   navigation: any
@@ -23,12 +23,12 @@ interface Istate {
     trend: number
   }
   recommends: {
-    newRecommends: IrecommendItem[]
-    rentRecommends: IrecommendItem[]
-    secondRecommends: IrecommendItem[]
+    newRecommends: IhouseItem[]
+    rentRecommends: IhouseItem[]
+    secondRecommends: IhouseItem[]
   }
   loading: boolean
-  isShow: boolean
+  showSearch: boolean
   banner: {
     uri: string
   }
@@ -57,7 +57,7 @@ class HomeScreen extends PureComponent<Iprops, Istate> {
         uri: '',
       },
       hotSearch: [],
-      isShow: false,
+      showSearch: false,
     }
   }
 
@@ -84,9 +84,9 @@ class HomeScreen extends PureComponent<Iprops, Istate> {
     }
   }
   handleChangeIsShow = () => {
-    const {isShow} = this.state
+    const {showSearch} = this.state
     this.setState({
-      isShow: !isShow,
+      showSearch: !showSearch,
     })
   }
 
@@ -96,16 +96,16 @@ class HomeScreen extends PureComponent<Iprops, Istate> {
       loading,
       priceTrend,
       banner,
-      isShow,
+      showSearch,
       hotSearch,
     } = this.state
     const {navigation} = this.props
     return (
-      <>
+      <SafeAreaView style={{flex: 1}}>
         <StatusBar backgroundColor='#fff' barStyle='dark-content' />
-        <ScrollView>
-          <Loading isShow={loading}>
-            {isShow ? (
+        <Loading isShow={loading}>
+          <ScrollView>
+            {showSearch ? (
               <HomeSearch
                 handleChangeIsShow={this.handleChangeIsShow}
                 hotSearch={hotSearch}
@@ -129,12 +129,12 @@ class HomeScreen extends PureComponent<Iprops, Istate> {
                   <HomeBanner banner={banner} />
                   <HomeRecommends recommends={recommends} />
                 </View>
-                <CommonFooter siteName='深圳' />
+                <Footer siteName='深圳' />
               </View>
             )}
-          </Loading>
-        </ScrollView>
-      </>
+          </ScrollView>
+        </Loading>
+      </SafeAreaView>
     )
   }
 }

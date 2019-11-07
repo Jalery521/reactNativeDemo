@@ -1,9 +1,8 @@
 import React, {FC} from 'react'
 import {Text, View, Image} from 'react-native'
-import {IrecommendItem} from '.././../../index.d'
-import commonStyle from '../style'
+import commonStyle from '../../../../common/style'
 interface Iprops {
-  recommends: IrecommendItem[]
+  recommends: IhouseItem[]
 }
 
 const RentRecommends: FC<Iprops> = ({recommends}) => {
@@ -15,8 +14,8 @@ const RentRecommends: FC<Iprops> = ({recommends}) => {
               <View
                 key={recommend.id}
                 style={[
-                  commonStyle.recommendItem,
-                  index > 0 ? commonStyle.recommendDivider : null,
+                  commonStyle.houseItem,
+                  index > 0 ? commonStyle.houseDivider : null,
                 ]}>
                 <View style={{flexDirection: 'row'}}>
                   <Image style={commonStyle.itemImg} source={recommend} />
