@@ -3,7 +3,7 @@ import {View, Text, StyleSheet} from 'react-native'
 import Icon from './Icon'
 
 interface Iprops {
-  siteName: string
+  siteName?: string
 }
 
 const Footer: FC<Iprops> = ({siteName}) => {
@@ -11,7 +11,7 @@ const Footer: FC<Iprops> = ({siteName}) => {
     <View style={style.footerWrapper}>
       <View style={style.footerContent}>
         <View style={style.footerSite}>
-          <Text style={style.siteName}>qfangwang{siteName}站</Text>
+          <Text style={style.siteName}>qfangwang深圳站</Text>
           <Icon name='jiantouxia' size={12} color='#999' />
         </View>
         <View style={style.linksBox}>
