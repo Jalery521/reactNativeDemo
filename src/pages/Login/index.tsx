@@ -32,8 +32,8 @@ class LoginScreen extends PureComponent<Iprops, Istate> {
     const {pageType} = this.state
     const {navigation} = this.props
     return (
-      <ScrollView>
-        <SafeAreaView style={{flex: 1}}>
+      <SafeAreaView style={{flex: 1}}>
+        <ScrollView>
           <View style={{padding: 20, height: height - 80}}>
             {pageType === 'loginByPhone' ? (
               <LoginByPhone
@@ -55,8 +55,8 @@ class LoginScreen extends PureComponent<Iprops, Istate> {
               登录即表示同意《qfangwang隐私协议》及《qfangwang用户协议》
             </Text>
           </View>
-        </SafeAreaView>
-      </ScrollView>
+        </ScrollView>
+      </SafeAreaView>
     )
   }
 }

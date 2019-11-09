@@ -16,15 +16,15 @@ class UserScreen extends PureComponent<Iprops> {
   render() {
     const {navigation} = this.props
     return (
-      <ScrollView>
-        <SafeAreaView style={{flex: 1}}>
+      <SafeAreaView style={{flex: 1}}>
+        <ScrollView>
           <View style={{padding: 15, paddingTop: 0}}>
             <UserInformation navigation={navigation} />
             <UserConcern />
             <UserProprietor />
           </View>
-        </SafeAreaView>
-      </ScrollView>
+        </ScrollView>
+      </SafeAreaView>
     )
   }
 }

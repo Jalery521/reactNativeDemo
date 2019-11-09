@@ -101,7 +101,7 @@ class HomeScreen extends PureComponent<Iprops, Istate> {
     } = this.state
     const {navigation} = this.props
     return (
-      <View style={{flex: 1}}>
+      <SafeAreaView style={{flex: 1}}>
         <StatusBar backgroundColor='#fff' barStyle='dark-content' />
         <Loading isShow={loading}>
           <ScrollView>
@@ -134,7 +134,7 @@ class HomeScreen extends PureComponent<Iprops, Istate> {
             )}
           </ScrollView>
         </Loading>
-      </View>
+      </SafeAreaView>
     )
   }
 }

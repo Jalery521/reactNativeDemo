@@ -117,8 +117,8 @@ class ResetPasswordScreen extends PureComponent<Iprops, Istate> {
       password,
     } = this.state
     return (
-      <ScrollView>
-        <SafeAreaView style={{flex: 1}}>
+      <SafeAreaView style={{flex: 1}}>
+        <ScrollView>
           <View style={{padding: 20, height: height - 80}}>
             <Text style={commonStyle.titleName}>设置密码</Text>
             <View style={commonStyle.contentBox}>
@@ -186,8 +186,8 @@ class ResetPasswordScreen extends PureComponent<Iprops, Istate> {
               登录即表示同意《qfangwang用户协议》
             </Text>
           </View>
-        </SafeAreaView>
-      </ScrollView>
+        </ScrollView>
+      </SafeAreaView>
     )
   }
 }
