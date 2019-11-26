@@ -1,5 +1,5 @@
 import React, {PureComponent} from 'react'
-import {View, SafeAreaView, ScrollView, StatusBar} from 'react-native'
+import {View, Text, SafeAreaView, ScrollView, StatusBar} from 'react-native'
 import {IhotHistoryItem} from './index.d'
 import HomeHeader from './components/HomeHeader'
 import HomeSearch from './components/HomeSearch'

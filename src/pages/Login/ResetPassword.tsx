@@ -32,6 +32,16 @@ interface Istate {
 }
 
 class ResetPasswordScreen extends PureComponent<Iprops, Istate> {
+  static navigationOptions = ({navigation}: Iprops) => {
+    const params = {
+      navigation,
+      title: '重置密码',
+      isBack: true,
+    }
+    return {
+      header: () => <NavHeader {...params} />,
+    }
+  }
   private countTimer: any
   constructor(props: Iprops) {
     super(props)
@@ -57,7 +67,7 @@ class ResetPasswordScreen extends PureComponent<Iprops, Istate> {
       Alert.alert('', '手机号码错误', [{text: '确定'}])
       return
     }
-    if (!/^[1-9][0-9]{5}$/.test(verifyCode)) {
+    if (!/^[1-9]\d{5}$/.test(verifyCode)) {
       Alert.alert('', '验证码错误', [{text: '确定'}])
       return
     }
@@ -75,7 +85,7 @@ class ResetPasswordScreen extends PureComponent<Iprops, Istate> {
 
   handleGetCode = () => {
     const {phoneNumber} = this.state
-    if (!phoneNumber || !/^[1][35789][1-9]{9}$/.test(phoneNumber)) {
+    if (!phoneNumber || !/^1[3|5|7|8|9]\d{9}$/.test(phoneNumber)) {
       Alert.alert('', '请填写正确的手机号码', [{text: '确定'}])
       return
     }
@@ -209,23 +219,12 @@ const style = StyleSheet.create({
     alignItems: 'center',
   },
 })
-const params = {
-  isBack: true,
-  title: '重置密码',
-}
 
 const mapStateToProps = (store: Istore) => {
   return {
     initPhoneNumber: store.phoneNumber,
   }
 }
-// export default withNavigation(params)(
-//   connect(
-//     mapStateToProps,
-//     {changeUserPassword, wipeLoginData},
-//   )(ResetPassword),
-// )
-export default connect(
-  mapStateToProps,
-  {changeUserPassword, wipeLoginData},
-)(NavHeader(params)(ResetPasswordScreen) as any)
+export default connect(mapStateToProps, {changeUserPassword, wipeLoginData})(
+  ResetPasswordScreen,
+)

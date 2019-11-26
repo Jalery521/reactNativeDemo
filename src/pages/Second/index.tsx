@@ -26,6 +26,15 @@ interface Istate {
 }
 
 class SecondScreen extends PureComponent<Iprops, Istate> {
+  static navigationOptions = ({navigation}: Iprops) => {
+    const params = {
+      navigation,
+      title: '二手房',
+    }
+    return {
+      header: () => <NavHeader {...params} />,
+    }
+  }
   constructor(props: Iprops) {
     super(props)
     this.state = {
@@ -142,9 +151,4 @@ const style = StyleSheet.create({
   },
 })
 
-const params = {
-  isBack: false,
-  title: '二手房',
-}
-
-export default NavHeader(params)(SecondScreen)
+export default SecondScreen

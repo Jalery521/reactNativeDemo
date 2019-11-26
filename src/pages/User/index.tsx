@@ -10,6 +10,16 @@ interface Iprops {
 }
 
 class UserScreen extends PureComponent<Iprops> {
+  static navigationOptions = ({navigation}: Iprops) => {
+    const params = {
+      navigation,
+      title: '用户中心',
+      isBack: true,
+    }
+    return {
+      header: () => <NavHeader {...params} />,
+    }
+  }
   constructor(props: Iprops) {
     super(props)
   }
@@ -29,5 +39,4 @@ class UserScreen extends PureComponent<Iprops> {
   }
 }
 
-const params = {title: '个人中心', isBack: true}
-export default NavHeader(params)(UserScreen)
+export default UserScreen

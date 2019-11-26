@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-               BuildableName = "qfangwang-tvOS.app"
-               BlueprintName = "qfangwang-tvOS"
-               ReferencedContainer = "container:qfangwang.xcodeproj">
+               BuildableName = "reactnativedemo-tvOS.app"
+               BlueprintName = "reactnativedemo-tvOS"
+               ReferencedContainer = "container:reactnativedemo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "qfangwang-tvOSTests.xctest"
-               BlueprintName = "qfangwang-tvOSTests"
-               ReferencedContainer = "container:qfangwang.xcodeproj">
+               BuildableName = "reactnativedemo-tvOSTests.xctest"
+               BlueprintName = "reactnativedemo-tvOSTests"
+               ReferencedContainer = "container:reactnativedemo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -61,9 +61,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "2D02E48F1E0B4A5D006451C7"
-               BuildableName = "qfangwang-tvOSTests.xctest"
-               BlueprintName = "qfangwang-tvOSTests"
-               ReferencedContainer = "container:qfangwang.xcodeproj">
+               BuildableName = "reactnativedemo-tvOSTests.xctest"
+               BlueprintName = "reactnativedemo-tvOSTests"
+               ReferencedContainer = "container:reactnativedemo.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -71,9 +71,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "qfangwang-tvOS.app"
-            BlueprintName = "qfangwang-tvOS"
-            ReferencedContainer = "container:qfangwang.xcodeproj">
+            BuildableName = "reactnativedemo-tvOS.app"
+            BlueprintName = "reactnativedemo-tvOS"
+            ReferencedContainer = "container:reactnativedemo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "qfangwang-tvOS.app"
-            BlueprintName = "qfangwang-tvOS"
-            ReferencedContainer = "container:qfangwang.xcodeproj">
+            BuildableName = "reactnativedemo-tvOS.app"
+            BlueprintName = "reactnativedemo-tvOS"
+            ReferencedContainer = "container:reactnativedemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -113,9 +113,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "2D02E47A1E0B4A5D006451C7"
-            BuildableName = "qfangwang-tvOS.app"
-            BlueprintName = "qfangwang-tvOS"
-            ReferencedContainer = "container:qfangwang.xcodeproj">
+            BuildableName = "reactnativedemo-tvOS.app"
+            BlueprintName = "reactnativedemo-tvOS"
+            ReferencedContainer = "container:reactnativedemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -15,6 +15,17 @@ interface Istate {
 }
 
 class LoginScreen extends PureComponent<Iprops, Istate> {
+  static navigationOptions = ({navigation}: Iprops) => {
+    const params = {
+      navigation,
+      title: '登录',
+      isBack: true,
+    }
+    return {
+      header: () => <NavHeader {...params} />,
+    }
+  }
+
   constructor(props: Iprops) {
     super(props)
     this.state = {
@@ -60,8 +71,5 @@ class LoginScreen extends PureComponent<Iprops, Istate> {
     )
   }
 }
-const params = {
-  isBack: true,
-  title: '登陆',
-}
-export default NavHeader(params)(LoginScreen)
+
+export default LoginScreen

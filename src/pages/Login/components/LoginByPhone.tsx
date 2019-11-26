@@ -33,9 +33,8 @@ const LoginByPhone: FC<Iprops> = props => {
       Alert.alert('', '请填写手机号码', [{text: '确定'}])
       return
     }
-    if (!/^[1][35789][1-9]{9}$/.test(phoneNumber)) {
-      Alert.alert('', '手机格式不正确', [{text: '确定'}])
-      return
+    if (!/^1[3|5|7|8|9]\d{9}$/.test(phoneNumber)) {
+      return Alert.alert('', '手机格式不正确', [{text: '确定'}])
     }
     changeIsGetCode(true)
   }
@@ -43,7 +42,7 @@ const LoginByPhone: FC<Iprops> = props => {
   async function handleLogin() {
     if (
       initPhoneNumber !== `${regionCode}${phoneNumber}` ||
-      !/^[1-9][0-9]{5}$/.test(verifyCode)
+      !/^[1-9]\d{5}$/.test(verifyCode)
     ) {
       Alert.alert('', '手机号或验证码错误', [{text: '确定'}])
       return
@@ -156,7 +155,4 @@ const mapStateToProps = (store: Istore) => {
   }
 }
 
-export default connect(
-  mapStateToProps,
-  {pickUserInfo},
-)(LoginByPhone)
+export default connect(mapStateToProps, {pickUserInfo})(LoginByPhone)

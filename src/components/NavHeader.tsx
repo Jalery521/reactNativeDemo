@@ -1,40 +1,42 @@
-import React from 'react'
+import React, {FC} from 'react'
+import {View, Text, StyleSheet} from 'react-native'
 import Icon from './Icon'
-interface IwithNavigationParams {
-  isBack?: boolean
+interface IheaderParams {
   title: string
+  isBack?: boolean
+  navigation: any
 }
 
-export const NavHeader = (params: IwithNavigationParams) => {
-  const {isBack, title} = params
-  return (WrappedComponent: any) => {
-    const {displayName, name} = WrappedComponent
-    return class extends WrappedComponent {
-      static displayName = `HOC-${displayName | name}`
-      static navigationOptions = ({navigation}: any) => {
-        return {
-          title,
-          headerLeft: () => (
-            <Icon
-              style={{padding: 15}}
-              name={isBack ? 'fanhui' : 'shouye'}
-              onPress={() =>
-                isBack ? navigation.goBack() : navigation.navigate('Home')
-              }
-              size={20}
-              color='#666'
-            />
-          ),
-          headerRight: () => (
-            <Icon style={{padding: 15}} name='daohang' size={20} color='#333' />
-          ),
+export const NavHeader: FC<IheaderParams> = ({isBack, title, navigation}) => {
+  return (
+    <View style={style.headerWrapper}>
+      <Icon
+        name={isBack ? 'fanhui' : 'shouye'}
+        onPress={() =>
+          isBack ? navigation.goBack() : navigation.navigate('Home')
         }
-      }
-      render() {
-        return super.render()
-      }
-    }
-  }
+        size={20}
+        color='#666'
+      />
+      <Text style={style.titleStyle}>{title}</Text>
+      <Icon name='daohang' size={20} color='#333' />
+    </View>
+  )
 }
+
+const style = StyleSheet.create({
+  headerWrapper: {
+    height: 50,
+    paddingLeft: 15,
+    paddingRight: 15,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  titleStyle: {
+    flex: 1,
+    fontSize: 18,
+    textAlign: 'center',
+  },
+})
 
 export default NavHeader
