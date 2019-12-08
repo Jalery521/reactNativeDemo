@@ -93,7 +93,7 @@ class SecondScreen extends PureComponent<Iprops, Istate> {
                     key={item.id}
                     style={[
                       commonStyle.houseItem,
-                      {paddingLeft: 20, paddingRight: 20},
+                      {paddingLeft: 15, paddingRight: 15},
                     ]}>
                     <View style={{flexDirection: 'row'}}>
                       <Image style={commonStyle.itemImg} source={item} />
@@ -133,8 +133,8 @@ class SecondScreen extends PureComponent<Iprops, Istate> {
 const style = StyleSheet.create({
   searchWrapper: {
     padding: 10,
-    paddingLeft: 20,
-    paddingRight: 20,
+    paddingLeft: 15,
+    paddingRight: 15,
     position: 'absolute',
     top: 0,
     right: 0,

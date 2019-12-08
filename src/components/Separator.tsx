@@ -5,8 +5,8 @@ const Separator: FC = () => {
     <View
       style={{
         height: 1,
-        marginLeft: 20,
-        marginRight: 20,
+        marginLeft: 15,
+        marginRight: 15,
         backgroundColor: '#f0f0f0',
       }}></View>
   )

@@ -45,7 +45,7 @@ class LoginScreen extends PureComponent<Iprops, Istate> {
     return (
       <SafeAreaView style={{flex: 1}}>
         <ScrollView>
-          <View style={{padding: 20, height: height - 80}}>
+          <View style={{padding: 15, height: height - 80}}>
             {pageType === 'loginByPhone' ? (
               <LoginByPhone
                 handleCutPageType={this.handleCutPageType}

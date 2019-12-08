@@ -6,7 +6,6 @@ import UserProprietor from './components/UserProprietor'
 import NavHeader from '../../components/NavHeader'
 interface Iprops {
   navigation: any
-  isLogined: boolean
 }
 
 class UserScreen extends PureComponent<Iprops> {

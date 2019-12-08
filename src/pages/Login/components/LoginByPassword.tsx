@@ -116,7 +116,4 @@ const mapStateToProps = (store: Istore) => {
     initPassword: store.password,
   }
 }
-export default connect(
-  mapStateToProps,
-  {pickUserInfo},
-)(LoginByPhone)
+export default connect(mapStateToProps, {pickUserInfo})(LoginByPhone)

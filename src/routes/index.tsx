@@ -4,13 +4,15 @@ import UserScreen from '../pages/User'
 import LoginScreen from '../pages/Login'
 import ResetPasswordScreen from '../pages/Login/ResetPassword'
 import SecondScreen from '../pages/Second'
+import NewScreen from '../pages/New'
 export default createStackNavigator(
   {
     Home: HomeScreen,
-    User: UserScreen as any,
-    Login: LoginScreen as any,
-    ForgetPassword: ResetPasswordScreen as any,
-    Second: SecondScreen as any,
+    User: UserScreen,
+    Login: LoginScreen,
+    ForgetPassword: ResetPasswordScreen,
+    Second: SecondScreen,
+    New: NewScreen,
   },
   {
     initialRouteName: 'Home',

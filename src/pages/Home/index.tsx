@@ -29,9 +29,7 @@ interface Istate {
   }
   loading: boolean
   showSearch: boolean
-  banner: {
-    uri: string
-  }
+  banner: Ibanner
   hotSearch: IhotHistoryItem[]
 }
 
@@ -55,6 +53,7 @@ class HomeScreen extends PureComponent<Iprops, Istate> {
       loading: false,
       banner: {
         uri: '',
+        id: '',
       },
       hotSearch: [],
       showSearch: false,
@@ -114,7 +113,7 @@ class HomeScreen extends PureComponent<Iprops, Istate> {
               <View>
                 <View
                   style={{
-                    padding: 20,
+                    padding: 15,
                     paddingTop: 10,
                     paddingBottom: 0,
                   }}>

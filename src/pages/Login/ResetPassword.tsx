@@ -129,7 +129,7 @@ class ResetPasswordScreen extends PureComponent<Iprops, Istate> {
     return (
       <SafeAreaView style={{flex: 1}}>
         <ScrollView>
-          <View style={{padding: 20, height: height - 80}}>
+          <View style={{padding: 15, height: height - 80}}>
             <Text style={commonStyle.titleName}>设置密码</Text>
             <View style={commonStyle.contentBox}>
               <View style={commonStyle.formItem}>

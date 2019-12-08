@@ -45,8 +45,8 @@ const style = StyleSheet.create({
     marginTop: 20,
   },
   footerSite: {
-    paddingLeft: 20,
-    paddingRight: 20,
+    paddingLeft: 15,
+    paddingRight: 15,
     height: 40,
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -60,8 +60,8 @@ const style = StyleSheet.create({
     fontSize: 14,
   },
   linksBox: {
-    paddingLeft: 20,
-    paddingRight: 20,
+    paddingLeft: 15,
+    paddingRight: 15,
     paddingBottom: 10,
   },
   InternalLinks: {
