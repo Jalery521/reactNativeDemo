@@ -33,7 +33,10 @@ const NewInformation: FC<Iprops> = ({information}) => {
 }
 const style = StyleSheet.create({
   informationWrapper: {
-    height: 60,
+    borderTopColor: '#f5f5f5',
+    borderStyle: 'solid',
+    borderTopWidth: 1,
+    height: 70,
     marginTop: 10,
     flexDirection: 'row',
     alignItems: 'center',

@@ -1,5 +1,11 @@
 import React, {PureComponent} from 'react'
-import {View, StyleSheet, SafeAreaView, TextInput} from 'react-native'
+import {
+  View,
+  StyleSheet,
+  SafeAreaView,
+  TextInput,
+  ScrollView,
+} from 'react-native'
 import {getNewAssets} from '../../api'
 import Icon from '../../components/Icon'
 import NavHeader from '../../components/NavHeader'
@@ -7,9 +13,18 @@ import Loading from '../../components/Loading'
 import NewSwiper from './components/NewSwiper'
 import NewMenus from './components/NewMenus'
 import NewInformation from './components/NewInformation'
+import NewHot from './components/NewHot'
 export interface Iinformation {
   id: string
   title: string
+}
+export interface IhotItem {
+  id: string
+  uri: string
+  name: string
+  area: string
+  address: string
+  price: string
 }
 interface Iprops {
   navigation: any
@@ -18,6 +33,7 @@ interface Iprops {
 interface Istate {
   banners: Ibanner[]
   information: Iinformation[][]
+  hot: IhotItem[]
   loading: boolean
 }
 
@@ -37,6 +53,7 @@ class NewScreen extends PureComponent<Iprops, Istate> {
       banners: [],
       loading: false,
       information: [],
+      hot: [],
     }
   }
 
@@ -50,10 +67,11 @@ class NewScreen extends PureComponent<Iprops, Istate> {
     })
     try {
       const {result} = await getNewAssets()
-      const {banners, information} = result
+      const {banners, information, hot} = result
       this.setState({
         banners,
         information,
+        hot,
       })
     } finally {
       this.setState({
@@ -63,21 +81,24 @@ class NewScreen extends PureComponent<Iprops, Istate> {
   }
 
   render() {
-    const {loading, banners, information} = this.state
+    const {loading, banners, information, hot} = this.state
     return (
       <SafeAreaView style={{flex: 1}}>
         <Loading isShow={loading}>
-          <View style={style.newWrapper}>
-            <View style={style.searchWrapper}>
-              <View style={style.searchBox}>
-                <Icon name='sousuo' size={16} color='#a0a0a0' />
-                <TextInput placeholder='你想找的楼盘名、商圈' />
+          <ScrollView>
+            <View style={style.newWrapper}>
+              <View style={style.searchWrapper}>
+                <View style={style.searchBox}>
+                  <Icon name='sousuo' size={16} color='#a0a0a0' />
+                  <TextInput placeholder='你想找的楼盘名、商圈' />
+                </View>
               </View>
+              <NewSwiper banners={banners} />
+              <NewMenus />
+              <NewInformation information={information} />
+              <NewHot hot={hot} />
             </View>
-            <NewSwiper banners={banners} />
-            <NewMenus />
-            <NewInformation information={information} />
-          </View>
+          </ScrollView>
         </Loading>
       </SafeAreaView>
     )
