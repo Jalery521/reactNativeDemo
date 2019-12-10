@@ -14,6 +14,7 @@ import NewSwiper from './components/NewSwiper'
 import NewMenus from './components/NewMenus'
 import NewInformation from './components/NewInformation'
 import NewHot from './components/NewHot'
+import NewEvaluation from './components/NewEvaluation'
 export interface Iinformation {
   id: string
   title: string
@@ -26,6 +27,11 @@ export interface IhotItem {
   address: string
   price: string
 }
+export interface Ievaluation {
+  id: string
+  title: string
+  imgs: string[]
+}
 interface Iprops {
   navigation: any
 }
@@ -34,6 +40,7 @@ interface Istate {
   banners: Ibanner[]
   information: Iinformation[][]
   hot: IhotItem[]
+  evaluation: Ievaluation
   loading: boolean
 }
 
@@ -54,6 +61,7 @@ class NewScreen extends PureComponent<Iprops, Istate> {
       loading: false,
       information: [],
       hot: [],
+      evaluation: {id: '', title: '', imgs: []},
     }
   }
 
@@ -67,11 +75,12 @@ class NewScreen extends PureComponent<Iprops, Istate> {
     })
     try {
       const {result} = await getNewAssets()
-      const {banners, information, hot} = result
+      const {banners, information, hot, evaluation} = result
       this.setState({
         banners,
         information,
         hot,
+        evaluation,
       })
     } finally {
       this.setState({
@@ -81,24 +90,25 @@ class NewScreen extends PureComponent<Iprops, Istate> {
   }
 
   render() {
-    const {loading, banners, information, hot} = this.state
+    const {loading, banners, information, hot, evaluation} = this.state
     return (
       <SafeAreaView style={{flex: 1}}>
         <Loading isShow={loading}>
-          <ScrollView>
-            <View style={style.newWrapper}>
-              <View style={style.searchWrapper}>
-                <View style={style.searchBox}>
-                  <Icon name='sousuo' size={16} color='#a0a0a0' />
-                  <TextInput placeholder='你想找的楼盘名、商圈' />
-                </View>
+          <View style={style.newWrapper}>
+            <View style={style.searchWrapper}>
+              <View style={style.searchBox}>
+                <Icon name='sousuo' size={16} color='#a0a0a0' />
+                <TextInput placeholder='你想找的楼盘名、商圈' />
               </View>
+            </View>
+            <ScrollView style={{paddingLeft: 15, paddingRight: 15}}>
               <NewSwiper banners={banners} />
               <NewMenus />
               <NewInformation information={information} />
               <NewHot hot={hot} />
-            </View>
-          </ScrollView>
+              <NewEvaluation evaluation={evaluation} />
+            </ScrollView>
+          </View>
         </Loading>
       </SafeAreaView>
     )
@@ -107,7 +117,6 @@ class NewScreen extends PureComponent<Iprops, Istate> {
 
 const style = StyleSheet.create({
   newWrapper: {
-    padding: 15,
     paddingTop: 60,
   },
   searchWrapper: {

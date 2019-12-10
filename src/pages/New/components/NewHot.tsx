@@ -18,7 +18,7 @@ const NewHot: FC<Iprops> = ({hot}) => {
           {hot.map(item => {
             return (
               <View style={style.hotItem} key={item.id}>
-                <Image style={style.hotIcon} source={item} />
+                <Image style={style.hotImg} source={item} />
                 <View style={{paddingLeft: 10}}>
                   <Text style={style.hotName}>{item.name}</Text>
                   <Text style={style.hotAddress}>
@@ -38,10 +38,12 @@ const style = StyleSheet.create({
   hotWrapper: {
     paddingTop: 10,
     paddingBottom: 10,
+    marginLeft: -15,
     marginRight: -15,
     backgroundColor: '#f5f5f5',
   },
   hotContainer: {
+    paddingLeft: 15,
     paddingBottom: 15,
     backgroundColor: '#fff',
   },
@@ -60,7 +62,7 @@ const style = StyleSheet.create({
     borderWidth: 1,
     borderStyle: 'solid',
   },
-  hotIcon: {
+  hotImg: {
     width: '100%',
     flex: 1,
   },
