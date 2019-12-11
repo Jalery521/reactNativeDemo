@@ -37,7 +37,8 @@ const HomeHeader: FC<Iprops> = props => {
 
 const style = StyleSheet.create({
   headerWarpper: {
-    marginRight: -10,
+    marginLeft: 15,
+    marginRight: 15,
     flexDirection: 'row',
     alignItems: 'center',
   },
@@ -73,7 +74,7 @@ const style = StyleSheet.create({
   },
   personIcon: {
     width: 40,
-    alignItems: 'center',
+    alignItems: 'flex-end',
     justifyContent: 'center',
   },
   font12: {

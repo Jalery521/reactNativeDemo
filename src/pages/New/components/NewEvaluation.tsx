@@ -30,9 +30,8 @@ const NewEvaluation: FC<Iprops> = ({evaluation}) => {
 }
 const style = StyleSheet.create({
   evaluationWrapper: {
-    height: 240,
-    paddingTop: 15,
-    paddingBottom: 15,
+    height: 200,
+    margin: 15,
   },
   titleWrapper: {
     flexDirection: 'row',
@@ -57,7 +56,7 @@ const style = StyleSheet.create({
   imgWrapper: {
     flex: 1,
     flexDirection: 'row',
-    paddingBottom: 15,
+    paddingBottom: 10,
   },
   imgItem: {
     flex: 1,

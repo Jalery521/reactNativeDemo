@@ -40,7 +40,8 @@ const HomeCategories: FC = () => {
 
 const style = StyleSheet.create({
   categoryWrapper: {
-    marginTop: 15,
+    marginLeft: 15,
+    marginRight: 15,
     flexDirection: 'row',
     justifyContent: 'space-between',
   },

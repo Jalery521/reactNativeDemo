@@ -29,6 +29,7 @@ const NewSwiper: FC<Iprops> = ({banners}) => {
 const style = StyleSheet.create({
   swiperWrapper: {
     height: imageHeight,
+    margin: 15,
     marginTop: 10,
     marginBottom: 10,
   },

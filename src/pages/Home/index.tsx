@@ -113,9 +113,7 @@ class HomeScreen extends PureComponent<Iprops, Istate> {
               <View>
                 <View
                   style={{
-                    padding: 15,
                     paddingTop: 10,
-                    paddingBottom: 0,
                   }}>
                   <HomeHeader
                     handleChangeIsShow={this.handleChangeIsShow}

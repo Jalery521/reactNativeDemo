@@ -9,7 +9,7 @@ interface Iprops {
 
 const HomeBanner: FC<Iprops> = ({banner}) => {
   return banner.uri ? (
-    <View style={{marginTop: 15}}>
+    <View style={{marginLeft: 15, marginRight: 15}}>
       <Image
         style={{width: bannerWidth, height: bannerHeight}}
         source={banner}

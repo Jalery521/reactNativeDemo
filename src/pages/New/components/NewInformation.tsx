@@ -37,6 +37,8 @@ const style = StyleSheet.create({
     borderStyle: 'solid',
     borderTopWidth: 1,
     height: 70,
+    marginLeft: 15,
+    marginRight: 15,
     marginTop: 10,
     flexDirection: 'row',
     alignItems: 'center',

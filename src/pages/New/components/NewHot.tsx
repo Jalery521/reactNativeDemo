@@ -38,8 +38,6 @@ const style = StyleSheet.create({
   hotWrapper: {
     paddingTop: 10,
     paddingBottom: 10,
-    marginLeft: -15,
-    marginRight: -15,
     backgroundColor: '#f5f5f5',
   },
   hotContainer: {

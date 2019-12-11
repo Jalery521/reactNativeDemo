@@ -65,7 +65,7 @@ const HomeMenus: FC<Iprops> = ({navigation}) => {
 
 const style = StyleSheet.create({
   menuWrapper: {
-    marginTop: 15,
+    margin: 15,
     flexDirection: 'row',
     justifyContent: 'space-between',
   },

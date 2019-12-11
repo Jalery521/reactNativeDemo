@@ -15,6 +15,7 @@ import NewMenus from './components/NewMenus'
 import NewInformation from './components/NewInformation'
 import NewHot from './components/NewHot'
 import NewEvaluation from './components/NewEvaluation'
+import NewLook from './components/NewLook'
 export interface Iinformation {
   id: string
   title: string
@@ -101,12 +102,13 @@ class NewScreen extends PureComponent<Iprops, Istate> {
                 <TextInput placeholder='你想找的楼盘名、商圈' />
               </View>
             </View>
-            <ScrollView style={{paddingLeft: 15, paddingRight: 15}}>
+            <ScrollView>
               <NewSwiper banners={banners} />
               <NewMenus />
               <NewInformation information={information} />
               <NewHot hot={hot} />
               <NewEvaluation evaluation={evaluation} />
+              <NewLook />
             </ScrollView>
           </View>
         </Loading>

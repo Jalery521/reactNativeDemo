@@ -60,7 +60,7 @@ const HomeRecommends: FC<Iprops> = ({recommends}) => {
 
 const style = StyleSheet.create({
   recommendWrapper: {
-    marginTop: 15,
+    margin: 15,
   },
   recommendCategory: {
     height: 40,

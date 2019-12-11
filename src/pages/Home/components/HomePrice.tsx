@@ -43,7 +43,7 @@ const HomePrice: FC<Iprops> = ({priceTrend}) => {
 
 const style = StyleSheet.create({
   priceWrapper: {
-    marginTop: 15,
+    margin: 15,
   },
   priceTitle: {
     height: 50,
