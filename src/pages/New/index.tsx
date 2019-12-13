@@ -10,6 +10,7 @@ import {getNewAssets} from '../../api'
 import Icon from '../../components/Icon'
 import NavHeader from '../../components/NavHeader'
 import Loading from '../../components/Loading'
+import Footer from '../../components/Footer'
 import NewSwiper from './components/NewSwiper'
 import NewMenus from './components/NewMenus'
 import NewInformation from './components/NewInformation'
@@ -36,12 +37,20 @@ export interface Ievaluation {
 interface Iprops {
   navigation: any
 }
+export interface IlookItem {
+  id: string
+  title: string
+  people: number
+  date: string
+  uri: string
+}
 
 interface Istate {
   banners: Ibanner[]
   information: Iinformation[][]
   hot: IhotItem[]
   evaluation: Ievaluation
+  lookList: IlookItem[]
   loading: boolean
 }
 
@@ -63,6 +72,7 @@ class NewScreen extends PureComponent<Iprops, Istate> {
       information: [],
       hot: [],
       evaluation: {id: '', title: '', imgs: []},
+      lookList: [],
     }
   }
 
@@ -76,12 +86,13 @@ class NewScreen extends PureComponent<Iprops, Istate> {
     })
     try {
       const {result} = await getNewAssets()
-      const {banners, information, hot, evaluation} = result
+      const {banners, information, hot, evaluation, lookList} = result
       this.setState({
         banners,
         information,
         hot,
         evaluation,
+        lookList,
       })
     } finally {
       this.setState({
@@ -91,7 +102,14 @@ class NewScreen extends PureComponent<Iprops, Istate> {
   }
 
   render() {
-    const {loading, banners, information, hot, evaluation} = this.state
+    const {
+      loading,
+      banners,
+      information,
+      hot,
+      evaluation,
+      lookList,
+    } = this.state
     return (
       <SafeAreaView style={{flex: 1}}>
         <Loading isShow={loading}>
@@ -108,7 +126,8 @@ class NewScreen extends PureComponent<Iprops, Istate> {
               <NewInformation information={information} />
               <NewHot hot={hot} />
               <NewEvaluation evaluation={evaluation} />
-              <NewLook />
+              <NewLook lookList={lookList} />
+              <Footer />
             </ScrollView>
           </View>
         </Loading>

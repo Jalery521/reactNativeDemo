@@ -4,8 +4,8 @@ import Icon from '../../../components/Icon'
 interface Iprops {
   lookList: any[]
 }
-const NewLook: FC = () => {
-  return (
+const NewLook: FC<Iprops> = ({lookList}) => {
+  return lookList.length ? (
     <View style={style.lookWrapper}>
       <View style={style.lookContent}>
         <View style={style.titleWrapper}>
@@ -15,25 +15,43 @@ const NewLook: FC = () => {
             <Icon name='arrowright' size={12} color='#666666' />
           </TouchableOpacity>
         </View>
+        <View>
+          {lookList.map((item, index) => {
+            return (
+              <View
+                style={[style.itemBox, index > 0 ? style.itemDivider : null]}
+                key={item.id}>
+                <View style={style.itemLeft}>
+                  <Text style={style.itemTitle}>{item.title}</Text>
+                  <Text style={style.itemInfo}>
+                    {item.date}&nbsp;&nbsp;&nbsp;{item.people}人&nbsp;阅读
+                  </Text>
+                </View>
+                <View>
+                  <Image style={style.itemImg} source={{uri: item.uri}} />
+                </View>
+              </View>
+            )
+          })}
+        </View>
       </View>
     </View>
-  )
+  ) : null
 }
 
 const style = StyleSheet.create({
   lookWrapper: {
     paddingTop: 10,
-    paddingBottom: 10,
     backgroundColor: '#f5f5f5',
   },
   lookContent: {
     backgroundColor: '#fff',
     padding: 15,
+    paddingBottom: 0,
   },
   titleWrapper: {
     flexDirection: 'row',
     height: 40,
-    marginBottom: 10,
     alignItems: 'center',
     justifyContent: 'space-between',
   },
@@ -44,6 +62,32 @@ const style = StyleSheet.create({
   moreBox: {
     flexDirection: 'row',
     alignItems: 'center',
+  },
+  itemBox: {
+    height: 140,
+    flexDirection: 'row',
+    paddingTop: 20,
+    paddingBottom: 20,
+  },
+  itemDivider: {
+    borderTopColor: '#f0f0f0',
+    borderTopWidth: 1,
+    borderStyle: 'solid',
+  },
+  itemLeft: {
+    flex: 1,
+  },
+  itemTitle: {
+    fontSize: 16,
+    lineHeight: 20,
+  },
+  itemInfo: {
+    color: '#666',
+    marginTop: 15,
+  },
+  itemImg: {
+    width: 140,
+    flex: 1,
   },
 })
 export default NewLook

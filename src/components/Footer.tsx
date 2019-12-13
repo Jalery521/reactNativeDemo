@@ -39,10 +39,10 @@ const Footer: FC<Iprops> = ({siteName}) => {
 const style = StyleSheet.create({
   footerWrapper: {
     backgroundColor: '#f5f5f5',
+    paddingTop: 15,
   },
   footerContent: {
     backgroundColor: '#fff',
-    marginTop: 20,
   },
   footerSite: {
     paddingLeft: 15,
