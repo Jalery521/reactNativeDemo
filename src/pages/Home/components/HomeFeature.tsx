@@ -61,7 +61,6 @@ const HomeFeature: FC = () => {
 
 const style = StyleSheet.create({
   featureWrapper: {
-    marginTop: 15,
     flexDirection: 'row',
     justifyContent: 'space-between',
     flexWrap: 'wrap',

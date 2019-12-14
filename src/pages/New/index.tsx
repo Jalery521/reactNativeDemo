@@ -17,6 +17,7 @@ import NewInformation from './components/NewInformation'
 import NewHot from './components/NewHot'
 import NewEvaluation from './components/NewEvaluation'
 import NewLook from './components/NewLook'
+import NewDiscount from './components/NewDiscount'
 export interface Iinformation {
   id: string
   title: string
@@ -34,15 +35,22 @@ export interface Ievaluation {
   title: string
   imgs: string[]
 }
-interface Iprops {
-  navigation: any
-}
 export interface IlookItem {
   id: string
   title: string
   people: number
   date: string
   uri: string
+}
+export interface IdiscountItem {
+  id: string
+  name: string
+  people: number
+  uri: string
+  lightspot: string
+}
+interface Iprops {
+  navigation: any
 }
 
 interface Istate {
@@ -51,6 +59,7 @@ interface Istate {
   hot: IhotItem[]
   evaluation: Ievaluation
   lookList: IlookItem[]
+  discountList: IdiscountItem[]
   loading: boolean
 }
 
@@ -73,6 +82,7 @@ class NewScreen extends PureComponent<Iprops, Istate> {
       hot: [],
       evaluation: {id: '', title: '', imgs: []},
       lookList: [],
+      discountList: [],
     }
   }
 
@@ -86,13 +96,21 @@ class NewScreen extends PureComponent<Iprops, Istate> {
     })
     try {
       const {result} = await getNewAssets()
-      const {banners, information, hot, evaluation, lookList} = result
+      const {
+        banners,
+        information,
+        hot,
+        evaluation,
+        lookList,
+        discountList,
+      } = result
       this.setState({
         banners,
         information,
         hot,
         evaluation,
         lookList,
+        discountList,
       })
     } finally {
       this.setState({
@@ -109,6 +127,7 @@ class NewScreen extends PureComponent<Iprops, Istate> {
       hot,
       evaluation,
       lookList,
+      discountList,
     } = this.state
     return (
       <SafeAreaView style={{flex: 1}}>
@@ -127,6 +146,7 @@ class NewScreen extends PureComponent<Iprops, Istate> {
               <NewHot hot={hot} />
               <NewEvaluation evaluation={evaluation} />
               <NewLook lookList={lookList} />
+              <NewDiscount discountList={discountList} />
               <Footer />
             </ScrollView>
           </View>
