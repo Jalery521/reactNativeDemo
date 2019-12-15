@@ -1,11 +1,11 @@
-import React, {FC} from 'react'
-import {Text, View, Image} from 'react-native'
+import React, { FC } from 'react'
+import { Text, View, Image } from 'react-native'
 import commonStyle from '../../../../common/style'
 interface Iprops {
   recommends: IhouseItem[]
 }
 
-const SecondRecommends: FC<Iprops> = ({recommends}) => {
+const SecondRecommends: FC<Iprops> = ({ recommends }) => {
   return (
     <View>
       {recommends && recommends.length
@@ -15,25 +15,29 @@ const SecondRecommends: FC<Iprops> = ({recommends}) => {
                 key={recommend.id}
                 style={[
                   commonStyle.houseItem,
-                  index > 0 ? commonStyle.houseDivider : null,
+                  index > 0 ? commonStyle.itemDivider : null,
                 ]}>
-                <View style={{flexDirection: 'row'}}>
+                <View style={{ flexDirection: 'row' }}>
                   <Image style={commonStyle.itemImg} source={recommend} />
                   <View>
-                    <Text style={commonStyle.descTitle}>{recommend.title}</Text>
-                    <Text style={commonStyle.descTags}>{recommend.desc}</Text>
-                    <View style={{flexDirection: 'row'}}>
-                      <Text style={commonStyle.totalPrice}>
+                    <Text style={commonStyle.itemDescTitle}>
+                      {recommend.title}
+                    </Text>
+                    <Text style={commonStyle.itemDescTags}>
+                      {recommend.desc}
+                    </Text>
+                    <View style={{ flexDirection: 'row' }}>
+                      <Text style={commonStyle.itemTotalPrice}>
                         {recommend.total}
                       </Text>
-                      <Text style={commonStyle.averagePrice}>
+                      <Text style={commonStyle.itemAveragePrice}>
                         {recommend.price}
                       </Text>
                     </View>
-                    <View style={{flexDirection: 'row'}}>
+                    <View style={{ flexDirection: 'row' }}>
                       {recommend.traits.map(trait => {
                         return (
-                          <Text style={commonStyle.houseTrait} key={trait}>
+                          <Text style={commonStyle.itemTrait} key={trait}>
                             {trait}
                           </Text>
                         )

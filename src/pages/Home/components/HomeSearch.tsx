@@ -1,9 +1,9 @@
-import React, {FC, useState} from 'react'
-import {View, Text, Picker, TextInput, StyleSheet} from 'react-native'
-import {connect} from 'react-redux'
+import React, { FC, useState } from 'react'
+import { View, Text, Picker, TextInput, StyleSheet } from 'react-native'
+import { connect } from 'react-redux'
 import Icon from '../../../components/Icon'
-import {addSearchHistory} from '../../../store/reducer/actions'
-import {IhotHistoryItem} from '../index.d'
+import { addSearchHistory } from '../../../store/reducer/actions'
+import { IhotHistoryItem } from '../index.d'
 const pickerOptions = [
   {
     name: '二手房',
@@ -37,7 +37,7 @@ type Icategory = 'second' | 'rent' | 'new' | 'office_rent' | 'office_sale'
 const HomeSearch: FC<Iprops> = props => {
   const [category, changeCategory] = useState('second' as Icategory)
   const [searchText, changeSearchText] = useState('')
-  const {handleChangeIsShow, hotSearch, historyData, addSearchHistory} = props
+  const { handleChangeIsShow, hotSearch, historyData, addSearchHistory } = props
   function handleAddHistory(text: string) {
     text = text.trim()
     if (!historyData.includes(text)) {
@@ -74,7 +74,9 @@ const HomeSearch: FC<Iprops> = props => {
             placeholder='你想找的小区、商圈'
             value={searchText}
             onChangeText={val => changeSearchText(val.trim())}
-            onSubmitEditing={({nativeEvent: {text}}) => handleAddHistory(text)}
+            onSubmitEditing={({ nativeEvent: { text } }) =>
+              handleAddHistory(text)
+            }
           />
         </View>
         <Text style={style.cancelBtn} onPress={handleChangeIsShow}>
@@ -92,7 +94,7 @@ const HomeSearch: FC<Iprops> = props => {
           })}
         </View>
       ) : (
-        <View style={{padding: 15}}>
+        <View style={{ padding: 15 }}>
           <Text style={style.hotTitle}>热门搜索</Text>
           <View style={style.hotContent}>
             {hotSearch && hotSearch.length
@@ -184,7 +186,4 @@ const mapStateToProps = (store: Istore) => {
 const mapDispatchToProps = {
   addSearchHistory,
 }
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(HomeSearch)
+export default connect(mapStateToProps, mapDispatchToProps)(HomeSearch)

@@ -1,5 +1,5 @@
-import React, {FC} from 'react'
-import {View, Text, StyleSheet} from 'react-native'
+import React, { FC } from 'react'
+import { View, Text, StyleSheet } from 'react-native'
 import Icon from './../../../components/Icon'
 const features = [
   {
@@ -49,7 +49,7 @@ const HomeFeature: FC = () => {
     <View style={style.featureWrapper}>
       {features.map((item, index) => {
         return (
-          <View style={style.featureBox} key={index}>
+          <View style={style.featureItem} key={index}>
             <Icon name={item.name} size={20} />
             <Text style={style.itemName}>{item.text}</Text>
           </View>
@@ -65,7 +65,7 @@ const style = StyleSheet.create({
     justifyContent: 'space-between',
     flexWrap: 'wrap',
   },
-  featureBox: {
+  featureItem: {
     width: '20%',
     height: 80,
     justifyContent: 'center',

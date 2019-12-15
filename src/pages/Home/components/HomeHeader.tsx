@@ -1,5 +1,5 @@
-import React, {FC} from 'react'
-import {View, Text, StyleSheet} from 'react-native'
+import React, { FC } from 'react'
+import { View, Text, StyleSheet } from 'react-native'
 import Icon from '../../../components/Icon'
 
 interface Iprops {
@@ -8,7 +8,7 @@ interface Iprops {
 }
 
 const HomeHeader: FC<Iprops> = props => {
-  const {handleChangeIsShow, navigation} = props
+  const { handleChangeIsShow, navigation } = props
   return (
     <View style={style.headerWarpper}>
       <View style={style.headerContent}>

@@ -1,4 +1,4 @@
-import {createStackNavigator} from 'react-navigation-stack'
+import { createStackNavigator } from 'react-navigation-stack'
 import HomeScreen from '../pages/Home'
 import UserScreen from '../pages/User'
 import LoginScreen from '../pages/Login'

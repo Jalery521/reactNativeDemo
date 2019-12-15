@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'react'
+import React, { PureComponent } from 'react'
 import {
   View,
   StyleSheet,
@@ -6,7 +6,7 @@ import {
   TextInput,
   ScrollView,
 } from 'react-native'
-import {getNewAssets} from '../../api'
+import { getNewAssets } from '../../api'
 import Icon from '../../components/Icon'
 import NavHeader from '../../components/NavHeader'
 import Loading from '../../components/Loading'
@@ -18,6 +18,7 @@ import NewHot from './components/NewHot'
 import NewEvaluation from './components/NewEvaluation'
 import NewLook from './components/NewLook'
 import NewDiscount from './components/NewDiscount'
+import NewOpening from './components/NewOpening'
 export interface Iinformation {
   id: string
   title: string
@@ -49,6 +50,15 @@ export interface IdiscountItem {
   uri: string
   lightspot: string
 }
+export interface IopenItem {
+  id: string
+  name: string
+  area: string
+  address: string
+  typeDesc: string
+  openDate: string
+  uri: string
+}
 interface Iprops {
   navigation: any
 }
@@ -60,11 +70,12 @@ interface Istate {
   evaluation: Ievaluation
   lookList: IlookItem[]
   discountList: IdiscountItem[]
+  openList: IopenItem[]
   loading: boolean
 }
 
 class NewScreen extends PureComponent<Iprops, Istate> {
-  static navigationOptions = ({navigation}: Iprops) => {
+  static navigationOptions = ({ navigation }: Iprops) => {
     const params = {
       navigation,
       title: '新房',
@@ -80,9 +91,10 @@ class NewScreen extends PureComponent<Iprops, Istate> {
       loading: false,
       information: [],
       hot: [],
-      evaluation: {id: '', title: '', imgs: []},
+      evaluation: { id: '', title: '', imgs: [] },
       lookList: [],
       discountList: [],
+      openList: [],
     }
   }
 
@@ -95,7 +107,7 @@ class NewScreen extends PureComponent<Iprops, Istate> {
       loading: true,
     })
     try {
-      const {result} = await getNewAssets()
+      const { result } = await getNewAssets()
       const {
         banners,
         information,
@@ -103,6 +115,7 @@ class NewScreen extends PureComponent<Iprops, Istate> {
         evaluation,
         lookList,
         discountList,
+        openList,
       } = result
       this.setState({
         banners,
@@ -111,6 +124,7 @@ class NewScreen extends PureComponent<Iprops, Istate> {
         evaluation,
         lookList,
         discountList,
+        openList,
       })
     } finally {
       this.setState({
@@ -128,9 +142,10 @@ class NewScreen extends PureComponent<Iprops, Istate> {
       evaluation,
       lookList,
       discountList,
+      openList,
     } = this.state
     return (
-      <SafeAreaView style={{flex: 1}}>
+      <SafeAreaView style={{ flex: 1 }}>
         <Loading isShow={loading}>
           <View style={style.newWrapper}>
             <View style={style.searchWrapper}>
@@ -147,6 +162,7 @@ class NewScreen extends PureComponent<Iprops, Istate> {
               <NewEvaluation evaluation={evaluation} />
               <NewLook lookList={lookList} />
               <NewDiscount discountList={discountList} />
+              <NewOpening openList={openList} />
               <Footer />
             </ScrollView>
           </View>

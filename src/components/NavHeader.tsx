@@ -1,5 +1,5 @@
-import React, {FC} from 'react'
-import {View, Text, StyleSheet} from 'react-native'
+import React, { FC } from 'react'
+import { View, Text, StyleSheet } from 'react-native'
 import Icon from './Icon'
 interface IheaderParams {
   title: string
@@ -7,7 +7,7 @@ interface IheaderParams {
   navigation: any
 }
 
-export const NavHeader: FC<IheaderParams> = ({isBack, title, navigation}) => {
+export const NavHeader: FC<IheaderParams> = ({ isBack, title, navigation }) => {
   return (
     <View style={style.headerWrapper}>
       <Icon

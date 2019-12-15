@@ -1,10 +1,11 @@
-import React, {FC} from 'react'
-import {View, Text, Image, StyleSheet, ScrollView} from 'react-native'
-import {IhotItem} from '../index'
+// 热门楼盘
+import React, { FC } from 'react'
+import { View, Text, Image, StyleSheet, ScrollView } from 'react-native'
+import { IhotItem } from '../index'
 interface Iprops {
   hot: IhotItem[]
 }
-const NewHot: FC<Iprops> = ({hot}) => {
+const NewHot: FC<Iprops> = ({ hot }) => {
   return hot.length ? (
     <View style={style.hotWrapper}>
       <View style={style.hotContainer}>
@@ -18,13 +19,13 @@ const NewHot: FC<Iprops> = ({hot}) => {
           {hot.map(item => {
             return (
               <View style={style.hotItem} key={item.id}>
-                <Image style={style.hotImg} source={item} />
-                <View style={{paddingLeft: 10}}>
-                  <Text style={style.hotName}>{item.name}</Text>
-                  <Text style={style.hotAddress}>
+                <Image style={style.itemImg} source={item} />
+                <View style={{ paddingLeft: 10 }}>
+                  <Text style={style.itemName}>{item.name}</Text>
+                  <Text style={style.itemAddress}>
                     {item.area} {item.address}
                   </Text>
-                  <Text style={style.hotPrice}>{item.price}/㎡</Text>
+                  <Text style={style.itemPrice}>{item.price}/㎡</Text>
                 </View>
               </View>
             )
@@ -60,21 +61,21 @@ const style = StyleSheet.create({
     borderWidth: 1,
     borderStyle: 'solid',
   },
-  hotImg: {
+  itemImg: {
     width: '100%',
     flex: 1,
   },
-  hotName: {
+  itemName: {
     fontSize: 14,
     fontWeight: 'bold',
     lineHeight: 30,
   },
-  hotAddress: {
+  itemAddress: {
     fontSize: 12,
     color: '#9e9e9e',
     lineHeight: 16,
   },
-  hotPrice: {
+  itemPrice: {
     fontSize: 16,
     lineHeight: 32,
     color: '#ff6b71',

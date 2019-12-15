@@ -1,12 +1,12 @@
-import React, {FC} from 'react'
-import {View, Text, StyleSheet} from 'react-native'
+import React, { FC } from 'react'
+import { View, Text, StyleSheet } from 'react-native'
 import Icon from './Icon'
 
 interface Iprops {
   siteName?: string
 }
 
-const Footer: FC<Iprops> = ({siteName}) => {
+const Footer: FC<Iprops> = ({ siteName }) => {
   return (
     <View style={style.footerWrapper}>
       <View style={style.footerContent}>

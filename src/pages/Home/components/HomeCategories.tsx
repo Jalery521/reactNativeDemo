@@ -1,5 +1,5 @@
-import React, {FC} from 'react'
-import {View, Image, Text, StyleSheet} from 'react-native'
+import React, { FC } from 'react'
+import { View, Image, Text, StyleSheet } from 'react-native'
 
 const HomeCategories: FC = () => {
   const categories = [
@@ -29,8 +29,8 @@ const HomeCategories: FC = () => {
       {categories.map((category, index) => {
         return (
           <View style={style.categoryItem} key={index}>
-            <Image style={style.imageStyle} source={category} />
-            <Text style={style.categoryName}>{category.name}</Text>
+            <Image style={style.itemImg} source={category} />
+            <Text style={style.itemName}>{category.name}</Text>
           </View>
         )
       })}
@@ -48,11 +48,11 @@ const style = StyleSheet.create({
   categoryItem: {
     position: 'relative',
   },
-  imageStyle: {
+  itemImg: {
     width: 80,
     height: 100,
   },
-  categoryName: {
+  itemName: {
     position: 'absolute',
     bottom: 10,
     color: '#333',

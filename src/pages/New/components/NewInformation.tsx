@@ -1,11 +1,12 @@
-import React, {FC} from 'react'
-import {View, Text, Image, StyleSheet} from 'react-native'
+// Q房资讯
+import React, { FC } from 'react'
+import { View, Text, Image, StyleSheet } from 'react-native'
 import Swiper from 'react-native-swiper'
-import {Iinformation} from '../index'
+import { Iinformation } from '../index'
 interface Iprops {
   information: Iinformation[][]
 }
-const NewInformation: FC<Iprops> = ({information}) => {
+const NewInformation: FC<Iprops> = ({ information }) => {
   return information.length ? (
     <View style={style.informationWrapper}>
       <Image
@@ -15,7 +16,7 @@ const NewInformation: FC<Iprops> = ({information}) => {
             'https://i.qfangimg.com/resource/qfang-mobile/static/img/headline-pic.png',
         }}
       />
-      <View style={{flex: 1}}>
+      <View style={{ flex: 1 }}>
         <Swiper horizontal={false} autoplay={true} showsPagination={false}>
           {information.map((item, index) => {
             return (

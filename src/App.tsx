@@ -1,7 +1,6 @@
-import React, {FC} from 'react'
-import {SafeAreaView} from 'react-native'
-import {createAppContainer} from 'react-navigation'
-import {Provider} from 'react-redux'
+import React, { FC } from 'react'
+import { createAppContainer } from 'react-navigation'
+import { Provider } from 'react-redux'
 import routes from './routes'
 import store from './store'
 const Navigator = createAppContainer(routes)

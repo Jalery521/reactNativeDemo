@@ -1,17 +1,18 @@
-import React, {FC} from 'react'
-import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native'
+// 小Q看房
+import React, { FC } from 'react'
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
 import Icon from '../../../components/Icon'
 interface Iprops {
   lookList: any[]
 }
-const NewLook: FC<Iprops> = ({lookList}) => {
+const NewLook: FC<Iprops> = ({ lookList }) => {
   return lookList.length ? (
     <View style={style.lookWrapper}>
       <View style={style.lookContent}>
         <View style={style.titleWrapper}>
           <Text style={style.lookTitle}>小Q看房</Text>
           <TouchableOpacity activeOpacity={0.8} style={style.moreBox}>
-            <Text style={{marginRight: 5, color: '#666666'}}>更多</Text>
+            <Text style={{ marginRight: 5, color: '#666666' }}>更多</Text>
             <Icon name='arrowright' size={12} color='#666666' />
           </TouchableOpacity>
         </View>
@@ -28,7 +29,7 @@ const NewLook: FC<Iprops> = ({lookList}) => {
                   </Text>
                 </View>
                 <View>
-                  <Image style={style.itemImg} source={{uri: item.uri}} />
+                  <Image style={style.itemImg} source={item} />
                 </View>
               </View>
             )

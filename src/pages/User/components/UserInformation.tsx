@@ -1,8 +1,8 @@
-import React, {FC} from 'react'
-import {View, Text, Image, StyleSheet} from 'react-native'
-import {connect} from 'react-redux'
+import React, { FC } from 'react'
+import { View, Text, Image, StyleSheet } from 'react-native'
+import { connect } from 'react-redux'
 import Icon from '../../../components/Icon'
-import {width} from '../../../utils'
+import { width } from '../../../utils'
 
 interface Iprops {
   navigation: any
@@ -11,12 +11,12 @@ interface Iprops {
 }
 
 const UserInformation: FC<Iprops> = props => {
-  const {isLogined, navigation, userInfo} = props
+  const { isLogined, navigation, userInfo } = props
   return (
     <View style={style.informationWrapper}>
       <View style={style.bgWrapper}>
         <Image
-          style={{flex: 1, width}}
+          style={{ flex: 1, width }}
           source={{
             uri:
               'https://i.qfangimg.com/resource/qfang-mobile/static/img/user-center-bg.png',

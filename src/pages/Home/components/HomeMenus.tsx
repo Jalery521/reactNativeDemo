@@ -1,5 +1,5 @@
-import React, {FC} from 'react'
-import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native'
+import React, { FC } from 'react'
+import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
 
 interface ImenuItem {
   name: string
@@ -41,8 +41,8 @@ const menus: ImenuItem[] = [
     value: 'Overseas',
   },
 ]
-const HomeMenus: FC<Iprops> = ({navigation}) => {
-  function handleNavigation({value}: ImenuItem) {
+const HomeMenus: FC<Iprops> = ({ navigation }) => {
+  function handleNavigation({ value }: ImenuItem) {
     navigation.navigate(value)
   }
   return (
@@ -51,10 +51,10 @@ const HomeMenus: FC<Iprops> = ({navigation}) => {
         return (
           <TouchableOpacity
             activeOpacity={0.8}
-            style={style.menuBox}
+            style={style.menuItem}
             onPress={() => handleNavigation(menu)}
             key={index}>
-            <Image style={style.itemImage} source={menu} />
+            <Image style={style.itemImg} source={menu} />
             <Text style={style.itemName}>{menu.name}</Text>
           </TouchableOpacity>
         )
@@ -69,11 +69,11 @@ const style = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  menuBox: {
+  menuItem: {
     width: 60,
     height: 80,
   },
-  itemImage: {
+  itemImg: {
     width: 60,
     height: 60,
   },

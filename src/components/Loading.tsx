@@ -1,15 +1,15 @@
-import React, {FC} from 'react'
-import {Modal, View, ActivityIndicator} from 'react-native'
+import React, { FC } from 'react'
+import { Modal, View, ActivityIndicator } from 'react-native'
 
 interface IloadingProps {
   isShow: boolean
   children: any
 }
-const Loading: FC<IloadingProps> = ({isShow, children}) => {
+const Loading: FC<IloadingProps> = ({ isShow, children }) => {
   return isShow ? (
     <Modal transparent={true}>
-      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-        <ActivityIndicator style={{alignSelf: 'center'}} />
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+        <ActivityIndicator style={{ alignSelf: 'center' }} />
       </View>
     </Modal>
   ) : (

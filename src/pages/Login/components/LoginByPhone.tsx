@@ -1,4 +1,4 @@
-import React, {FC, useState, useEffect, useRef} from 'react'
+import React, { FC, useState, useEffect, useRef } from 'react'
 import {
   View,
   Text,
@@ -8,10 +8,10 @@ import {
   Alert,
   TouchableOpacity,
 } from 'react-native'
-import {connect} from 'react-redux'
-import {pickUserInfo} from '../../../store/reducer/actions'
+import { connect } from 'react-redux'
+import { pickUserInfo } from '../../../store/reducer/actions'
 import commonStyle from '../style'
-import {TpageType} from '../index'
+import { TpageType } from '../index'
 interface Iprops {
   handleCutPageType: (pageType: TpageType) => void
   pickUserInfo: any
@@ -26,15 +26,15 @@ const LoginByPhone: FC<Iprops> = props => {
   const [verifyCode, changeVerifyCode] = useState('')
   const [countNumber, changeCountNumber] = useState(59)
   const countTimer = useRef(null as any)
-  const {handleCutPageType, initPhoneNumber, pickUserInfo, navigation} = props
+  const { handleCutPageType, initPhoneNumber, pickUserInfo, navigation } = props
   // 点击了获取验证码
   function handleGetCode() {
     if (!phoneNumber) {
-      Alert.alert('', '请填写手机号码', [{text: '确定'}])
+      Alert.alert('', '请填写手机号码', [{ text: '确定' }])
       return
     }
     if (!/^1[3|5|7|8|9]\d{9}$/.test(phoneNumber)) {
-      return Alert.alert('', '手机格式不正确', [{text: '确定'}])
+      return Alert.alert('', '手机格式不正确', [{ text: '确定' }])
     }
     changeIsGetCode(true)
   }
@@ -44,7 +44,7 @@ const LoginByPhone: FC<Iprops> = props => {
       initPhoneNumber !== `${regionCode}${phoneNumber}` ||
       !/^[1-9]\d{5}$/.test(verifyCode)
     ) {
-      Alert.alert('', '手机号或验证码错误', [{text: '确定'}])
+      Alert.alert('', '手机号或验证码错误', [{ text: '确定' }])
       return
     }
     await pickUserInfo()
@@ -76,7 +76,7 @@ const LoginByPhone: FC<Iprops> = props => {
   })
 
   return (
-    <View style={{flex: 1}}>
+    <View style={{ flex: 1 }}>
       <Text style={commonStyle.titleName}>手机快捷登陆</Text>
       <Text style={style.loginTips}>
         未注册过的手机号将自动创建qfangwang账号，经纪人不会看到您的手机号
@@ -155,4 +155,4 @@ const mapStateToProps = (store: Istore) => {
   }
 }
 
-export default connect(mapStateToProps, {pickUserInfo})(LoginByPhone)
+export default connect(mapStateToProps, { pickUserInfo })(LoginByPhone)

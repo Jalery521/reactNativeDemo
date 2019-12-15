@@ -1,5 +1,5 @@
-import {EacionType} from './index'
-import {getUserInfo} from '../../api'
+import { EacionType } from './index'
+import { getUserInfo } from '../../api'
 
 export const changeDrawerStatus = () => {
   return {
@@ -51,7 +51,7 @@ export const clearSearchHistory = () => {
 export const pickUserInfo = () => {
   return (dispatch: any) => {
     return new Promise(resolve => {
-      getUserInfo().then(({result}: any) => {
+      getUserInfo().then(({ result }: any) => {
         dispatch(changeUserInfo(result.userInfo))
         dispatch(changeLoginStatus(true))
         resolve()
@@ -62,7 +62,7 @@ export const pickUserInfo = () => {
 
 export const wipeLoginData = () => {
   return (dispatch: any) => {
-    dispatch(changeUserInfo({id: '', avatar: '', nickName: ''}))
+    dispatch(changeUserInfo({ id: '', avatar: '', nickName: '' }))
     dispatch(changeLoginStatus(false))
   }
 }

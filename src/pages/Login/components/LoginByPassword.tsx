@@ -1,4 +1,4 @@
-import React, {FC, useState} from 'react'
+import React, { FC, useState } from 'react'
 import {
   View,
   Text,
@@ -8,10 +8,10 @@ import {
   Alert,
   TouchableOpacity,
 } from 'react-native'
-import {connect} from 'react-redux'
-import {pickUserInfo} from '../../../store/reducer/actions'
+import { connect } from 'react-redux'
+import { pickUserInfo } from '../../../store/reducer/actions'
 import commonStyle from '../style'
-import {TpageType} from '../index'
+import { TpageType } from '../index'
 interface Iprops {
   handleCutPageType: (pageType: TpageType) => void
   pickUserInfo: any
@@ -37,7 +37,7 @@ const LoginByPhone: FC<Iprops> = props => {
       initPhoneNumber !== `${regionCode}${phoneNumber}` ||
       initPassword !== password
     ) {
-      Alert.alert('', '手机号或密码错误', [{text: '确定'}])
+      Alert.alert('', '手机号或密码错误', [{ text: '确定' }])
       return
     }
     await pickUserInfo()
@@ -45,7 +45,7 @@ const LoginByPhone: FC<Iprops> = props => {
   }
 
   return (
-    <View style={{flex: 1}}>
+    <View style={{ flex: 1 }}>
       <Text style={commonStyle.titleName}>账号密码登陆</Text>
       <View style={commonStyle.contentBox}>
         <View style={commonStyle.formItem}>
@@ -116,4 +116,4 @@ const mapStateToProps = (store: Istore) => {
     initPassword: store.password,
   }
 }
-export default connect(mapStateToProps, {pickUserInfo})(LoginByPhone)
+export default connect(mapStateToProps, { pickUserInfo })(LoginByPhone)

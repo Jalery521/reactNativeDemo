@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'react'
+import React, { PureComponent } from 'react'
 import {
   View,
   Text,
@@ -10,8 +10,8 @@ import {
 } from 'react-native'
 import Icon from '../../components/Icon'
 import commonStyle from '../common/style'
-import {getSecondHouses} from '../../api'
-import {height} from '../../utils'
+import { getSecondHouses } from '../../api'
+import { height } from '../../utils'
 import Footer from '../../components/Footer'
 import Separator from '../../components/Separator'
 import NavHeader from '../../components/NavHeader'
@@ -26,7 +26,7 @@ interface Istate {
 }
 
 class SecondScreen extends PureComponent<Iprops, Istate> {
-  static navigationOptions = ({navigation}: Iprops) => {
+  static navigationOptions = ({ navigation }: Iprops) => {
     const params = {
       navigation,
       title: '二手房',
@@ -51,9 +51,9 @@ class SecondScreen extends PureComponent<Iprops, Istate> {
     this.setState({
       loading: true,
     })
-    const {tableData} = this.state
+    const { tableData } = this.state
     try {
-      const {result} = await getSecondHouses()
+      const { result } = await getSecondHouses()
       let newTableData: any[] = result
       if (tableData.length) {
         newTableData = [...tableData, ...result]
@@ -69,11 +69,11 @@ class SecondScreen extends PureComponent<Iprops, Istate> {
   }
 
   render() {
-    const {tableData, loading} = this.state
+    const { tableData, loading } = this.state
     return (
-      <SafeAreaView style={{flex: 1}}>
+      <SafeAreaView style={{ flex: 1 }}>
         <Loading isShow={loading}>
-          <View style={{paddingTop: 60}}>
+          <View style={{ paddingTop: 60 }}>
             <View style={style.searchWrapper}>
               <View style={style.searchBox}>
                 <Icon name='sousuo' size={16} color='#a0a0a0' />
@@ -87,31 +87,35 @@ class SecondScreen extends PureComponent<Iprops, Istate> {
 
               // }
               ItemSeparatorComponent={Separator}
-              renderItem={({item}: any) => {
+              renderItem={({ item }: any) => {
                 return (
                   <View
                     key={item.id}
                     style={[
                       commonStyle.houseItem,
-                      {paddingLeft: 15, paddingRight: 15},
+                      { paddingLeft: 15, paddingRight: 15 },
                     ]}>
-                    <View style={{flexDirection: 'row'}}>
+                    <View style={{ flexDirection: 'row' }}>
                       <Image style={commonStyle.itemImg} source={item} />
                       <View>
-                        <Text style={commonStyle.descTitle}>{item.title}</Text>
-                        <Text style={commonStyle.descTags}>{item.desc}</Text>
-                        <View style={{flexDirection: 'row'}}>
-                          <Text style={commonStyle.totalPrice}>
+                        <Text style={commonStyle.itemDescTitle}>
+                          {item.title}
+                        </Text>
+                        <Text style={commonStyle.itemDescTags}>
+                          {item.desc}
+                        </Text>
+                        <View style={{ flexDirection: 'row' }}>
+                          <Text style={commonStyle.itemTotalPrice}>
                             {item.total}
                           </Text>
-                          <Text style={commonStyle.averagePrice}>
+                          <Text style={commonStyle.itemAveragePrice}>
                             {item.price}
                           </Text>
                         </View>
-                        <View style={{flexDirection: 'row'}}>
+                        <View style={{ flexDirection: 'row' }}>
                           {(item.traits as any[]).map(trait => {
                             return (
-                              <Text style={commonStyle.houseTrait} key={trait}>
+                              <Text style={commonStyle.itemTrait} key={trait}>
                                 {trait}
                               </Text>
                             )

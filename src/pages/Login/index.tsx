@@ -1,9 +1,9 @@
-import React, {PureComponent} from 'react'
-import {SafeAreaView, Text, View, ScrollView} from 'react-native'
+import React, { PureComponent } from 'react'
+import { SafeAreaView, Text, View, ScrollView } from 'react-native'
 import NavHeader from '../../components/NavHeader'
 import LoginByPassword from './components/LoginByPassword'
 import LoginByPhone from './components/LoginByPhone'
-import {height} from '../../utils'
+import { height } from '../../utils'
 interface Iprops {
   navigation: any
 }
@@ -15,7 +15,7 @@ interface Istate {
 }
 
 class LoginScreen extends PureComponent<Iprops, Istate> {
-  static navigationOptions = ({navigation}: Iprops) => {
+  static navigationOptions = ({ navigation }: Iprops) => {
     const params = {
       navigation,
       title: '登录',
@@ -40,12 +40,12 @@ class LoginScreen extends PureComponent<Iprops, Istate> {
   }
 
   render() {
-    const {pageType} = this.state
-    const {navigation} = this.props
+    const { pageType } = this.state
+    const { navigation } = this.props
     return (
-      <SafeAreaView style={{flex: 1}}>
+      <SafeAreaView style={{ flex: 1 }}>
         <ScrollView>
-          <View style={{padding: 15, height: height - 80}}>
+          <View style={{ padding: 15, height: height - 80 }}>
             {pageType === 'loginByPhone' ? (
               <LoginByPhone
                 handleCutPageType={this.handleCutPageType}

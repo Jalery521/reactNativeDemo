@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'react'
+import React, { PureComponent } from 'react'
 import {
   View,
   Text,
@@ -10,10 +10,10 @@ import {
   Alert,
   TouchableOpacity,
 } from 'react-native'
-import {connect} from 'react-redux'
-import {changeUserPassword, wipeLoginData} from '../../store/reducer/actions'
+import { connect } from 'react-redux'
+import { changeUserPassword, wipeLoginData } from '../../store/reducer/actions'
 import commonStyle from './style'
-import {height} from '../../utils'
+import { height } from '../../utils'
 import NavHeader from '../../components/NavHeader'
 interface Iprops {
   navigation: any
@@ -32,7 +32,7 @@ interface Istate {
 }
 
 class ResetPasswordScreen extends PureComponent<Iprops, Istate> {
-  static navigationOptions = ({navigation}: Iprops) => {
+  static navigationOptions = ({ navigation }: Iprops) => {
     const params = {
       navigation,
       title: '重置密码',
@@ -57,18 +57,18 @@ class ResetPasswordScreen extends PureComponent<Iprops, Istate> {
   }
 
   changeFormItem = (key: keyof Istate, val: any) => {
-    this.setState({...this.state, [key]: val})
+    this.setState({ ...this.state, [key]: val })
   }
 
   handleSubmit = () => {
-    const {initPhoneNumber, changeUserPassword, navigation} = this.props
-    const {regionCode, phoneNumber, password, verifyCode} = this.state
+    const { initPhoneNumber, changeUserPassword, navigation } = this.props
+    const { regionCode, phoneNumber, password, verifyCode } = this.state
     if (initPhoneNumber !== `${regionCode}${phoneNumber}`) {
-      Alert.alert('', '手机号码错误', [{text: '确定'}])
+      Alert.alert('', '手机号码错误', [{ text: '确定' }])
       return
     }
     if (!/^[1-9]\d{5}$/.test(verifyCode)) {
-      Alert.alert('', '验证码错误', [{text: '确定'}])
+      Alert.alert('', '验证码错误', [{ text: '确定' }])
       return
     }
     changeUserPassword(password)
@@ -84,16 +84,16 @@ class ResetPasswordScreen extends PureComponent<Iprops, Istate> {
   }
 
   handleGetCode = () => {
-    const {phoneNumber} = this.state
+    const { phoneNumber } = this.state
     if (!phoneNumber || !/^1[3|5|7|8|9]\d{9}$/.test(phoneNumber)) {
-      Alert.alert('', '请填写正确的手机号码', [{text: '确定'}])
+      Alert.alert('', '请填写正确的手机号码', [{ text: '确定' }])
       return
     }
     this.setState({
       isGetCode: true,
     })
     this.countTimer = setInterval(() => {
-      const {countNumber} = this.state
+      const { countNumber } = this.state
       if (countNumber === 50) {
         const number = Math.ceil(Math.random() * 899999 + 100000)
         this.setState({
@@ -127,9 +127,9 @@ class ResetPasswordScreen extends PureComponent<Iprops, Istate> {
       password,
     } = this.state
     return (
-      <SafeAreaView style={{flex: 1}}>
+      <SafeAreaView style={{ flex: 1 }}>
         <ScrollView>
-          <View style={{padding: 15, height: height - 80}}>
+          <View style={{ padding: 15, height: height - 80 }}>
             <Text style={commonStyle.titleName}>设置密码</Text>
             <View style={commonStyle.contentBox}>
               <View style={commonStyle.formItem}>
@@ -225,6 +225,6 @@ const mapStateToProps = (store: Istore) => {
     initPhoneNumber: store.phoneNumber,
   }
 }
-export default connect(mapStateToProps, {changeUserPassword, wipeLoginData})(
+export default connect(mapStateToProps, { changeUserPassword, wipeLoginData })(
   ResetPasswordScreen,
 )

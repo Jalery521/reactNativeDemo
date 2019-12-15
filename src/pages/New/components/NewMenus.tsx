@@ -1,6 +1,5 @@
-import React, {FC} from 'react'
-import {View, Image, Text, StyleSheet, TouchableOpacity} from 'react-native'
-
+import React, { FC } from 'react'
+import { View, Image, Text, StyleSheet, TouchableOpacity } from 'react-native'
 interface Iprops {
   navigation: any
 }
@@ -55,7 +54,7 @@ const NewMenus: FC = () => {
             activeOpacity={0.8}
             key={item.name}
             style={style.menuItem}>
-            <Image style={style.menuIcon} source={{uri: item.uri}} />
+            <Image style={style.itemIcon} source={{ uri: item.uri }} />
             <Text>{item.name}</Text>
           </TouchableOpacity>
         )
@@ -75,7 +74,7 @@ const style = StyleSheet.create({
     alignItems: 'center',
     height: 100,
   },
-  menuIcon: {
+  itemIcon: {
     width: 50,
     height: 50,
     marginBottom: 10,

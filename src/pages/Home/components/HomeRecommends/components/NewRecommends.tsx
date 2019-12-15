@@ -1,11 +1,11 @@
-import React, {FC} from 'react'
-import {Text, View, Image} from 'react-native'
+import React, { FC } from 'react'
+import { Text, View, Image } from 'react-native'
 import commonStyle from '../../../../common/style'
 interface Iprops {
   recommends: IhouseItem[]
 }
 
-const NewRecommends: FC<Iprops> = ({recommends}) => {
+const NewRecommends: FC<Iprops> = ({ recommends }) => {
   return (
     <View>
       {recommends && recommends.length
@@ -15,20 +15,22 @@ const NewRecommends: FC<Iprops> = ({recommends}) => {
                 key={recommend.id}
                 style={[
                   commonStyle.houseItem,
-                  index > 0 ? commonStyle.houseDivider : null,
+                  index > 0 ? commonStyle.itemDivider : null,
                 ]}>
-                <View style={{flexDirection: 'row'}}>
+                <View style={{ flexDirection: 'row' }}>
                   <Image style={commonStyle.itemImg} source={recommend} />
                   <View>
-                    <Text style={commonStyle.descTitle}>{recommend.title}</Text>
+                    <Text style={commonStyle.itemDescTitle}>
+                      {recommend.title}
+                    </Text>
                     <Text>{recommend.tags.join('  ')}</Text>
-                    <Text style={commonStyle.totalPrice}>
+                    <Text style={commonStyle.itemTotalPrice}>
                       {recommend.price}
                     </Text>
-                    <View style={{flexDirection: 'row'}}>
+                    <View style={{ flexDirection: 'row' }}>
                       {recommend.traits.map(trait => {
                         return (
-                          <Text style={commonStyle.houseTrait} key={trait}>
+                          <Text style={commonStyle.itemTrait} key={trait}>
                             {trait}
                           </Text>
                         )
@@ -37,9 +39,13 @@ const NewRecommends: FC<Iprops> = ({recommends}) => {
                   </View>
                 </View>
                 <View
-                  style={{marginTop: 12, marginLeft: 12, flexDirection: 'row'}}>
-                  <Text style={commonStyle.saleIcon}>惠</Text>
-                  <Text style={commonStyle.saleDesc}>{recommend.sale}</Text>
+                  style={{
+                    marginTop: 12,
+                    marginLeft: 12,
+                    flexDirection: 'row',
+                  }}>
+                  <Text style={commonStyle.itemSaleIcon}>惠</Text>
+                  <Text style={commonStyle.itemSaleDesc}>{recommend.sale}</Text>
                 </View>
               </View>
             )

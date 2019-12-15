@@ -1,5 +1,5 @@
-import React, {FC} from 'react'
-import {View, Text, StyleSheet} from 'react-native'
+import React, { FC } from 'react'
+import { View, Text, StyleSheet } from 'react-native'
 import Icon from '../../../components/Icon'
 interface Iprops {
   priceTrend: {
@@ -9,7 +9,7 @@ interface Iprops {
   }
 }
 
-const HomePrice: FC<Iprops> = ({priceTrend}) => {
+const HomePrice: FC<Iprops> = ({ priceTrend }) => {
   return (
     <View style={style.priceWrapper}>
       <View style={style.priceTitle}>

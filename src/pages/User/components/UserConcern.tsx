@@ -1,5 +1,5 @@
-import React, {FC} from 'react'
-import {View, Text, StyleSheet} from 'react-native'
+import React, { FC } from 'react'
+import { View, Text, StyleSheet } from 'react-native'
 import Icon from '../../../components/Icon'
 const concerns = [
   {
@@ -35,9 +35,9 @@ const UserConcern: FC = () => {
       <View style={style.concernContent}>
         {concerns.map((item, index) => {
           return (
-            <View style={style.concernBox} key={index}>
+            <View style={style.concernItem} key={index}>
               <Icon name={item.name} size={20} />
-              <Text style={style.concernName}>{item.text}</Text>
+              <Text style={style.itemName}>{item.text}</Text>
             </View>
           )
         })}
@@ -59,13 +59,13 @@ const style = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
   },
-  concernBox: {
+  concernItem: {
     width: '25%',
     height: 80,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  concernName: {
+  itemName: {
     marginTop: 8,
     fontSize: 12,
     color: '#666',

@@ -1,4 +1,4 @@
-import {createIconSet} from 'react-native-vector-icons'
+import { createIconSet } from 'react-native-vector-icons'
 import glyphMap from './icon.json'
 const iconSet = createIconSet(glyphMap, 'iconfont', 'iconfont.ttf')
 

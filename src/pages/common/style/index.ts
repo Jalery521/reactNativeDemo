@@ -1,10 +1,10 @@
-import {StyleSheet} from 'react-native'
+import { StyleSheet } from 'react-native'
 export default StyleSheet.create({
   houseItem: {
     paddingBottom: 20,
     paddingTop: 15,
   },
-  houseDivider: {
+  itemDivider: {
     borderTopColor: '#f0f0f0',
     borderTopWidth: 1,
     borderStyle: 'solid',
@@ -14,36 +14,36 @@ export default StyleSheet.create({
     height: 80,
     marginRight: 10,
   },
-  descTitle: {
+  itemDescTitle: {
     fontSize: 16,
   },
-  descTags: {
+  itemDescTags: {
     fontSize: 12,
     color: '#666',
   },
-  totalPrice: {
+  itemTotalPrice: {
     color: '#ff6d6d',
     fontWeight: 'bold',
   },
-  averagePrice: {
+  itemAveragePrice: {
     marginLeft: 10,
     color: '#999',
   },
-  houseTrait: {
+  itemTrait: {
     color: '#75919e',
     backgroundColor: '#effaff',
     padding: 2,
     borderRadius: 2,
     marginRight: 5,
   },
-  saleIcon: {
+  itemSaleIcon: {
     color: '#fff',
     backgroundColor: '#eb6465',
     paddingLeft: 2,
     paddingRight: 2,
     borderRadius: 2,
   },
-  saleDesc: {
+  itemSaleDesc: {
     marginLeft: 10,
     color: '#698bb3',
   },

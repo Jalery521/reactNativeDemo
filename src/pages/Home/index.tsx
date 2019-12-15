@@ -1,6 +1,6 @@
-import React, {PureComponent} from 'react'
-import {View, Text, SafeAreaView, ScrollView, StatusBar} from 'react-native'
-import {IhotHistoryItem} from './index.d'
+import React, { PureComponent } from 'react'
+import { View, Text, SafeAreaView, ScrollView, StatusBar } from 'react-native'
+import { IhotHistoryItem } from './index.d'
 import HomeHeader from './components/HomeHeader'
 import HomeSearch from './components/HomeSearch'
 import HomeMenus from './components/HomeMenus'
@@ -11,7 +11,7 @@ import HomeBanner from './components/HomeBanner'
 import HomeRecommends from './components/HomeRecommends'
 import Footer from '../../components/Footer'
 import Loading from '../../components/Loading'
-import {getHomeAssets} from '../../api'
+import { getHomeAssets } from '../../api'
 interface Iprops {
   navigation: any
 }
@@ -68,8 +68,8 @@ class HomeScreen extends PureComponent<Iprops, Istate> {
       loading: true,
     })
     try {
-      const {result} = await getHomeAssets()
-      const {priceTrend, banner, recommends, hotSearch} = result
+      const { result } = await getHomeAssets()
+      const { priceTrend, banner, recommends, hotSearch } = result
       this.setState({
         priceTrend,
         banner,
@@ -83,7 +83,7 @@ class HomeScreen extends PureComponent<Iprops, Istate> {
     }
   }
   handleChangeIsShow = () => {
-    const {showSearch} = this.state
+    const { showSearch } = this.state
     this.setState({
       showSearch: !showSearch,
     })
@@ -98,9 +98,9 @@ class HomeScreen extends PureComponent<Iprops, Istate> {
       showSearch,
       hotSearch,
     } = this.state
-    const {navigation} = this.props
+    const { navigation } = this.props
     return (
-      <SafeAreaView style={{flex: 1}}>
+      <SafeAreaView style={{ flex: 1 }}>
         <StatusBar backgroundColor='#fff' barStyle='dark-content' />
         <Loading isShow={loading}>
           <ScrollView>
