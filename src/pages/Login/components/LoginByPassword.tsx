@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
 } from 'react-native'
 import { connect } from 'react-redux'
-import { pickUserInfo } from '../../../store/reducer/actions'
+import { pickUserInfo } from '@/store/reducer/actions'
 import commonStyle from '../style'
 import { TpageType } from '../index'
 interface Iprops {
@@ -20,7 +20,7 @@ interface Iprops {
   initPassword: string
 }
 
-const LoginByPhone: FC<Iprops> = props => {
+const LoginByPhone: FC<Iprops> = (props) => {
   const [regionCode, changeRegionCode] = useState('+86')
   const [phoneNumber, changePhoneNumber] = useState('')
   const [password, changePassword] = useState('')
@@ -53,7 +53,7 @@ const LoginByPhone: FC<Iprops> = props => {
             <Picker
               style={commonStyle.pickerBox}
               selectedValue={regionCode}
-              onValueChange={val => changeRegionCode(val)}>
+              onValueChange={(val) => changeRegionCode(val)}>
               <Picker.Item label='+86' value='+86' />
               <Picker.Item label='+852' value='+852' />
               <Picker.Item label='+853' value='+853' />
@@ -64,14 +64,14 @@ const LoginByPhone: FC<Iprops> = props => {
             style={commonStyle.phoneInput}
             placeholder='请输入手机号'
             value={phoneNumber}
-            onChangeText={val => changePhoneNumber(val.trim())}
+            onChangeText={(val) => changePhoneNumber(val.trim())}
           />
         </View>
         <View style={commonStyle.formItem}>
           <TextInput
             placeholder='请输入密码'
             value={password}
-            onChangeText={val => changePassword(val.trim())}
+            onChangeText={(val) => changePassword(val.trim())}
           />
         </View>
         <TouchableOpacity

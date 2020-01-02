@@ -6,11 +6,11 @@ import {
   TextInput,
   ScrollView,
 } from 'react-native'
-import { getNewAssets } from '../../api'
-import Icon from '../../components/Icon'
-import NavHeader from '../../components/NavHeader'
-import Loading from '../../components/Loading'
-import Footer from '../../components/Footer'
+import { getNewAssets } from '@/api'
+import Icon from '@/components/Icon'
+import NavHeader from '@/components/NavHeader'
+import Loading from '@/components/Loading'
+import Footer from '@/components/Footer'
 import NewSwiper from './components/NewSwiper'
 import NewMenus from './components/NewMenus'
 import NewInformation from './components/NewInformation'

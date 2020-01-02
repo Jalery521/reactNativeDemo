@@ -1,7 +1,7 @@
 // 楼盘检测
 import React, { FC } from 'react'
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
-import Icon from '../../../components/Icon'
+import Icon from '@/components/Icon'
 import { Ievaluation } from '../index'
 interface Iprops {
   evaluation: Ievaluation

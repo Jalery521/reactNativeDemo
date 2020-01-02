@@ -8,14 +8,14 @@ import {
   TextInput,
   Image,
 } from 'react-native'
-import Icon from '../../components/Icon'
+import Icon from '@/components/Icon'
 import commonStyle from '../common/style'
-import { getSecondHouses } from '../../api'
-import { height } from '../../utils'
-import Footer from '../../components/Footer'
-import Separator from '../../components/Separator'
-import NavHeader from '../../components/NavHeader'
-import Loading from '../../components/Loading'
+import { getSecondHouses } from '@/api'
+import { height } from '@/utils'
+import Footer from '@/components/Footer'
+import Separator from '@/components/Separator'
+import NavHeader from '@/components/NavHeader'
+import Loading from '@/components/Loading'
 interface Iprops {
   navigation: any
 }
@@ -113,7 +113,7 @@ class SecondScreen extends PureComponent<Iprops, Istate> {
                           </Text>
                         </View>
                         <View style={{ flexDirection: 'row' }}>
-                          {(item.traits as any[]).map(trait => {
+                          {(item.traits as any[]).map((trait) => {
                             return (
                               <Text style={commonStyle.itemTrait} key={trait}>
                                 {trait}

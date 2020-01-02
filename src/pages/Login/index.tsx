@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react'
 import { SafeAreaView, Text, View, ScrollView } from 'react-native'
-import NavHeader from '../../components/NavHeader'
+import NavHeader from '@/components/NavHeader'
 import LoginByPassword from './components/LoginByPassword'
 import LoginByPhone from './components/LoginByPhone'
-import { height } from '../../utils'
+import { height } from '@/utils'
 interface Iprops {
   navigation: any
 }

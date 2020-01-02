@@ -1,8 +1,8 @@
 import React, { FC, useState } from 'react'
 import { View, Text, Picker, TextInput, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
-import Icon from '../../../components/Icon'
-import { addSearchHistory } from '../../../store/reducer/actions'
+import Icon from '@/components/Icon'
+import { addSearchHistory } from '@/store/reducer/actions'
 import { IhotHistoryItem } from '../index.d'
 const pickerOptions = [
   {
@@ -34,7 +34,7 @@ interface Iprops {
 }
 type Icategory = 'second' | 'rent' | 'new' | 'office_rent' | 'office_sale'
 
-const HomeSearch: FC<Iprops> = props => {
+const HomeSearch: FC<Iprops> = (props) => {
   const [category, changeCategory] = useState('second' as Icategory)
   const [searchText, changeSearchText] = useState('')
   const { handleChangeIsShow, hotSearch, historyData, addSearchHistory } = props
@@ -57,7 +57,7 @@ const HomeSearch: FC<Iprops> = props => {
             style={style.pickerBox}
             selectedValue={category}
             onValueChange={changeCategory}>
-            {pickerOptions.map(option => {
+            {pickerOptions.map((option) => {
               return (
                 <Picker.Item
                   key={option.value}
@@ -73,7 +73,7 @@ const HomeSearch: FC<Iprops> = props => {
           <TextInput
             placeholder='你想找的小区、商圈'
             value={searchText}
-            onChangeText={val => changeSearchText(val.trim())}
+            onChangeText={(val) => changeSearchText(val.trim())}
             onSubmitEditing={({ nativeEvent: { text } }) =>
               handleAddHistory(text)
             }
@@ -85,7 +85,7 @@ const HomeSearch: FC<Iprops> = props => {
       </View>
       {historyData.length ? (
         <View style={style.historyContent}>
-          {historyData.map(history => {
+          {historyData.map((history) => {
             return (
               <Text style={style.historyItem} key={history}>
                 {history}
@@ -98,7 +98,7 @@ const HomeSearch: FC<Iprops> = props => {
           <Text style={style.hotTitle}>热门搜索</Text>
           <View style={style.hotContent}>
             {hotSearch && hotSearch.length
-              ? hotSearch.map(hot => {
+              ? hotSearch.map((hot) => {
                   return (
                     <Text key={hot.id} style={style.hotItem}>
                       {hot.name}

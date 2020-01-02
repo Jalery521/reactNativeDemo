@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
-import Icon from '../../../components/Icon'
+import Icon from '@/components/Icon'
 interface Iprops {
   priceTrend: {
     month: number

@@ -1,7 +1,7 @@
 // 小Q看房
 import React, { FC } from 'react'
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
-import Icon from '../../../components/Icon'
+import Icon from '@/components/Icon'
 interface Iprops {
   lookList: any[]
 }

@@ -1,8 +1,8 @@
 import React, { FC } from 'react'
 import { View, Text, Image, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
-import Icon from '../../../components/Icon'
-import { width } from '../../../utils'
+import Icon from '@/components/Icon'
+import { width } from '@/utils'
 
 interface Iprops {
   navigation: any
@@ -10,7 +10,7 @@ interface Iprops {
   userInfo: any
 }
 
-const UserInformation: FC<Iprops> = props => {
+const UserInformation: FC<Iprops> = (props) => {
   const { isLogined, navigation, userInfo } = props
   return (
     <View style={style.informationWrapper}>

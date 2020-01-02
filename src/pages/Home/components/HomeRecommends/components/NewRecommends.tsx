@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { Text, View, Image } from 'react-native'
-import commonStyle from '../../../../common/style'
+import commonStyle from '@/pages/common/style'
 interface Iprops {
   recommends: IhouseItem[]
 }
@@ -28,7 +28,7 @@ const NewRecommends: FC<Iprops> = ({ recommends }) => {
                       {recommend.price}
                     </Text>
                     <View style={{ flexDirection: 'row' }}>
-                      {recommend.traits.map(trait => {
+                      {recommend.traits.map((trait) => {
                         return (
                           <Text style={commonStyle.itemTrait} key={trait}>
                             {trait}

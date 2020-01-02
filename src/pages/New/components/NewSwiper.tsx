@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { View, Image, StyleSheet } from 'react-native'
 import Swiper from 'react-native-swiper'
-import { width } from '../../../utils'
+import { width } from '@/utils'
 const imageWidth = width - 30
 const imageHeight = (imageWidth / 370) * 139
 interface Ibanner {
@@ -15,7 +15,7 @@ const NewSwiper: FC<Iprops> = ({ banners }) => {
   return banners.length ? (
     <View style={style.swiperWrapper}>
       <Swiper autoplay={true}>
-        {banners.map(banner => {
+        {banners.map((banner) => {
           return (
             <View style={style.swiperItem} key={banner.id}>
               <Image style={style.itemImg} source={banner} />

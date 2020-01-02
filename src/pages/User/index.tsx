@@ -3,7 +3,7 @@ import { View, SafeAreaView, ScrollView } from 'react-native'
 import UserInformation from './components/UserInformation'
 import UserConcern from './components/UserConcern'
 import UserProprietor from './components/UserProprietor'
-import NavHeader from '../../components/NavHeader'
+import NavHeader from '@/components/NavHeader'
 interface Iprops {
   navigation: any
 }

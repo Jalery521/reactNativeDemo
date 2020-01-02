@@ -11,10 +11,10 @@ import {
   TouchableOpacity,
 } from 'react-native'
 import { connect } from 'react-redux'
-import { changeUserPassword, wipeLoginData } from '../../store/reducer/actions'
+import { changeUserPassword, wipeLoginData } from '@/store/reducer/actions'
 import commonStyle from './style'
-import { height } from '../../utils'
-import NavHeader from '../../components/NavHeader'
+import { height } from '@/utils'
+import NavHeader from '@/components/NavHeader'
 interface Iprops {
   navigation: any
   initPhoneNumber: string
@@ -137,7 +137,7 @@ class ResetPasswordScreen extends PureComponent<Iprops, Istate> {
                   <Picker
                     style={commonStyle.pickerBox}
                     selectedValue={regionCode}
-                    onValueChange={val =>
+                    onValueChange={(val) =>
                       this.changeFormItem('regionCode', val)
                     }>
                     <Picker.Item label='+86' value='+86' />
@@ -150,7 +150,7 @@ class ResetPasswordScreen extends PureComponent<Iprops, Istate> {
                   style={commonStyle.phoneInput}
                   placeholder='请输入手机号'
                   value={phoneNumber}
-                  onChangeText={val =>
+                  onChangeText={(val) =>
                     this.changeFormItem('phoneNumber', val.trim())
                   }
                 />
@@ -166,7 +166,7 @@ class ResetPasswordScreen extends PureComponent<Iprops, Istate> {
                 <TextInput
                   placeholder='请输入验证码'
                   value={verifyCode}
-                  onChangeText={val =>
+                  onChangeText={(val) =>
                     this.changeFormItem('verifyCode', val.trim())
                   }
                 />
@@ -175,7 +175,7 @@ class ResetPasswordScreen extends PureComponent<Iprops, Istate> {
                 <TextInput
                   placeholder='新密码(6-12位字母+数字)'
                   value={password}
-                  onChangeText={val =>
+                  onChangeText={(val) =>
                     this.changeFormItem('password', val.trim())
                   }
                 />

@@ -9,9 +9,9 @@ import HomeCategories from './components/HomeCategories'
 import HomePrice from './components/HomePrice'
 import HomeBanner from './components/HomeBanner'
 import HomeRecommends from './components/HomeRecommends'
-import Footer from '../../components/Footer'
-import Loading from '../../components/Loading'
-import { getHomeAssets } from '../../api'
+import Footer from '@/components/Footer'
+import Loading from '@/components/Loading'
+import { getHomeAssets } from '@/api'
 interface Iprops {
   navigation: any
 }
