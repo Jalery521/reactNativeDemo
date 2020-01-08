@@ -9,14 +9,15 @@ const NewHot: FC<Iprops> = ({ hot }) => {
   return hot.length ? (
     <View style={style.hotWrapper}>
       <View style={style.hotContainer}>
-        <View>
+        <View style={{ position: 'relative' }}>
           <Text style={style.hotTitle}>热门楼盘</Text>
+          <Text style={style.hotIcon}>HOT</Text>
         </View>
         <ScrollView
           horizontal={true}
           showsHorizontalScrollIndicator={false}
           style={style.hotContent}>
-          {hot.map(item => {
+          {hot.map((item) => {
             return (
               <View style={style.hotItem} key={item.id}>
                 <Image style={style.itemImg} source={item} />
@@ -50,6 +51,19 @@ const style = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     lineHeight: 60,
+  },
+  hotIcon: {
+    position: 'absolute',
+    top: 10,
+    left: 80,
+    padding: 4,
+    paddingBottom: 0,
+    backgroundColor: '#f85b62',
+    color: '#fff',
+    fontSize: 14,
+    lineHeight: 14,
+    borderRadius: 6,
+    borderBottomLeftRadius: 0,
   },
   hotContent: {
     height: 180,

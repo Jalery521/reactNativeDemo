@@ -11,8 +11,9 @@ const NewDiscount: FC<Iprops> = ({ discountList }) => {
     <View style={style.discountWrapper}>
       <View style={style.discountContent}>
         <Text style={style.discountTitle}>优惠楼盘</Text>
+        <Text style={style.titleIcon}>惠</Text>
         <View style={style.discountBox}>
-          {discountList.map(item => {
+          {discountList.map((item) => {
             return (
               <View style={style.itemBox} key={item.id}>
                 <View style={style.imgbox}>
@@ -40,12 +41,26 @@ const style = StyleSheet.create({
   },
   discountContent: {
     padding: 15,
+    position: 'relative',
     backgroundColor: '#fff',
   },
   discountTitle: {
     fontSize: 18,
     lineHeight: 40,
     fontWeight: 'bold',
+  },
+  titleIcon: {
+    position: 'absolute',
+    backgroundColor: '#f85b62',
+    left: 94,
+    padding: 4,
+    paddingBottom: 0,
+    top: 15,
+    color: '#fff',
+    fontSize: 14,
+    lineHeight: 14,
+    borderRadius: 6,
+    borderBottomLeftRadius: 0,
   },
   discountBox: {
     flexDirection: 'row',
@@ -69,7 +84,7 @@ const style = StyleSheet.create({
     lineHeight: 24,
     paddingLeft: 20,
     paddingRight: 20,
-    backgroundColor: 'red',
+    backgroundColor: '#ff5c00',
     color: '#ffffff',
     left: -5,
   },
