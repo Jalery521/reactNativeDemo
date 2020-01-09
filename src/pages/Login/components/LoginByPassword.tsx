@@ -80,13 +80,13 @@ const LoginByPhone: FC<Iprops> = (props) => {
           onPress={handleLogin}>
           <Text style={commonStyle.loginText}>登陆</Text>
         </TouchableOpacity>
-        <View style={style.cutTypeBox}>
+        <View style={styles.cutTypeBox}>
           <Text
             onPress={() => handleCutPageType('loginByPhone')}
             style={commonStyle.cutTypeText}>
             手机快捷登陆
           </Text>
-          <Text style={style.partitionLine}>|</Text>
+          <Text style={styles.partitionLine}>|</Text>
           <Text
             onPress={() => navigation.navigate('ForgetPassword')}
             style={commonStyle.cutTypeText}>
@@ -97,7 +97,7 @@ const LoginByPhone: FC<Iprops> = (props) => {
     </View>
   )
 }
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   cutTypeBox: {
     marginTop: 30,
     height: 20,

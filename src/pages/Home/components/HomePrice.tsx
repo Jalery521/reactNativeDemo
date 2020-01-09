@@ -11,28 +11,28 @@ interface Iprops {
 
 const HomePrice: FC<Iprops> = ({ priceTrend }) => {
   return (
-    <View style={style.priceWrapper}>
-      <View style={style.priceTitle}>
-        <Text style={style.priceCategory}>深圳二手房房价</Text>
+    <View style={styles.priceWrapper}>
+      <View style={styles.priceTitle}>
+        <Text style={styles.priceCategory}>深圳二手房房价</Text>
         <Icon name='arrowright' size={14} color='#999' />
       </View>
-      <View style={style.priceContent}>
-        <View style={style.contentItem}>
-          <View style={style.itemBox}>
-            <Text style={style.itemNumber}>{priceTrend.average}</Text>
-            <Text style={style.color999}> 元/㎡</Text>
+      <View style={styles.priceContent}>
+        <View style={styles.contentItem}>
+          <View style={styles.itemBox}>
+            <Text style={styles.itemNumber}>{priceTrend.average}</Text>
+            <Text style={styles.color999}> 元/㎡</Text>
           </View>
-          <Text style={style.color999}>{priceTrend.month}月均价</Text>
+          <Text style={styles.color999}>{priceTrend.month}月均价</Text>
         </View>
-        <View style={style.contentItem}>
-          <View style={style.itemBox}>
-            <Text style={[style.itemNumber, style.redNumber]}>
+        <View style={styles.contentItem}>
+          <View style={styles.itemBox}>
+            <Text style={[styles.itemNumber, styles.redNumber]}>
               {priceTrend.trend}
             </Text>
-            <Text style={[style.redNumber, style.font12]}> %</Text>
+            <Text style={[styles.redNumber, styles.font12]}> %</Text>
           </View>
-          <View style={style.priceTrend}>
-            <Text style={style.color999}>环比上月</Text>
+          <View style={styles.priceTrend}>
+            <Text style={styles.color999}>环比上月</Text>
             <Icon name='shangjiantou' size={10} color='#ff5860' />
           </View>
         </View>
@@ -41,7 +41,7 @@ const HomePrice: FC<Iprops> = ({ priceTrend }) => {
   )
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   priceWrapper: {
     margin: 15,
   },

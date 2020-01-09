@@ -157,7 +157,7 @@ class ResetPasswordScreen extends PureComponent<Iprops, Istate> {
                 {isGetCode ? (
                   <Text>{countNumber} 秒后重试</Text>
                 ) : (
-                  <Text onPress={this.handleGetCode} style={style.getCodeBtn}>
+                  <Text onPress={this.handleGetCode} style={styles.getCodeBtn}>
                     获取验证码
                   </Text>
                 )}
@@ -202,7 +202,7 @@ class ResetPasswordScreen extends PureComponent<Iprops, Istate> {
   }
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   loginTips: {
     fontSize: 14,
     color: '#999',

@@ -47,14 +47,14 @@ const NewMenus: FC = () => {
     },
   ]
   return (
-    <View style={style.menuWrapper}>
+    <View style={styles.menuWrapper}>
       {menus.map(item => {
         return (
           <TouchableOpacity
             activeOpacity={0.8}
             key={item.name}
-            style={style.menuItem}>
-            <Image style={style.itemIcon} source={{ uri: item.uri }} />
+            style={styles.menuItem}>
+            <Image style={styles.itemIcon} source={{ uri: item.uri }} />
             <Text>{item.name}</Text>
           </TouchableOpacity>
         )
@@ -63,7 +63,7 @@ const NewMenus: FC = () => {
   )
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   menuWrapper: {
     flexDirection: 'row',
     flexWrap: 'wrap',

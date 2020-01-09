@@ -74,8 +74,8 @@ class SecondScreen extends PureComponent<Iprops, Istate> {
       <SafeAreaView style={{ flex: 1 }}>
         <Loading isShow={loading}>
           <View style={{ paddingTop: 60 }}>
-            <View style={style.searchWrapper}>
-              <View style={style.searchBox}>
+            <View style={styles.searchWrapper}>
+              <View style={styles.searchBox}>
                 <Icon name='sousuo' size={16} color='#a0a0a0' />
                 <TextInput placeholder='你想找的小区、商圈' />
               </View>
@@ -134,7 +134,7 @@ class SecondScreen extends PureComponent<Iprops, Istate> {
   }
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   searchWrapper: {
     padding: 10,
     paddingLeft: 15,

@@ -6,36 +6,36 @@ const estimateWidth = width - 30
 const estimateHeight = (width / 686) * 201
 const UserProprietor: FC = () => {
   return (
-    <View style={style.proprietorWrapper}>
-      <Text style={style.proprietorTitle}>我是业主</Text>
-      <View style={style.proprietorContent}>
+    <View style={styles.proprietorWrapper}>
+      <Text style={styles.proprietorTitle}>我是业主</Text>
+      <View style={styles.proprietorContent}>
         <Image
-          style={style.estimateImg}
+          style={styles.estimateImg}
           source={{
             uri:
               'https://i.qfangimg.com/resource/qfang-mobile/static/img/user-assess.png',
           }}
         />
       </View>
-      <View style={style.handleBox}>
-        <View style={style.handleItem}>
+      <View style={styles.handleBox}>
+        <View style={styles.handleItem}>
           <Icon name='ershoufang' size={14} />
-          <Text style={style.handleName}>我要卖房</Text>
+          <Text style={styles.handleName}>我要卖房</Text>
         </View>
-        <View style={style.handleItem}>
+        <View style={styles.handleItem}>
           <Icon name='zufang' size={14} />
-          <Text style={style.handleName}>我要出租</Text>
+          <Text style={styles.handleName}>我要出租</Text>
         </View>
-        <View style={style.handleItem}>
+        <View style={styles.handleItem}>
           <Icon name='weituo' size={14} />
-          <Text style={style.handleName}>我的委托</Text>
+          <Text style={styles.handleName}>我的委托</Text>
         </View>
       </View>
     </View>
   )
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   proprietorWrapper: {
     marginTop: 20,
   },

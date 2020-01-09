@@ -10,12 +10,12 @@ interface Iprops {
 const HomeHeader: FC<Iprops> = (props) => {
   const { handleChangeIsShow, navigation } = props
   return (
-    <View style={style.headerWarpper}>
-      <View style={style.headerContent}>
-        <Text style={style.headerCity}>深圳</Text>
-        <View style={style.inputWarpper}>
+    <View style={styles.headerWarpper}>
+      <View style={styles.headerContent}>
+        <Text style={styles.headerCity}>深圳</Text>
+        <View style={styles.inputWarpper}>
           <Icon name='sousuo' size={16} color='#a0a0a0' />
-          <Text onPress={handleChangeIsShow} style={style.headerInput}>
+          <Text onPress={handleChangeIsShow} style={styles.headerInput}>
             你想找的小区、商圈
           </Text>
         </View>
@@ -23,7 +23,7 @@ const HomeHeader: FC<Iprops> = (props) => {
       {/* <Text >
 
       </Text> */}
-      <View style={style.personIcon}>
+      <View style={styles.personIcon}>
         <Icon
           onPress={() => navigation.navigate('User')}
           name='customuser'
@@ -35,7 +35,7 @@ const HomeHeader: FC<Iprops> = (props) => {
   )
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   headerWarpper: {
     marginLeft: 15,
     marginRight: 15,

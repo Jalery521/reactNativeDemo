@@ -8,32 +8,32 @@ interface Iprops {
 
 const NewDiscount: FC<Iprops> = ({ discountList }) => {
   return discountList.length ? (
-    <View style={style.discountWrapper}>
-      <View style={style.discountContent}>
-        <Text style={style.discountTitle}>优惠楼盘</Text>
-        <Text style={style.titleIcon}>惠</Text>
-        <View style={style.discountBox}>
+    <View style={styles.discountWrapper}>
+      <View style={styles.discountContent}>
+        <Text style={styles.discountTitle}>优惠楼盘</Text>
+        <Text style={styles.titleIcon}>惠</Text>
+        <View style={styles.discountBox}>
           {discountList.map((item) => {
             return (
-              <View style={style.itemBox} key={item.id}>
-                <View style={style.imgbox}>
-                  <Image style={style.itemImg} source={item} />
-                  <Text style={style.itemSpot}>{item.lightspot}</Text>
+              <View style={styles.itemBox} key={item.id}>
+                <View style={styles.imgbox}>
+                  <Image style={styles.itemImg} source={item} />
+                  <Text style={styles.itemSpot}>{item.lightspot}</Text>
                 </View>
-                <Text style={style.itemName}>{item.name}</Text>
-                <Text style={style.itemInfo}>已有{item.people}人获取优惠</Text>
+                <Text style={styles.itemName}>{item.name}</Text>
+                <Text style={styles.itemInfo}>已有{item.people}人获取优惠</Text>
               </View>
             )
           })}
         </View>
         <TouchableOpacity activeOpacity={0.8}>
-          <Text style={style.viewMore}>查看全部</Text>
+          <Text style={styles.viewMore}>查看全部</Text>
         </TouchableOpacity>
       </View>
     </View>
   ) : null
 }
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   discountWrapper: {
     backgroundColor: '#f5f5f5',
     paddingTop: 15,

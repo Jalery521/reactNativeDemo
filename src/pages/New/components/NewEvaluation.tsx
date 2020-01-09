@@ -8,20 +8,20 @@ interface Iprops {
 }
 const NewEvaluation: FC<Iprops> = ({ evaluation }) => {
   return evaluation.id ? (
-    <View style={style.evaluationWrapper}>
-      <View style={style.titleWrapper}>
-        <Text style={style.evaluationTitle}>楼盘检测</Text>
-        <TouchableOpacity activeOpacity={0.8} style={style.moreBox}>
+    <View style={styles.evaluationWrapper}>
+      <View style={styles.titleWrapper}>
+        <Text style={styles.evaluationTitle}>楼盘检测</Text>
+        <TouchableOpacity activeOpacity={0.8} style={styles.moreBox}>
           <Text style={{ marginRight: 5, color: '#666666' }}>更多</Text>
           <Icon name='arrowright' size={12} color='#666666' />
         </TouchableOpacity>
       </View>
       <View style={{ flex: 1 }}>
-        <Text style={style.evaluationName}>{evaluation.title}</Text>
-        <View style={style.imgWrapper}>
+        <Text style={styles.evaluationName}>{evaluation.title}</Text>
+        <View style={styles.imgWrapper}>
           {evaluation.imgs.map((img, index) => {
             return (
-              <Image key={index} style={style.imgItem} source={{ uri: img }} />
+              <Image key={index} style={styles.imgItem} source={{ uri: img }} />
             )
           })}
         </View>
@@ -29,7 +29,7 @@ const NewEvaluation: FC<Iprops> = ({ evaluation }) => {
     </View>
   ) : null
 }
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   evaluationWrapper: {
     height: 200,
     margin: 15,

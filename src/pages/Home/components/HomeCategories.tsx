@@ -25,12 +25,12 @@ const HomeCategories: FC = () => {
     },
   ]
   return (
-    <View style={style.categoryWrapper}>
+    <View style={styles.categoryWrapper}>
       {categories.map((category, index) => {
         return (
-          <View style={style.categoryItem} key={index}>
-            <Image style={style.itemImg} source={category} />
-            <Text style={style.itemName}>{category.name}</Text>
+          <View style={styles.categoryItem} key={index}>
+            <Image style={styles.itemImg} source={category} />
+            <Text style={styles.itemName}>{category.name}</Text>
           </View>
         )
       })}
@@ -38,7 +38,7 @@ const HomeCategories: FC = () => {
   )
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   categoryWrapper: {
     marginLeft: 15,
     marginRight: 15,

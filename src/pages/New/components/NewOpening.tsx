@@ -6,29 +6,29 @@ interface Iprops {
 }
 const NewOpening: FC<Iprops> = ({ openList }) => {
   return openList.length ? (
-    <View style={style.openWrapper}>
-      <Text style={style.openTitle}>最新开盘</Text>
+    <View style={styles.openWrapper}>
+      <Text style={styles.openTitle}>最新开盘</Text>
       <View>
         {openList.map((item, index) => {
           return (
             <View
-              style={[style.openItem, index > 0 ? style.itemDivider : null]}
+              style={[styles.openItem, index > 0 ? styles.itemDivider : null]}
               key={item.id}>
-              <View style={style.itemTop}>
-                <View style={style.imgBox}>
-                  <Image style={style.itemImg} source={{ uri: item.uri }} />
-                  <Text style={style.itemStatus}>待售</Text>
+              <View style={styles.itemTop}>
+                <View style={styles.imgBox}>
+                  <Image style={styles.itemImg} source={{ uri: item.uri }} />
+                  <Text style={styles.itemStatus}>待售</Text>
                 </View>
                 <View style={{ flex: 1 }}>
-                  <Text style={style.itemName}>{item.name}</Text>
-                  <Text style={style.itemAddress}>
+                  <Text style={styles.itemName}>{item.name}</Text>
+                  <Text style={styles.itemAddress}>
                     {item.area}&nbsp;&nbsp;{item.address}/{item.typeDesc}
                   </Text>
-                  <Text style={style.itemPrice}>价格待定</Text>
+                  <Text style={styles.itemPrice}>价格待定</Text>
                 </View>
               </View>
-              <View style={style.itemBottom}>
-                <Text style={style.itemOpenDate}>
+              <View style={styles.itemBottom}>
+                <Text style={styles.itemOpenDate}>
                   开盘时间：{item.openDate}
                 </Text>
               </View>
@@ -40,7 +40,7 @@ const NewOpening: FC<Iprops> = ({ openList }) => {
   ) : null
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   openWrapper: {
     padding: 15,
   },

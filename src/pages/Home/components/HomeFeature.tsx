@@ -46,12 +46,12 @@ const features = [
 
 const HomeFeature: FC = () => {
   return (
-    <View style={style.featureWrapper}>
+    <View style={styles.featureWrapper}>
       {features.map((item, index) => {
         return (
-          <View style={style.featureItem} key={index}>
+          <View style={styles.featureItem} key={index}>
             <Icon name={item.name} size={20} />
-            <Text style={style.itemName}>{item.text}</Text>
+            <Text style={styles.itemName}>{item.text}</Text>
           </View>
         )
       })}
@@ -59,7 +59,7 @@ const HomeFeature: FC = () => {
   )
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   featureWrapper: {
     flexDirection: 'row',
     justifyContent: 'space-between',

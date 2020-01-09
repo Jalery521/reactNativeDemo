@@ -46,16 +46,16 @@ const HomeMenus: FC<Iprops> = ({ navigation }) => {
     navigation.navigate(value)
   }
   return (
-    <View style={style.menuWrapper}>
+    <View style={styles.menuWrapper}>
       {menus.map((menu, index) => {
         return (
           <TouchableOpacity
             activeOpacity={0.8}
-            style={style.menuItem}
+            style={styles.menuItem}
             onPress={() => handleNavigation(menu)}
             key={index}>
-            <Image style={style.itemImg} source={menu} />
-            <Text style={style.itemName}>{menu.name}</Text>
+            <Image style={styles.itemImg} source={menu} />
+            <Text style={styles.itemName}>{menu.name}</Text>
           </TouchableOpacity>
         )
       })}
@@ -63,7 +63,7 @@ const HomeMenus: FC<Iprops> = ({ navigation }) => {
   )
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   menuWrapper: {
     margin: 15,
     flexDirection: 'row',

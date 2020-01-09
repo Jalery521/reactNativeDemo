@@ -78,7 +78,7 @@ const LoginByPhone: FC<Iprops> = (props) => {
   return (
     <View style={{ flex: 1 }}>
       <Text style={commonStyle.titleName}>手机快捷登陆</Text>
-      <Text style={style.loginTips}>
+      <Text style={styles.loginTips}>
         未注册过的手机号将自动创建qfangwang账号，经纪人不会看到您的手机号
       </Text>
       <View style={commonStyle.contentBox}>
@@ -103,7 +103,7 @@ const LoginByPhone: FC<Iprops> = (props) => {
           {isGetCode ? (
             <Text>{countNumber} 秒后重试</Text>
           ) : (
-            <Text onPress={handleGetCode} style={style.getCodeBtn}>
+            <Text onPress={handleGetCode} style={styles.getCodeBtn}>
               获取验证码
             </Text>
           )}
@@ -121,7 +121,7 @@ const LoginByPhone: FC<Iprops> = (props) => {
           onPress={handleLogin}>
           <Text style={commonStyle.loginText}>登陆</Text>
         </TouchableOpacity>
-        <View style={style.cutTypeBox}>
+        <View style={styles.cutTypeBox}>
           <Text
             onPress={() => handleCutPageType('loginByPassword')}
             style={commonStyle.cutTypeText}>
@@ -132,7 +132,7 @@ const LoginByPhone: FC<Iprops> = (props) => {
     </View>
   )
 }
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   loginTips: {
     fontSize: 14,
     color: '#999',

@@ -9,7 +9,7 @@ interface IheaderParams {
 
 export const NavHeader: FC<IheaderParams> = ({ isBack, title, navigation }) => {
   return (
-    <View style={style.headerWrapper}>
+    <View style={styles.headerWrapper}>
       <Icon
         name={isBack ? 'fanhui' : 'shouye'}
         onPress={() =>
@@ -18,13 +18,13 @@ export const NavHeader: FC<IheaderParams> = ({ isBack, title, navigation }) => {
         size={20}
         color='#666'
       />
-      <Text style={style.titleStyle}>{title}</Text>
+      <Text style={styles.titleStyle}>{title}</Text>
       <Icon name='daohang' size={20} color='#333' />
     </View>
   )
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   headerWrapper: {
     height: 50,
     paddingLeft: 15,

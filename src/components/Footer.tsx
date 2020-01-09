@@ -8,27 +8,27 @@ interface Iprops {
 
 const Footer: FC<Iprops> = ({ siteName }) => {
   return (
-    <View style={style.footerWrapper}>
-      <View style={style.footerContent}>
-        <View style={style.footerSite}>
-          <Text style={style.siteName}>qfangwang深圳站</Text>
+    <View style={styles.footerWrapper}>
+      <View style={styles.footerContent}>
+        <View style={styles.footerSite}>
+          <Text style={styles.siteName}>qfangwang深圳站</Text>
           <Icon name='jiantouxia' size={12} color='#999' />
         </View>
-        <View style={style.linksBox}>
-          <View style={style.InternalLinks}>
-            <Text style={style.linkName}>App下载</Text>
-            <Text style={style.linkName}>网站地图</Text>
-            <Text style={style.linkName}>房产问答</Text>
-            <Text style={style.linkName}>关于我们</Text>
+        <View style={styles.linksBox}>
+          <View style={styles.InternalLinks}>
+            <Text style={styles.linkName}>App下载</Text>
+            <Text style={styles.linkName}>网站地图</Text>
+            <Text style={styles.linkName}>房产问答</Text>
+            <Text style={styles.linkName}>关于我们</Text>
           </View>
           <View>
-            <Text style={style.copyRight}>
+            <Text style={styles.copyRight}>
               Copyright © 2019 qfang.com All Right Reserved
             </Text>
-            <Text style={style.copyRight}>
+            <Text style={styles.copyRight}>
               版权所有：深圳市云房网络科技有限公司
             </Text>
-            <Text style={style.copyRight}>ICP备案号：粤ICP备05067219号-3</Text>
+            <Text style={styles.copyRight}>ICP备案号：粤ICP备05067219号-3</Text>
           </View>
         </View>
       </View>
@@ -36,7 +36,7 @@ const Footer: FC<Iprops> = ({ siteName }) => {
   )
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   footerWrapper: {
     backgroundColor: '#f5f5f5',
     paddingTop: 15,

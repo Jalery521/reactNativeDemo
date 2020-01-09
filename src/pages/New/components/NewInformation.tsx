@@ -8,9 +8,9 @@ interface Iprops {
 }
 const NewInformation: FC<Iprops> = ({ information }) => {
   return information.length ? (
-    <View style={style.informationWrapper}>
+    <View style={styles.informationWrapper}>
       <Image
-        style={style.informationIcon}
+        style={styles.informationIcon}
         source={{
           uri:
             'https://i.qfangimg.com/resource/qfang-mobile/static/img/headline-pic.png',
@@ -20,7 +20,7 @@ const NewInformation: FC<Iprops> = ({ information }) => {
         <Swiper horizontal={false} autoplay={true} showsPagination={false}>
           {information.map((item, index) => {
             return (
-              <View key={index} style={style.informationItem}>
+              <View key={index} style={styles.informationItem}>
                 {item.map(subItem => {
                   return <Text key={subItem.id}>● {subItem.title}</Text>
                 })}
@@ -32,7 +32,7 @@ const NewInformation: FC<Iprops> = ({ information }) => {
     </View>
   ) : null
 }
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   informationWrapper: {
     borderTopColor: '#f5f5f5',
     borderStyle: 'solid',

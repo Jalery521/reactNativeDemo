@@ -30,14 +30,14 @@ const concerns = [
 
 const UserConcern: FC = () => {
   return (
-    <View style={style.concernWrapper}>
-      <Text style={style.concernTitle}>我的关注</Text>
-      <View style={style.concernContent}>
+    <View style={styles.concernWrapper}>
+      <Text style={styles.concernTitle}>我的关注</Text>
+      <View style={styles.concernContent}>
         {concerns.map((item, index) => {
           return (
-            <View style={style.concernItem} key={index}>
+            <View style={styles.concernItem} key={index}>
               <Icon name={item.name} size={20} />
-              <Text style={style.itemName}>{item.text}</Text>
+              <Text style={styles.itemName}>{item.text}</Text>
             </View>
           )
         })}
@@ -46,7 +46,7 @@ const UserConcern: FC = () => {
   )
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   concernWrapper: {
     marginTop: 30,
   },

@@ -51,10 +51,10 @@ const HomeSearch: FC<Iprops> = (props) => {
 
   return (
     <View>
-      <View style={style.searchContent}>
-        <View style={style.pickerWrapper}>
+      <View style={styles.searchContent}>
+        <View style={styles.pickerWrapper}>
           <Picker
-            style={style.pickerBox}
+            style={styles.pickerBox}
             selectedValue={category}
             onValueChange={changeCategory}>
             {pickerOptions.map((option) => {
@@ -68,7 +68,7 @@ const HomeSearch: FC<Iprops> = (props) => {
             })}
           </Picker>
         </View>
-        <View style={style.inputWrapper}>
+        <View style={styles.inputWrapper}>
           <Icon name='sousuo' size={16} color='#a0a0a0' />
           <TextInput
             placeholder='你想找的小区、商圈'
@@ -79,15 +79,15 @@ const HomeSearch: FC<Iprops> = (props) => {
             }
           />
         </View>
-        <Text style={style.cancelBtn} onPress={handleChangeIsShow}>
+        <Text style={styles.cancelBtn} onPress={handleChangeIsShow}>
           取消
         </Text>
       </View>
       {historyData.length ? (
-        <View style={style.historyContent}>
+        <View style={styles.historyContent}>
           {historyData.map((history) => {
             return (
-              <Text style={style.historyItem} key={history}>
+              <Text style={styles.historyItem} key={history}>
                 {history}
               </Text>
             )
@@ -95,12 +95,12 @@ const HomeSearch: FC<Iprops> = (props) => {
         </View>
       ) : (
         <View style={{ padding: 15 }}>
-          <Text style={style.hotTitle}>热门搜索</Text>
-          <View style={style.hotContent}>
+          <Text style={styles.hotTitle}>热门搜索</Text>
+          <View style={styles.hotContent}>
             {hotSearch && hotSearch.length
               ? hotSearch.map((hot) => {
                   return (
-                    <Text key={hot.id} style={style.hotItem}>
+                    <Text key={hot.id} style={styles.hotItem}>
                       {hot.name}
                     </Text>
                   )
@@ -113,7 +113,7 @@ const HomeSearch: FC<Iprops> = (props) => {
   )
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   searchContent: {
     padding: 15,
     flexDirection: 'row',

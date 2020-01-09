@@ -147,9 +147,9 @@ class NewScreen extends PureComponent<Iprops, Istate> {
     return (
       <SafeAreaView style={{ flex: 1 }}>
         <Loading isShow={loading}>
-          <View style={style.newWrapper}>
-            <View style={style.searchWrapper}>
-              <View style={style.searchBox}>
+          <View style={styles.newWrapper}>
+            <View style={styles.searchWrapper}>
+              <View style={styles.searchBox}>
                 <Icon name='sousuo' size={16} color='#a0a0a0' />
                 <TextInput placeholder='你想找的楼盘名、商圈' />
               </View>
@@ -172,7 +172,7 @@ class NewScreen extends PureComponent<Iprops, Istate> {
   }
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   newWrapper: {
     paddingTop: 60,
   },

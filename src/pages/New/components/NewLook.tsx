@@ -7,11 +7,11 @@ interface Iprops {
 }
 const NewLook: FC<Iprops> = ({ lookList }) => {
   return lookList.length ? (
-    <View style={style.lookWrapper}>
-      <View style={style.lookContent}>
-        <View style={style.titleWrapper}>
-          <Text style={style.lookTitle}>小Q看房</Text>
-          <TouchableOpacity activeOpacity={0.8} style={style.moreBox}>
+    <View style={styles.lookWrapper}>
+      <View style={styles.lookContent}>
+        <View style={styles.titleWrapper}>
+          <Text style={styles.lookTitle}>小Q看房</Text>
+          <TouchableOpacity activeOpacity={0.8} style={styles.moreBox}>
             <Text style={{ marginRight: 5, color: '#666666' }}>更多</Text>
             <Icon name='arrowright' size={12} color='#666666' />
           </TouchableOpacity>
@@ -20,16 +20,16 @@ const NewLook: FC<Iprops> = ({ lookList }) => {
           {lookList.map((item, index) => {
             return (
               <View
-                style={[style.itemBox, index > 0 ? style.itemDivider : null]}
+                style={[styles.itemBox, index > 0 ? styles.itemDivider : null]}
                 key={item.id}>
-                <View style={style.itemLeft}>
-                  <Text style={style.itemTitle}>{item.title}</Text>
-                  <Text style={style.itemInfo}>
+                <View style={styles.itemLeft}>
+                  <Text style={styles.itemTitle}>{item.title}</Text>
+                  <Text style={styles.itemInfo}>
                     {item.date}&nbsp;&nbsp;&nbsp;{item.people}人&nbsp;阅读
                   </Text>
                 </View>
                 <View>
-                  <Image style={style.itemImg} source={item} />
+                  <Image style={styles.itemImg} source={item} />
                 </View>
               </View>
             )
@@ -40,7 +40,7 @@ const NewLook: FC<Iprops> = ({ lookList }) => {
   ) : null
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   lookWrapper: {
     paddingTop: 10,
     backgroundColor: '#f5f5f5',

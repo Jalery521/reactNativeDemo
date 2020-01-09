@@ -13,12 +13,12 @@ interface Iprops {
 }
 const NewSwiper: FC<Iprops> = ({ banners }) => {
   return banners.length ? (
-    <View style={style.swiperWrapper}>
+    <View style={styles.swiperWrapper}>
       <Swiper autoplay={true}>
         {banners.map((banner) => {
           return (
-            <View style={style.swiperItem} key={banner.id}>
-              <Image style={style.itemImg} source={banner} />
+            <View style={styles.swiperItem} key={banner.id}>
+              <Image style={styles.itemImg} source={banner} />
             </View>
           )
         })}
@@ -26,7 +26,7 @@ const NewSwiper: FC<Iprops> = ({ banners }) => {
     </View>
   ) : null
 }
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   swiperWrapper: {
     height: imageHeight,
     margin: 15,

@@ -15,10 +15,10 @@ const HomeRecommends: FC<Iprops> = ({ recommends }) => {
   const { secondRecommends, newRecommends, rentRecommends } = recommends
 
   return (
-    <View style={style.recommendWrapper}>
-      <View style={style.recommendCategory}>
-        <Text style={style.recommendTitle}>为您推荐</Text>
-        <View style={style.categoryBox}>
+    <View style={styles.recommendWrapper}>
+      <View style={styles.recommendCategory}>
+        <Text style={styles.recommendTitle}>为您推荐</Text>
+        <View style={styles.categoryBox}>
           <Text
             onPress={() => changeRecommendCategory('SECOND')}
             style={{
@@ -58,7 +58,7 @@ const HomeRecommends: FC<Iprops> = ({ recommends }) => {
   )
 }
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   recommendWrapper: {
     margin: 15,
   },

@@ -7,26 +7,26 @@ interface Iprops {
 }
 const NewHot: FC<Iprops> = ({ hot }) => {
   return hot.length ? (
-    <View style={style.hotWrapper}>
-      <View style={style.hotContainer}>
+    <View style={styles.hotWrapper}>
+      <View style={styles.hotContainer}>
         <View style={{ position: 'relative' }}>
-          <Text style={style.hotTitle}>热门楼盘</Text>
-          <Text style={style.hotIcon}>HOT</Text>
+          <Text style={styles.hotTitle}>热门楼盘</Text>
+          <Text style={styles.hotIcon}>HOT</Text>
         </View>
         <ScrollView
           horizontal={true}
           showsHorizontalScrollIndicator={false}
-          style={style.hotContent}>
+          style={styles.hotContent}>
           {hot.map((item) => {
             return (
-              <View style={style.hotItem} key={item.id}>
-                <Image style={style.itemImg} source={item} />
+              <View style={styles.hotItem} key={item.id}>
+                <Image style={styles.itemImg} source={item} />
                 <View style={{ paddingLeft: 10 }}>
-                  <Text style={style.itemName}>{item.name}</Text>
-                  <Text style={style.itemAddress}>
+                  <Text style={styles.itemName}>{item.name}</Text>
+                  <Text style={styles.itemAddress}>
                     {item.area} {item.address}
                   </Text>
-                  <Text style={style.itemPrice}>{item.price}/㎡</Text>
+                  <Text style={styles.itemPrice}>{item.price}/㎡</Text>
                 </View>
               </View>
             )
@@ -36,7 +36,7 @@ const NewHot: FC<Iprops> = ({ hot }) => {
     </View>
   ) : null
 }
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
   hotWrapper: {
     paddingTop: 10,
     paddingBottom: 10,
