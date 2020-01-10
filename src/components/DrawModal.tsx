@@ -1,7 +1,16 @@
 import React, { FC } from 'react'
-import { Modal, View, TouchableOpacity, Text, StyleSheet } from 'react-native'
+import {
+  Modal,
+  View,
+  TouchableOpacity,
+  Text,
+  StyleSheet,
+  Animated,
+} from 'react-native'
 import Icon from './Icon'
 import { connect } from 'react-redux'
+import { width } from '@/utils'
+const halfWidth = width / 2
 interface Ioption {
   icon: string
   label: string
@@ -77,18 +86,21 @@ const DrawModal: FC<Iprops> = (props) => {
     options = defaultOptions,
     changeIsShow,
   } = props
+
   function handleOptionNavigate(path: string) {
     changeIsShow(false)
     navigation.navigate(path)
   }
+  function handleModalClick() {
+    changeIsShow(false)
+  }
   return (
     <Modal transparent={true} visible={isShow}>
-      <TouchableOpacity style={styles.modalStyle}>
-        <TouchableOpacity
-          activeOpacity={0.8}
-          style={styles.shadeBox}
-          onPress={() => changeIsShow(false)}></TouchableOpacity>
-        <TouchableOpacity style={styles.contentBox}>
+      <TouchableOpacity
+        activeOpacity={1}
+        style={styles.modalStyle}
+        onPress={handleModalClick}>
+        <View style={styles.contentBox}>
           <TouchableOpacity
             activeOpacity={0.8}
             style={styles.firstOption}
@@ -119,7 +131,7 @@ const DrawModal: FC<Iprops> = (props) => {
               )
             })}
           </View>
-        </TouchableOpacity>
+        </View>
       </TouchableOpacity>
     </Modal>
   )
@@ -128,15 +140,13 @@ const DrawModal: FC<Iprops> = (props) => {
 const styles = StyleSheet.create({
   modalStyle: {
     flex: 1,
-    flexDirection: 'row',
-  },
-  shadeBox: {
-    flex: 1,
     backgroundColor: 'rgba(0,0,0,.3)',
   },
   contentBox: {
-    flex: 1,
+    alignSelf: 'flex-end',
     backgroundColor: '#fff',
+    width: halfWidth,
+    flex: 1,
   },
   firstOption: {
     flexDirection: 'row',

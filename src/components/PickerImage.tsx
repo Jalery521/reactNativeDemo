@@ -49,7 +49,6 @@ const PickImage: FC<Iprops> = ({
       type === 'camera' ? ImagePicker.openCamera : ImagePicker.openPicker
     try {
       const image = await openFn(pickOption)
-      console.log(image)
       cb(image)
       changeIsShow(false)
     } catch (err) {
