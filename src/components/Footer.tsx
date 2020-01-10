@@ -6,12 +6,12 @@ interface Iprops {
   siteName?: string
 }
 
-const Footer: FC<Iprops> = ({ siteName }) => {
+const Footer: FC<Iprops> = ({ siteName = '深圳站' }) => {
   return (
     <View style={styles.footerWrapper}>
       <View style={styles.footerContent}>
         <View style={styles.footerSite}>
-          <Text style={styles.siteName}>qfangwang深圳站</Text>
+          <Text style={styles.siteName}>qfangwang${siteName}</Text>
           <Icon name='jiantouxia' size={12} color='#999' />
         </View>
         <View style={styles.linksBox}>

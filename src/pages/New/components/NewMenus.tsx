@@ -8,54 +8,54 @@ const NewMenus: FC = () => {
     {
       uri:
         'https://i.qfangimg.com/resource/qfang-mobile/static/img/nav-newhouse-all.png',
-      name: '全部楼盘',
+      label: '全部楼盘',
     },
     {
       uri:
         'https://i.qfangimg.com/resource/qfang-mobile/static/img/nav-newhouse-preferential.png',
-      name: '优惠楼盘',
+      label: '优惠楼盘',
     },
     {
       uri:
         'https://i.qfangimg.com/resource/qfang-mobile/static/img/nav-newhouse-time.png',
-      name: '最新开盘',
+      label: '最新开盘',
     },
     {
       uri:
         'https://i.qfangimg.com/resource/qfang-mobile/static/img/nav-newhouse-shen.png',
-      name: '临深区域',
+      label: '临深区域',
     },
     {
       uri:
         'https://i.qfangimg.com/resource/qfang-mobile/static/img/nav-newhouse-message.png',
-      name: '资讯',
+      label: '资讯',
     },
     {
       uri:
         'https://i.qfangimg.com/resource/qfang-mobile/static/img/nav-overseas.png',
-      name: '海外',
+      label: '海外',
     },
     {
       uri:
         'https://i.qfangimg.com/resource/qfang-mobile/static/img/nav-calculate.png',
-      name: '算房贷',
+      label: '算房贷',
     },
     {
       uri:
         'https://i.qfangimg.com/resource/qfang-mobile/static/img/nav-search.png',
-      name: '帮我找房',
+      label: '帮我找房',
     },
   ]
   return (
     <View style={styles.menuWrapper}>
-      {menus.map(item => {
+      {menus.map((item) => {
         return (
           <TouchableOpacity
             activeOpacity={0.8}
-            key={item.name}
+            key={item.label}
             style={styles.menuItem}>
             <Image style={styles.itemIcon} source={{ uri: item.uri }} />
-            <Text>{item.name}</Text>
+            <Text>{item.label}</Text>
           </TouchableOpacity>
         )
       })}

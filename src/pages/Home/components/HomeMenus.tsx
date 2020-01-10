@@ -2,9 +2,9 @@ import React, { FC } from 'react'
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
 
 interface ImenuItem {
-  name: string
+  label: string
   uri: string
-  value: string
+  path: string
 }
 
 interface Iprops {
@@ -13,37 +13,37 @@ interface Iprops {
 
 const menus: ImenuItem[] = [
   {
-    name: '二手房',
+    label: '二手房',
     uri: 'https://i.qfangimg.com/resource/qfang-mobile/static/img/nav-sale.png',
-    value: 'Second',
+    path: 'Second',
   },
   {
-    name: '新房',
+    label: '新房',
     uri:
       'https://i.qfangimg.com/resource/qfang-mobile/static/img/nav-newhouse.png',
-    value: 'New',
+    path: 'New',
   },
   {
-    name: '租房',
+    label: '租房',
     uri: 'https://i.qfangimg.com/resource/qfang-mobile/static/img/nav-rent.png',
-    value: 'Rent',
+    path: 'Rent',
   },
   {
-    name: '商业办公',
+    label: '商业办公',
     uri:
       'https://i.qfangimg.com/resource/qfang-mobile/static/img/nav-office.png',
-    value: 'Office',
+    path: 'Office',
   },
   {
-    name: '海外',
+    label: '海外',
     uri:
       'https://i.qfangimg.com/resource/qfang-mobile/static/img/nav-overseas.png',
-    value: 'Overseas',
+    path: 'Overseas',
   },
 ]
 const HomeMenus: FC<Iprops> = ({ navigation }) => {
-  function handleNavigation({ value }: ImenuItem) {
-    navigation.navigate(value)
+  function handleNavigation({ path }: ImenuItem) {
+    navigation.navigate(path)
   }
   return (
     <View style={styles.menuWrapper}>
@@ -55,7 +55,7 @@ const HomeMenus: FC<Iprops> = ({ navigation }) => {
             onPress={() => handleNavigation(menu)}
             key={index}>
             <Image style={styles.itemImg} source={menu} />
-            <Text style={styles.itemName}>{menu.name}</Text>
+            <Text style={styles.itemName}>{menu.label}</Text>
           </TouchableOpacity>
         )
       })}

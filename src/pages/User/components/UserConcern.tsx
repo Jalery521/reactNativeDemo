@@ -3,28 +3,28 @@ import { View, Text, StyleSheet } from 'react-native'
 import Icon from '@/components/Icon'
 const concerns = [
   {
-    name: 'ershoufang',
-    text: '二手房',
+    icon: 'ershoufang',
+    label: '二手房',
   },
   {
-    name: 'xinfang',
-    text: '新房',
+    icon: 'xinfang',
+    label: '新房',
   },
   {
-    name: 'zufang',
-    text: '租房',
+    icon: 'zufang',
+    label: '租房',
   },
   {
-    name: 'shangyezhongxin',
-    text: '商业办公',
+    icon: 'shangyezhongxin',
+    label: '商业办公',
   },
   {
-    name: 'xiaoqu',
-    text: '小区',
+    icon: 'xiaoqu',
+    label: '小区',
   },
   {
-    name: 'jingjiren',
-    text: '经纪人',
+    icon: 'jingjiren',
+    label: '经纪人',
   },
 ]
 
@@ -36,8 +36,8 @@ const UserConcern: FC = () => {
         {concerns.map((item, index) => {
           return (
             <View style={styles.concernItem} key={index}>
-              <Icon name={item.name} size={20} />
-              <Text style={styles.itemName}>{item.text}</Text>
+              <Icon name={item.icon} size={20} />
+              <Text style={styles.itemName}>{item.label}</Text>
             </View>
           )
         })}

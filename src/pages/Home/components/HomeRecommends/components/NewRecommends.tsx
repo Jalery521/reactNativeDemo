@@ -5,6 +5,7 @@ interface Iprops {
   recommends: IhouseItem[]
 }
 
+// 新房类别列表
 const NewRecommends: FC<Iprops> = ({ recommends }) => {
   return (
     <View>

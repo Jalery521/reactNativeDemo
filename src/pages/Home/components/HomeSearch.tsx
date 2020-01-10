@@ -6,23 +6,23 @@ import { addSearchHistory } from '@/store/reducer/actions'
 import { IhotHistoryItem } from '../index.d'
 const pickerOptions = [
   {
-    name: '二手房',
+    label: '二手房',
     value: 'second',
   },
   {
-    name: '租房',
+    label: '租房',
     value: 'rent',
   },
   {
-    name: '新房',
+    label: '新房',
     value: 'new',
   },
   {
-    name: '写字楼（租）',
+    label: '写字楼（租）',
     value: 'office_rent',
   },
   {
-    name: '写字楼（售）',
+    label: '写字楼（售）',
     value: 'office_sale',
   },
 ]
@@ -61,7 +61,7 @@ const HomeSearch: FC<Iprops> = (props) => {
               return (
                 <Picker.Item
                   key={option.value}
-                  label={option.name}
+                  label={option.label}
                   value={option.value}
                 />
               )

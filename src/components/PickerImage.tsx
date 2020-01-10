@@ -70,7 +70,7 @@ const PickImage: FC<Iprops> = ({
         <View
           style={{
             flex: 1,
-            backgroundColor: 'rgba(0,0,0,.2)',
+            backgroundColor: 'rgba(0,0,0,.3)',
             justifyContent: 'flex-end',
           }}>
           <View style={styles.optionWrapper}>

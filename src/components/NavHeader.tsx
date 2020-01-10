@@ -1,6 +1,7 @@
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import Icon from './Icon'
+import DrawModal from '@/components/DrawModal'
 interface IheaderParams {
   title: string
   isBack?: boolean
@@ -8,6 +9,7 @@ interface IheaderParams {
 }
 
 export const NavHeader: FC<IheaderParams> = ({ isBack, title, navigation }) => {
+  const [isShow, changeIsShow] = useState(false)
   return (
     <View style={styles.headerWrapper}>
       <Icon
@@ -19,7 +21,17 @@ export const NavHeader: FC<IheaderParams> = ({ isBack, title, navigation }) => {
         color='#666'
       />
       <Text style={styles.titleStyle}>{title}</Text>
-      <Icon name='daohang' size={20} color='#333' />
+      <Icon
+        name='daohang'
+        size={20}
+        color='#333'
+        onPress={() => changeIsShow(true)}
+      />
+      <DrawModal
+        navigation={navigation}
+        isShow={isShow}
+        changeIsShow={changeIsShow}
+      />
     </View>
   )
 }

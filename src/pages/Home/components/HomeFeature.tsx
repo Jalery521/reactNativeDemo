@@ -3,44 +3,44 @@ import { View, Text, StyleSheet } from 'react-native'
 import Icon from '@/components/Icon'
 const features = [
   {
-    name: 'xiaoqu',
-    text: '找小区',
+    icon: 'xiaoqu',
+    label: '找小区',
   },
   {
-    name: 'student',
-    text: '学校',
+    icon: 'student',
+    label: '学校',
   },
   {
-    name: 'weituo',
-    text: '业主委托',
+    icon: 'weituo',
+    label: '业主委托',
   },
   {
-    name: 'gujia',
-    text: '估房价',
+    icon: 'gujia',
+    label: '估房价',
   },
   {
-    name: 'test',
-    text: '查房价',
+    icon: 'test',
+    label: '查房价',
   },
   {
-    name: 'chengjiao',
-    text: '查成交',
+    icon: 'chengjiao',
+    label: '查成交',
   },
   {
-    name: 'jisuan',
-    text: '算房贷',
+    icon: 'jisuan',
+    label: '算房贷',
   },
   {
-    name: 'baike',
-    text: '百科',
+    icon: 'baike',
+    label: '百科',
   },
   {
-    name: 'zizhi',
-    text: '购房资质',
+    icon: 'zizhi',
+    label: '购房资质',
   },
   {
-    name: 'jingjiren',
-    text: '找经纪人',
+    icon: 'jingjiren',
+    label: '找经纪人',
   },
 ]
 
@@ -50,8 +50,8 @@ const HomeFeature: FC = () => {
       {features.map((item, index) => {
         return (
           <View style={styles.featureItem} key={index}>
-            <Icon name={item.name} size={20} />
-            <Text style={styles.itemName}>{item.text}</Text>
+            <Icon name={item.icon} size={20} />
+            <Text style={styles.itemLabel}>{item.label}</Text>
           </View>
         )
       })}
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  itemName: {
+  itemLabel: {
     fontSize: 12,
     color: '#666',
     marginTop: 8,
