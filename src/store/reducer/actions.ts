@@ -29,6 +29,7 @@ export const changeStoreData = (payload: Istore) => {
 }
 
 export const changeUserInfo = (payload: any) => {
+  console.log(payload)
   return {
     type: EacionType.CHANGE_USER_INFO,
     payload,

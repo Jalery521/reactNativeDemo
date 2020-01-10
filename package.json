@@ -3,12 +3,13 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android": "react-native run-android",
+    "android": "yarn clean && react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
-    "build:android": "cd android && ./gradlew assembleRelease",
+    "clean": "rm -rf android/app/build",
+    "build:android": "yarn clean && ./android/gradlew assembleRelease",
     "build:iconfont": "iconfonttojson ./src/font/iconfont.css"
   },
   "dependencies": {

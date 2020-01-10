@@ -3,19 +3,24 @@ import { View, Text, Image, StyleSheet, ImageBackground } from 'react-native'
 import { connect } from 'react-redux'
 import Icon from '@/components/Icon'
 import PickImage from '@/components/PickerImage'
+import { changeUserInfo } from '@/store/reducer/actions'
 import { width } from '@/utils'
 
 interface Iprops {
   navigation: any
   isLogined: boolean
-  userInfo: any
+  userInfo: {
+    avatar: string
+    nickName: string
+  }
+  changeUserInfo: (payload: any) => void
 }
 
 const UserInformation: FC<Iprops> = (props) => {
-  const { isLogined, navigation, userInfo } = props
-
+  const { isLogined, navigation, userInfo, changeUserInfo } = props
   function handlePickImage(image: any) {
-    console.log(image)
+    const avatar = image.path
+    changeUserInfo({ ...userInfo, avatar })
   }
 
   return (
@@ -32,12 +37,7 @@ const UserInformation: FC<Iprops> = (props) => {
           <PickImage
             style={[styles.userAvatar, { overflow: 'hidden', zIndex: 99 }]}
             cb={handlePickImage}>
-            <Image
-              style={{ flex: 1 }}
-              source={{
-                uri: userInfo.avatar,
-              }}
-            />
+            <Image style={{ flex: 1 }} source={{ uri: userInfo.avatar }} />
           </PickImage>
         ) : (
           <Image
@@ -143,4 +143,4 @@ const mapStateToProps = (store: Istore) => {
     userInfo: store.userInfo,
   }
 }
-export default connect(mapStateToProps)(UserInformation)
+export default connect(mapStateToProps, { changeUserInfo })(UserInformation)

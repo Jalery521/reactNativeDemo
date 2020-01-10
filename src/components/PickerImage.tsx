@@ -1,23 +1,18 @@
 import React, { FC, useState } from 'react'
 import { View, Text, Modal, TouchableOpacity, StyleSheet } from 'react-native'
 import ImagePicker from 'react-native-image-crop-picker'
-import style from '@/pages/common/style'
 
 type IchoiceType = 'picker' | 'camera'
-interface IoptionItem {
-  label: string
-  value: IchoiceType
-}
 
 interface Iprops {
   type?: IchoiceType
   children: any
   title?: string
-  options?: IoptionItem[]
   cropParams?: {
     width: number
     height: number
   }
+  toBase64?: boolean
   style?: {
     [key: string]: any
   }
@@ -25,10 +20,6 @@ interface Iprops {
 }
 
 const defaultTitle = '选择图片'
-const defaultOptions: IoptionItem[] = [
-  { label: '拍照', value: 'camera' },
-  { label: '选择照片', value: 'picker' },
-]
 const defaultCropParams = {
   width: 100,
   height: 100,
@@ -38,8 +29,8 @@ const PickImage: FC<Iprops> = ({
   children,
   style,
   cropParams = defaultCropParams,
+  toBase64 = false,
   title = defaultTitle,
-  options = defaultOptions,
   cb,
 }) => {
   const [isShow, changeIsShow] = useState(false)
@@ -47,6 +38,7 @@ const PickImage: FC<Iprops> = ({
     ...cropParams,
     cropping: true,
     writeTempFile: true,
+    includeBase64: toBase64,
   }
   function handlePickImage() {
     type === undefined ? changeIsShow(true) : handleOption(type)
@@ -57,6 +49,7 @@ const PickImage: FC<Iprops> = ({
       type === 'camera' ? ImagePicker.openCamera : ImagePicker.openPicker
     try {
       const image = await openFn(pickOption)
+      console.log(image)
       cb(image)
       changeIsShow(false)
     } catch (err) {
@@ -83,16 +76,16 @@ const PickImage: FC<Iprops> = ({
           <View style={styles.optionWrapper}>
             <View style={styles.optionContent}>
               <Text style={styles.optionTitle}>{title}</Text>
-              {options.map((option) => {
-                return (
-                  <Text
-                    key={option.value}
-                    style={styles.optionItem}
-                    onPress={() => handleOption(option.value)}>
-                    {option.label}
-                  </Text>
-                )
-              })}
+              <Text
+                style={styles.optionItem}
+                onPress={() => handleOption('camera')}>
+                拍照
+              </Text>
+              <Text
+                style={styles.optionItem}
+                onPress={() => handleOption('picker')}>
+                选择照片
+              </Text>
             </View>
             <View style={[styles.optionContent, { marginTop: 10 }]}>
               <Text style={styles.optionItem} onPress={handleCancel}>
@@ -106,25 +99,10 @@ const PickImage: FC<Iprops> = ({
   )
 }
 
-// interface IoptionItem {
-//   label: string
-//   value: string
-// }
-
-// interface IchoiceModalProps {
-//   title: string
-//   options: IoptionItem[]
-// }
-
-// const choiceModal: FC = (title: string, options: string[]) => {
-//   return (
-
-//   )
-// }
-
 const styles = StyleSheet.create({
   optionWrapper: {
     padding: 15,
+    height: 190,
   },
   optionContent: {
     borderRadius: 10,
