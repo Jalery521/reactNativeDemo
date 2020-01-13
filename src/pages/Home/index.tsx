@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react'
 import { View, Text, SafeAreaView, ScrollView, StatusBar } from 'react-native'
-import { IhotHistoryItem } from './index.d'
 import HomeHeader from './components/HomeHeader'
 import HomeSearch from './components/HomeSearch'
 import HomeMenus from './components/HomeMenus'
@@ -11,26 +10,14 @@ import HomeBanner from './components/HomeBanner'
 import HomeRecommends from './components/HomeRecommends'
 import Footer from '@/components/Footer'
 import Loading from '@/components/Loading'
-import { getHomeAssets } from '@/api'
+import { getHomeAssets, IhomeAssetsResult } from '@/api'
 interface Iprops {
   navigation: any
 }
 
-interface Istate {
-  priceTrend: {
-    month: number
-    average: number
-    trend: number
-  }
-  recommends: {
-    newRecommends: IhouseItem[]
-    rentRecommends: IhouseItem[]
-    secondRecommends: IhouseItem[]
-  }
+interface Istate extends IhomeAssetsResult {
   loading: boolean
   showSearch: boolean
-  banner: Ibanner
-  hotSearch: IhotHistoryItem[]
 }
 
 class HomeScreen extends PureComponent<Iprops, Istate> {

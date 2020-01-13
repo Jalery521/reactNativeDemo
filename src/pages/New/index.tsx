@@ -6,7 +6,7 @@ import {
   TextInput,
   ScrollView,
 } from 'react-native'
-import { getNewAssets } from '@/api'
+import { getNewAssets, InewAssetsResult } from '@/api'
 import Icon from '@/components/Icon'
 import NavHeader from '@/components/NavHeader'
 import Loading from '@/components/Loading'
@@ -19,58 +19,11 @@ import NewEvaluation from './components/NewEvaluation'
 import NewLook from './components/NewLook'
 import NewDiscount from './components/NewDiscount'
 import NewOpening from './components/NewOpening'
-export interface Iinformation {
-  id: string
-  title: string
-}
-export interface IhotItem {
-  id: string
-  uri: string
-  name: string
-  area: string
-  address: string
-  price: string
-}
-export interface Ievaluation {
-  id: string
-  title: string
-  imgs: string[]
-}
-export interface IlookItem {
-  id: string
-  title: string
-  people: number
-  date: string
-  uri: string
-}
-export interface IdiscountItem {
-  id: string
-  name: string
-  people: number
-  uri: string
-  lightspot: string
-}
-export interface IopenItem {
-  id: string
-  name: string
-  area: string
-  address: string
-  typeDesc: string
-  openDate: string
-  uri: string
-}
 interface Iprops {
   navigation: any
 }
 
-interface Istate {
-  banners: Ibanner[]
-  information: Iinformation[][]
-  hot: IhotItem[]
-  evaluation: Ievaluation
-  lookList: IlookItem[]
-  discountList: IdiscountItem[]
-  openList: IopenItem[]
+interface Istate extends InewAssetsResult {
   loading: boolean
 }
 

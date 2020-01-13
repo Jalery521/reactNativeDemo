@@ -11,7 +11,6 @@ import {
 import Icon from '@/components/Icon'
 import commonStyle from '../common/style'
 import { getSecondHouses } from '@/api'
-import { height } from '@/utils'
 import Footer from '@/components/Footer'
 import Separator from '@/components/Separator'
 import NavHeader from '@/components/NavHeader'
@@ -21,7 +20,7 @@ interface Iprops {
 }
 
 interface Istate {
-  tableData: any[]
+  tableData: IhouseItem[]
   loading: boolean
 }
 
@@ -54,7 +53,7 @@ class SecondScreen extends PureComponent<Iprops, Istate> {
     const { tableData } = this.state
     try {
       const { result } = await getSecondHouses()
-      let newTableData: any[] = result
+      let newTableData = result
       if (tableData.length) {
         newTableData = [...tableData, ...result]
       }
@@ -82,15 +81,12 @@ class SecondScreen extends PureComponent<Iprops, Istate> {
             </View>
             <FlatList
               data={tableData}
+              keyExtractor={(item) => item.id}
               ListFooterComponent={<Footer />}
-              // ListHeaderComponent={
-
-              // }
               ItemSeparatorComponent={Separator}
-              renderItem={({ item }: any) => {
+              renderItem={({ item }) => {
                 return (
                   <View
-                    key={item.id}
                     style={[
                       commonStyle.houseItem,
                       { paddingLeft: 15, paddingRight: 15 },

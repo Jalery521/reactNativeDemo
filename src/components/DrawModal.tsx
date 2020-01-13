@@ -1,4 +1,5 @@
-import React, { FC } from 'react'
+// 已弃用,使用DrawNavigator
+import React, { FC, useState, useEffect } from 'react'
 import {
   Modal,
   View,
@@ -87,6 +88,7 @@ const DrawModal: FC<Iprops> = (props) => {
     changeIsShow,
   } = props
 
+  const [animateWidth] = useState(new Animated.Value(0))
   function handleOptionNavigate(path: string) {
     changeIsShow(false)
     navigation.navigate(path)
@@ -94,13 +96,29 @@ const DrawModal: FC<Iprops> = (props) => {
   function handleModalClick() {
     changeIsShow(false)
   }
+
+  useEffect(() => {
+    if (isShow) {
+      Animated.timing(
+        // 随时间变化而执行动画
+        animateWidth, // 动画中的变量值
+        {
+          toValue: halfWidth, // 宽度最终为屏幕一半
+          duration: 200, // 让动画持续一段时间
+        },
+      ).start()
+    } else {
+      animateWidth.setValue(0)
+    }
+  }, [isShow])
+
   return (
-    <Modal transparent={true} visible={isShow}>
+    <Modal transparent={true} visible={isShow} animationType='fade'>
       <TouchableOpacity
         activeOpacity={1}
         style={styles.modalStyle}
         onPress={handleModalClick}>
-        <View style={styles.contentBox}>
+        <Animated.View style={[styles.contentBox, { width: animateWidth }]}>
           <TouchableOpacity
             activeOpacity={0.8}
             style={styles.firstOption}
@@ -131,7 +149,7 @@ const DrawModal: FC<Iprops> = (props) => {
               )
             })}
           </View>
-        </View>
+        </Animated.View>
       </TouchableOpacity>
     </Modal>
   )
@@ -145,7 +163,6 @@ const styles = StyleSheet.create({
   contentBox: {
     alignSelf: 'flex-end',
     backgroundColor: '#fff',
-    width: halfWidth,
     flex: 1,
   },
   firstOption: {

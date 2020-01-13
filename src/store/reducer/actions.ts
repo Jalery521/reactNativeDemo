@@ -1,5 +1,5 @@
 import { EacionType } from './index'
-import { getUserInfo } from '../../api'
+import { getUserInfo, IuserInfo } from '../../api'
 
 export const changeDrawerStatus = () => {
   return {
@@ -28,7 +28,7 @@ export const changeStoreData = (payload: Istore) => {
   }
 }
 
-export const changeUserInfo = (payload: any) => {
+export const changeUserInfo = (payload: IuserInfo) => {
   return {
     type: EacionType.CHANGE_USER_INFO,
     payload,
@@ -51,8 +51,8 @@ export const clearSearchHistory = () => {
 export const pickUserInfo = () => {
   return (dispatch: any) => {
     return new Promise(resolve => {
-      getUserInfo().then(({ result }: any) => {
-        dispatch(changeUserInfo(result.userInfo))
+      getUserInfo().then(({ result }) => {
+        dispatch(changeUserInfo(result))
         dispatch(changeLoginStatus(true))
         resolve()
       })

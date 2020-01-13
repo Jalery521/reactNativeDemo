@@ -1,36 +1,49 @@
-import React, { FC, useState } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import React, { FC, useState, useRef } from 'react'
+import { View, Text, StyleSheet, Alert } from 'react-native'
 import Icon from './Icon'
-import DrawModal from '@/components/DrawModal'
 interface IheaderParams {
   title: string
   isBack?: boolean
+  isScan?: boolean
   navigation: any
 }
 
-export const NavHeader: FC<IheaderParams> = ({ isBack, title, navigation }) => {
-  const [isShow, changeIsShow] = useState(false)
+export const NavHeader: FC<IheaderParams> = ({
+  isBack = false,
+  title,
+  navigation,
+  isScan = false,
+}) => {
+  function openDrawModal() {
+    navigation.openDrawer()
+  }
+
+  function showScanView() {
+    Alert.alert('敬请期待', '该功能仍在开发中', [
+      {
+        text: '确定',
+      },
+    ])
+  }
+
   return (
     <View style={styles.headerWrapper}>
       <Icon
         name={isBack ? 'fanhui' : 'shouye'}
-        onPress={() =>
+        onPress={() => {
           isBack ? navigation.goBack() : navigation.navigate('Home')
-        }
+        }}
         size={20}
         color='#666'
       />
       <Text style={styles.titleStyle}>{title}</Text>
       <Icon
-        name='daohang'
+        name={isScan ? 'saoma' : 'daohang'}
         size={20}
         color='#333'
-        onPress={() => changeIsShow(true)}
-      />
-      <DrawModal
-        navigation={navigation}
-        isShow={isShow}
-        changeIsShow={changeIsShow}
+        onPress={() => {
+          isScan ? showScanView() : openDrawModal()
+        }}
       />
     </View>
   )

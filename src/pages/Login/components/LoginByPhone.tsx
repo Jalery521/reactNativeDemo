@@ -30,8 +30,7 @@ const LoginByPhone: FC<Iprops> = (props) => {
   // 点击了获取验证码
   function handleGetCode() {
     if (!phoneNumber) {
-      Alert.alert('', '请填写手机号码', [{ text: '确定' }])
-      return
+      return Alert.alert('', '请填写手机号码', [{ text: '确定' }])
     }
     if (!/^1[3|5|7|8|9]\d{9}$/.test(phoneNumber)) {
       return Alert.alert('', '手机格式不正确', [{ text: '确定' }])

@@ -21,8 +21,3 @@ interface IhouseItem {
   traits: string[]
   sale: string
 }
-
-interface Ibanner {
-  id: string
-  uri: string
-}

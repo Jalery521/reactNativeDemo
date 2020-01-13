@@ -3,7 +3,7 @@ import { View, Text, Picker, TextInput, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 import Icon from '@/components/Icon'
 import { addSearchHistory } from '@/store/reducer/actions'
-import { IhotHistoryItem } from '../index.d'
+import { IhotHistoryItem } from '@/api'
 const pickerOptions = [
   {
     label: '二手房',

@@ -65,7 +65,7 @@ const PickImage: FC<Iprops> = ({
       onPress={handlePickImage}
       style={style}>
       {children}
-      <Modal transparent={true} visible={isShow}>
+      <Modal transparent={true} visible={isShow} animationType='fade'>
         <View
           style={{
             flex: 1,

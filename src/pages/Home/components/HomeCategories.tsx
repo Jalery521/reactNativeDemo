@@ -1,6 +1,9 @@
 import React, { FC } from 'react'
-import { View, Image, Text, StyleSheet } from 'react-native'
-
+import { View, ImageBackground, Text, StyleSheet } from 'react-native'
+import { width } from '@/utils'
+const baseStandard = width / 375
+const itemWidth = baseStandard * 80
+const itemHeight = baseStandard * 92
 const HomeCategories: FC = () => {
   const categories = [
     {
@@ -28,10 +31,12 @@ const HomeCategories: FC = () => {
     <View style={styles.categoryWrapper}>
       {categories.map((category, index) => {
         return (
-          <View style={styles.categoryItem} key={index}>
-            <Image style={styles.itemImg} source={category} />
+          <ImageBackground
+            style={styles.categoryItem}
+            key={index}
+            source={category}>
             <Text style={styles.itemName}>{category.name}</Text>
-          </View>
+          </ImageBackground>
         )
       })}
     </View>
@@ -46,17 +51,16 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   categoryItem: {
-    position: 'relative',
-  },
-  itemImg: {
-    width: 80,
-    height: 100,
+    width: itemWidth,
+    height: itemHeight,
   },
   itemName: {
     position: 'absolute',
+    left: 0,
+    right: 0,
     bottom: 10,
     color: '#333',
-    left: 13,
+    textAlign: 'center',
   },
 })
 

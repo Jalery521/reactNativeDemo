@@ -20,6 +20,7 @@ class LoginScreen extends PureComponent<Iprops, Istate> {
       navigation,
       title: '登录',
       isBack: true,
+      isScan: true,
     }
     return {
       header: () => <NavHeader {...params} />,

@@ -1,20 +1,19 @@
-import { createStackNavigator } from 'react-navigation-stack'
-import HomeScreen from '@/pages/Home'
-import UserScreen from '@/pages/User'
-import LoginScreen from '@/pages/Login'
-import ResetPasswordScreen from '@/pages/Login/ResetPassword'
-import SecondScreen from '@/pages/Second'
-import NewScreen from '@/pages/New'
-export default createStackNavigator(
+import stackNavigator from './stackNavigator'
+import { createDrawerNavigator } from 'react-navigation-drawer'
+import { width } from '@/utils'
+import DrawComponent from './DrawComponent'
+
+export default createDrawerNavigator(
   {
-    Home: HomeScreen,
-    User: UserScreen,
-    Login: LoginScreen,
-    ResetPassword: ResetPasswordScreen as any,
-    Second: SecondScreen,
-    New: NewScreen,
+    stack: {
+      screen: stackNavigator,
+    },
   },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'stack',
+    drawerLockMode: 'locked-closed',
+    drawerWidth: width / 2,
+    drawerPosition: 'right',
+    contentComponent: DrawComponent,
   },
 )
