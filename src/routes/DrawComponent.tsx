@@ -1,5 +1,11 @@
 import React, { FC } from 'react'
-import { View, TouchableOpacity, Text, StyleSheet } from 'react-native'
+import {
+  View,
+  TouchableOpacity,
+  Text,
+  StyleSheet,
+  SafeAreaView,
+} from 'react-native'
 import Icon from '@/components/Icon'
 import { connect } from 'react-redux'
 
@@ -70,38 +76,40 @@ const DrawComponent: FC<Iprops> = (props) => {
   }
 
   return (
-    <View style={styles.contentBox}>
-      <TouchableOpacity
-        activeOpacity={0.8}
-        style={styles.firstOption}
-        onPress={() => handleOptionNavigate('User')}>
-        <Icon name='customuser' size={18} color='#b7b7b7' />
-        {isLogined ? (
-          <Text style={styles.optionLabel}>用户中心</Text>
-        ) : (
-          <Text style={styles.optionLabel}>登陆/注册</Text>
-        )}
-      </TouchableOpacity>
-      <View style={{ flex: 1, paddingTop: 15 }}>
-        {options.map((option) => {
-          return (
-            <TouchableOpacity
-              key={option.label}
-              activeOpacity={0.8}
-              style={styles.optionItem}
-              onPress={() => handleOptionNavigate(option.path)}>
-              <Icon
+    <SafeAreaView style={{ flex: 1 }}>
+      <View style={styles.contentBox}>
+        <TouchableOpacity
+          activeOpacity={0.8}
+          style={styles.firstOption}
+          onPress={() => handleOptionNavigate('User')}>
+          <Icon name='customuser' size={18} color='#b7b7b7' />
+          {isLogined ? (
+            <Text style={styles.optionLabel}>用户中心</Text>
+          ) : (
+            <Text style={styles.optionLabel}>登陆/注册</Text>
+          )}
+        </TouchableOpacity>
+        <View style={{ flex: 1, paddingTop: 15 }}>
+          {options.map((option) => {
+            return (
+              <TouchableOpacity
                 key={option.label}
-                name={option.icon}
-                size={18}
-                color='#b7b7b7'
-              />
-              <Text style={styles.optionLabel}>{option.label}</Text>
-            </TouchableOpacity>
-          )
-        })}
+                activeOpacity={0.8}
+                style={styles.optionItem}
+                onPress={() => handleOptionNavigate(option.path)}>
+                <Icon
+                  key={option.label}
+                  name={option.icon}
+                  size={18}
+                  color='#b7b7b7'
+                />
+                <Text style={styles.optionLabel}>{option.label}</Text>
+              </TouchableOpacity>
+            )
+          })}
+        </View>
       </View>
-    </View>
+    </SafeAreaView>
   )
 }
 
