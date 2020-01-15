@@ -32,16 +32,10 @@ interface Istate {
 }
 
 class ResetPasswordScreen extends PureComponent<Iprops, Istate> {
-  static navigationOptions = ({ navigation }: Iprops) => {
-    const params = {
-      navigation,
-      title: '重置密码',
-      isBack: true,
-    }
-    return {
-      header: () => <NavHeader {...params} />,
-    }
+  static navigationOptions = {
+    header: () => <NavHeader title='重置密码' isBack={true} />,
   }
+
   private countTimer: any
   constructor(props: Iprops) {
     super(props)

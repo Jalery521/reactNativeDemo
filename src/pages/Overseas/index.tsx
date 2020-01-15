@@ -17,14 +17,8 @@ interface Istate {
 }
 
 class Overseas extends PureComponent<Iprops, Istate> {
-  static navigationOptions = ({ navigation }: Iprops) => {
-    const params = {
-      title: '海外房产',
-      navigation,
-    }
-    return {
-      header: () => <NavHeader {...params} />,
-    }
+  static navigationOptions = {
+    header: () => <NavHeader title='海外房产' />,
   }
 
   constructor(props: Iprops) {

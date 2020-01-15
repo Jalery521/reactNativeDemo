@@ -25,14 +25,8 @@ interface Istate {
 }
 
 class SecondScreen extends PureComponent<Iprops, Istate> {
-  static navigationOptions = ({ navigation }: Iprops) => {
-    const params = {
-      navigation,
-      title: '二手房',
-    }
-    return {
-      header: () => <NavHeader {...params} />,
-    }
+  static navigationOptions = {
+    header: () => <NavHeader title='二手房' />,
   }
   constructor(props: Iprops) {
     super(props)

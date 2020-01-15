@@ -5,13 +5,12 @@ import DrawComponent from './DrawComponent'
 
 export default createDrawerNavigator(
   {
-    stack: {
-      screen: stackNavigator,
-    },
+    stackNavigator,
   },
   {
-    initialRouteName: 'stack',
-    drawerLockMode: 'locked-closed',
+    defaultNavigationOptions: {
+      drawerLockMode: 'locked-closed',
+    },
     drawerWidth: width / 2,
     drawerPosition: 'right',
     contentComponent: DrawComponent,

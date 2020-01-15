@@ -15,16 +15,8 @@ interface Istate {
 }
 
 class LoginScreen extends PureComponent<Iprops, Istate> {
-  static navigationOptions = ({ navigation }: Iprops) => {
-    const params = {
-      navigation,
-      title: '登录',
-      isBack: true,
-      isScan: true,
-    }
-    return {
-      header: () => <NavHeader {...params} />,
-    }
+  static navigationOptions = {
+    header: () => <NavHeader title='登陆' isBack={true} isScan={true} />,
   }
 
   constructor(props: Iprops) {

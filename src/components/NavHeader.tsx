@@ -1,5 +1,6 @@
-import React, { FC, useState, useRef } from 'react'
+import React, { FC } from 'react'
 import { View, Text, StyleSheet, Alert } from 'react-native'
+import { withNavigation } from 'react-navigation'
 import Icon from './Icon'
 interface IheaderParams {
   title: string
@@ -14,10 +15,6 @@ export const NavHeader: FC<IheaderParams> = ({
   navigation,
   isScan = false,
 }) => {
-  function openDrawModal() {
-    navigation.openDrawer()
-  }
-
   function showScanView() {
     Alert.alert('敬请期待', '该功能仍在开发中', [
       {
@@ -42,7 +39,7 @@ export const NavHeader: FC<IheaderParams> = ({
         size={20}
         color='#333'
         onPress={() => {
-          isScan ? showScanView() : openDrawModal()
+          isScan ? showScanView() : navigation.openDrawer()
         }}
       />
     </View>
@@ -64,4 +61,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default NavHeader
+export default withNavigation(NavHeader)

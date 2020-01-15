@@ -28,14 +28,8 @@ interface Istate extends InewAssetsResult {
 }
 
 class NewScreen extends PureComponent<Iprops, Istate> {
-  static navigationOptions = ({ navigation }: Iprops) => {
-    const params = {
-      navigation,
-      title: '新房',
-    }
-    return {
-      header: () => <NavHeader {...params} />,
-    }
+  static navigationOptions = {
+    header: () => <NavHeader title='新房' />,
   }
   constructor(props: Iprops) {
     super(props)

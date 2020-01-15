@@ -69,19 +69,13 @@ const options = [
 
 const DrawComponent: FC<Iprops> = (props) => {
   const { navigation, isLogined } = props
-
-  function handleOptionNavigate(path: string) {
-    navigation.navigate(path)
-    navigation.closeDrawer()
-  }
-
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.contentBox}>
         <TouchableOpacity
           activeOpacity={0.8}
           style={styles.firstOption}
-          onPress={() => handleOptionNavigate('User')}>
+          onPress={() => navigation.navigate('User')}>
           <Icon name='customuser' size={18} color='#b7b7b7' />
           {isLogined ? (
             <Text style={styles.optionLabel}>用户中心</Text>
@@ -96,7 +90,7 @@ const DrawComponent: FC<Iprops> = (props) => {
                 key={option.label}
                 activeOpacity={0.8}
                 style={styles.optionItem}
-                onPress={() => handleOptionNavigate(option.path)}>
+                onPress={() => navigation.navigate(option.path)}>
                 <Icon
                   key={option.label}
                   name={option.icon}
