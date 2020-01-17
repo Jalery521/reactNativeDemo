@@ -2,8 +2,8 @@ import React, { FC } from 'react'
 import { View, Image, StyleSheet } from 'react-native'
 import Swiper from 'react-native-swiper'
 import { width } from '@/utils'
-const imageWidth = width - 30
-const imageHeight = (imageWidth / 370) * 139
+const swiperWidth = width - 30
+const swiperHeight = (swiperWidth / 370) * 139
 interface Ibanner {
   uri: string
   id: string
@@ -28,7 +28,7 @@ const NewSwiper: FC<Iprops> = ({ banners }) => {
 }
 const styles = StyleSheet.create({
   swiperWrapper: {
-    height: imageHeight,
+    height: swiperHeight,
     margin: 15,
     marginTop: 10,
     marginBottom: 10,
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   itemImg: {
-    width: imageWidth,
+    width: swiperWidth,
     flex: 1,
     borderRadius: 6,
   },

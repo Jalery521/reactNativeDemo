@@ -35,7 +35,7 @@ export interface IhomeAssetsResult {
   hotSearch: IhotHistoryItem[]
 }
 
-export const getHomeAssets = (): Promise<{ result: IhomeAssetsResult }> => {
+export function getHomeAssets(): Promise<{ result: IhomeAssetsResult }> {
   return fetch(`${BASE_URL}/getHomeAssets`).then(res => res.json())
 }
 /**
@@ -46,14 +46,14 @@ export interface IuserInfo {
   nickName: string
   avatar: string
 }
-export const getUserInfo = (): Promise<{ result: IuserInfo }> => {
+export function getUserInfo(): Promise<{ result: IuserInfo }> {
   return fetch(`${BASE_URL}/getUserInfo`).then(res => res.json())
 }
 
 /**
  * 以下为二手房页面接口
  */
-export const getSecondHouses = (): Promise<{ result: IhouseItem[] }> => {
+export function getSecondHouses(): Promise<{ result: IhouseItem[] }> {
   return fetch(`${BASE_URL}/getSecondHouses`).then(res => res.json())
 }
 
@@ -116,7 +116,7 @@ export interface InewAssetsResult {
   openList: IopenItem[]
 }
 
-export const getNewAssets = (): Promise<{ result: InewAssetsResult }> => {
+export function getNewAssets(): Promise<{ result: InewAssetsResult }> {
   return fetch(`${BASE_URL}/getNewAssets`).then(res => res.json())
 }
 
@@ -129,6 +129,67 @@ export interface IareaItem {
   uri: string
 }
 
-export const getOverseasArea = (): Promise<{ result: IareaItem[] }> => {
+export function getOverseasArea(): Promise<{ result: IareaItem[] }> {
   return fetch(`${BASE_URL}/getOverseasArea`).then(res => res.json())
+}
+
+/**
+ * 二手房详情
+ */
+
+export interface Ibroker {
+  id: string
+  avatar: string
+  name: string
+  score: number
+  evaluatePeople: number
+  post: string
+  affiliation: string
+  relation: string
+  phone: number
+}
+
+export interface Ievaluate {
+  id: string
+  title: string
+  remark: string
+}
+
+export interface Ishool {
+  id: string
+  name: string
+  distance: string
+  level: string
+}
+export interface IsecondDetail {
+  id: string
+  imgs: string[]
+  trait: string[]
+  title: string
+  total: string
+  type: string
+  acreage: number
+  price: number
+  budget: string
+  orientation: '东' | '南' | '西' | '北'
+  floor: number
+  decoration: string
+  number: number
+  entrustStartTime: string
+  entrustEndTime: string
+  subway: string
+  broker: Ibroker[]
+  evaluate: Ievaluate[]
+  school: Ishool[]
+  graden: {
+    price: number
+    year: number
+    category: string
+    area: string
+  }
+
+}
+
+export function getSecondDetail(id: string): Promise<{ result: IsecondDetail }> {
+  return fetch(`${BASE_URL}/getSecondDetail/${id}`).then(res => res.json())
 }

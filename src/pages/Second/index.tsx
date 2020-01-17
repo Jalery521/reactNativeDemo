@@ -6,6 +6,7 @@ import {
   StyleSheet,
   SafeAreaView,
   TextInput,
+  TouchableOpacity,
   Image,
 } from 'react-native'
 import Icon from '@/components/Icon'
@@ -62,6 +63,7 @@ class SecondScreen extends PureComponent<Iprops, Istate> {
   }
 
   render() {
+    const { navigation } = this.props
     const { tableData, loading } = this.state
     return (
       <SafeAreaView style={{ flex: 1 }}>
@@ -80,11 +82,14 @@ class SecondScreen extends PureComponent<Iprops, Istate> {
               ItemSeparatorComponent={Separator}
               renderItem={({ item }) => {
                 return (
-                  <View
+                  <TouchableOpacity
                     style={[
                       commonStyle.houseItem,
                       { paddingLeft: 15, paddingRight: 15 },
-                    ]}>
+                    ]}
+                    onPress={() =>
+                      navigation.navigate('SecondDetail', { id: item.id })
+                    }>
                     <View style={{ flexDirection: 'row' }}>
                       <Image style={commonStyle.itemImg} source={item} />
                       <View>
@@ -113,7 +118,7 @@ class SecondScreen extends PureComponent<Iprops, Istate> {
                         </View>
                       </View>
                     </View>
-                  </View>
+                  </TouchableOpacity>
                 )
               }}
             />
