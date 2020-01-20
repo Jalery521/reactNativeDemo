@@ -161,10 +161,18 @@ export interface Ishool {
   distance: string
   level: string
 }
+
+export interface Igarden {
+  name: string
+  price: number
+  year: number
+  category: string
+  area: string
+}
 export interface IsecondDetail {
   id: string
   imgs: string[]
-  trait: string[]
+  traits: string[]
   title: string
   total: string
   type: string
@@ -178,15 +186,10 @@ export interface IsecondDetail {
   entrustStartTime: string
   entrustEndTime: string
   subway: string
-  broker: Ibroker[]
-  evaluate: Ievaluate[]
-  school: Ishool[]
-  graden: {
-    price: number
-    year: number
-    category: string
-    area: string
-  }
+  brokers: Ibroker[]
+  evaluates: Ievaluate[]
+  schools: Ishool[]
+  garden: Igarden
 
 }
 

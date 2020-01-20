@@ -1,3 +1,7 @@
+declare module 'react-native-baidu-map' {
+  export const MapView: any
+  export const Overlay: any
+}
 interface Istore {
   drawerStatus: boolean
   isLogined: boolean
