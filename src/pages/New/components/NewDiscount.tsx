@@ -1,9 +1,9 @@
 // 优惠楼盘
 import React, { FC } from 'react'
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
-import { IdiscountItem } from '../index'
+import { InewDiscountItem } from '@/api/new'
 interface Iprops {
-  discountList: IdiscountItem[]
+  discountList: InewDiscountItem[]
 }
 
 const NewDiscount: FC<Iprops> = ({ discountList }) => {

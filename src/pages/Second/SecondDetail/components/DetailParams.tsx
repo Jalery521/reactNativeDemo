@@ -1,13 +1,13 @@
 import React, { FC } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
-import { IsecondDetail } from '@/api'
+import { IsecondHouseInfo } from '@/api'
 import commonStyle from './styles'
 interface Iprops {
-  detail: IsecondDetail
+  info: IsecondHouseInfo
 }
 
-const DetailParams: FC<Iprops> = ({ detail }) => {
-  const { traits = [] } = detail
+const DetailParams: FC<Iprops> = ({ info }) => {
+  const { traits = [] } = info
   return (
     <View style={styles.detailWrapper}>
       <View style={styles.traitBox}>
@@ -21,7 +21,7 @@ const DetailParams: FC<Iprops> = ({ detail }) => {
             })
           : null}
       </View>
-      <Text style={styles.titleStyle}>{detail.title}</Text>
+      <Text style={styles.titleStyle}>{info.title}</Text>
       <View style={styles.baseInfo}>
         <View
           style={[
@@ -32,7 +32,7 @@ const DetailParams: FC<Iprops> = ({ detail }) => {
               borderStyle: 'solid',
             },
           ]}>
-          <Text style={styles.baseValue}>{detail.total}</Text>
+          <Text style={styles.baseValue}>{info.total}</Text>
           <Text style={styles.baseLabel}>售价</Text>
         </View>
         <View
@@ -44,34 +44,34 @@ const DetailParams: FC<Iprops> = ({ detail }) => {
               borderStyle: 'solid',
             },
           ]}>
-          <Text style={styles.baseValue}>{detail.type}</Text>
+          <Text style={styles.baseValue}>{info.type}</Text>
           <Text style={styles.baseLabel}>房型</Text>
         </View>
         <View style={styles.baseItem}>
-          <Text style={styles.baseValue}>{detail.acreage.toFixed(2)}㎡</Text>
+          <Text style={styles.baseValue}>{info.acreage.toFixed(2)}㎡</Text>
           <Text style={styles.baseLabel}>建筑面积</Text>
         </View>
       </View>
       <View style={styles.houseInfo}>
         <View style={styles.houseInfoItem}>
           <Text style={styles.houseInfoLabel}>单价：</Text>
-          <Text>{detail.price}</Text>
+          <Text>{info.price}</Text>
         </View>
         <View style={styles.houseInfoItem}>
           <Text style={styles.houseInfoLabel}>费用预算：</Text>
-          <Text>{detail.budget}</Text>
+          <Text>{info.budget}</Text>
         </View>
         <View style={styles.houseInfoItem}>
           <Text style={styles.houseInfoLabel}>朝向：</Text>
-          <Text>{detail.orientation}</Text>
+          <Text>{info.orientation}</Text>
         </View>
         <View style={styles.houseInfoItem}>
           <Text style={styles.houseInfoLabel}>楼层：</Text>
-          <Text>{detail.floor}</Text>
+          <Text>{info.floor}</Text>
         </View>
         <View style={styles.houseInfoItem}>
           <Text style={styles.houseInfoLabel}>装修：</Text>
-          <Text>{detail.decoration}</Text>
+          <Text>{info.decoration}</Text>
         </View>
         <View style={styles.houseInfoItem}>
           <Text style={styles.houseInfoLabel}>电梯：</Text>
@@ -79,17 +79,17 @@ const DetailParams: FC<Iprops> = ({ detail }) => {
         </View>
         <View style={styles.houseInfoItem}>
           <Text style={styles.houseInfoLabel}>房源编码：</Text>
-          <Text>{detail.number}</Text>
+          <Text>{info.number}</Text>
         </View>
         <View style={styles.houseInfoItem}>
           <Text style={styles.houseInfoLabel}>委托时间：</Text>
           <Text>
-            {detail.entrustStartTime} - {detail.entrustEndTime}
+            {info.entrustStartTime} - {info.entrustEndTime}
           </Text>
         </View>
         <View style={styles.houseInfoItem}>
           <Text style={styles.houseInfoLabel}>地铁：</Text>
-          <Text>{detail.subway}</Text>
+          <Text>{info.subway}</Text>
         </View>
         <TouchableOpacity activeOpacity={0.8} style={commonStyle.viewMoreBtn}>
           <Text style={{ color: '#6789b2' }}>查看更多房源信息</Text>

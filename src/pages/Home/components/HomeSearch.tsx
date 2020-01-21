@@ -3,7 +3,7 @@ import { View, Text, Picker, TextInput, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 import Icon from '@/components/Icon'
 import { addSearchHistory } from '@/store/reducer/actions'
-import { IhotHistoryItem } from '@/api'
+import { IhomeHotHistoryItem } from '@/api/home'
 const pickerOptions = [
   {
     label: '二手房',
@@ -29,7 +29,7 @@ const pickerOptions = [
 interface Iprops {
   handleChangeIsShow: () => void
   addSearchHistory: (text: string) => void
-  hotSearch: IhotHistoryItem[]
+  hotSearch: IhomeHotHistoryItem[]
   historyData: string[]
 }
 type Icategory = 'second' | 'rent' | 'new' | 'office_rent' | 'office_sale'

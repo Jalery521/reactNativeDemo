@@ -6,7 +6,7 @@ import {
   TextInput,
   ScrollView,
 } from 'react-native'
-import { getNewAssets, InewAssetsResult } from '@/api'
+import { getNewAssets, InewAssetsResult } from '@/api/new'
 import Icon from '@/components/Icon'
 import NavHeader from '@/components/NavHeader'
 import Loading from '@/components/Loading'
@@ -36,7 +36,7 @@ class NewScreen extends PureComponent<Iprops, Istate> {
     this.state = {
       banners: [],
       loading: false,
-      information: [],
+      info: [],
       hot: [],
       evaluation: { id: '', title: '', imgs: [] },
       lookList: [],
@@ -57,7 +57,7 @@ class NewScreen extends PureComponent<Iprops, Istate> {
       const { result } = await getNewAssets()
       const {
         banners,
-        information,
+        info,
         hot,
         evaluation,
         lookList,
@@ -66,7 +66,7 @@ class NewScreen extends PureComponent<Iprops, Istate> {
       } = result
       this.setState({
         banners,
-        information,
+        info,
         hot,
         evaluation,
         lookList,
@@ -84,7 +84,7 @@ class NewScreen extends PureComponent<Iprops, Istate> {
     const {
       loading,
       banners,
-      information,
+      info,
       hot,
       evaluation,
       lookList,
@@ -104,7 +104,7 @@ class NewScreen extends PureComponent<Iprops, Istate> {
             <ScrollView>
               <NewSwiper banners={banners} />
               <NewMenus />
-              <NewInformation information={information} />
+              <NewInformation info={info} />
               <NewHot hot={hot} />
               <NewEvaluation evaluation={evaluation} />
               <NewLook lookList={lookList} />

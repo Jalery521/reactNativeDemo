@@ -1,9 +1,9 @@
 import React, { FC } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import Icon from '@/components/Icon'
-import { IpriceTrend } from '@/api'
+import { IhomePriceTrend } from '@/api/home'
 interface Iprops {
-  priceTrend: IpriceTrend
+  priceTrend: IhomePriceTrend
 }
 
 const HomePrice: FC<Iprops> = ({ priceTrend }) => {

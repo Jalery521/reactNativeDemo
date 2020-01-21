@@ -1,9 +1,9 @@
 import React, { FC } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
-import { Igarden } from '@/api'
+import { IsecondHouseGarden } from '@/api'
 import commonStyle from './styles'
 interface Iprops {
-  garden: Igarden
+  garden: IsecondHouseGarden
 }
 
 const DetailGarden: FC<Iprops> = ({ garden = {} }) => {

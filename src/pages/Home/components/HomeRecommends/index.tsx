@@ -1,11 +1,11 @@
 import React, { FC, useState } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
-import { Irecommends } from '@/api'
+import { IhomeRecommends } from '@/api/home'
 import NewRecomends from './components/NewRecommends'
 import RentRecommends from './components/RentRecommends'
 import SecondRecommends from './components/SecondRecommends'
 interface Iprops {
-  recommends: Irecommends
+  recommends: IhomeRecommends
 }
 const HomeRecommends: FC<Iprops> = ({ recommends }) => {
   const [recommendCategory, changeRecommendCategory] = useState('SECOND')

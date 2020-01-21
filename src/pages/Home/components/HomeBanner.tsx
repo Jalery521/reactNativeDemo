@@ -1,7 +1,6 @@
 import React, { FC } from 'react'
 import { Image, View } from 'react-native'
 import { width } from '@/utils'
-import { Ibanner } from '@/api'
 const bannerWidth = width - 30
 const bannerHeight = (bannerWidth / 640) * 200
 interface Iprops {

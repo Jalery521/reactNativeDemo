@@ -1,11 +1,11 @@
 import React, { FC } from 'react'
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native'
 import Icon from '@/components/Icon'
-import { Ibroker } from '@/api'
+import { IsecondHouseBroker } from '@/api'
 import commonStyle from './styles'
 
 interface Iprops {
-  brokers: Ibroker[]
+  brokers: IsecondHouseBroker[]
 }
 
 const DetailBrokers: FC<Iprops> = ({ brokers }) => {

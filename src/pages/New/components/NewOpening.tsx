@@ -1,8 +1,8 @@
 import React, { FC } from 'react'
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
-import { IopenItem } from '../index'
+import { InewOpenItem } from '@/api/new'
 interface Iprops {
-  openList: IopenItem[]
+  openList: InewOpenItem[]
 }
 const NewOpening: FC<Iprops> = ({ openList }) => {
   return openList.length ? (

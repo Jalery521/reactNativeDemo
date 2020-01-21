@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import { ScrollView } from 'react-native'
 
 import Loading from '@/components/Loading'
-import { getSecondDetail, IsecondDetail } from '@/api'
+import { getSecondDetail, IsecondHouseDetail } from '@/api/second'
 import DetailSwiper from './components/DetailSwiper'
 import DetailParams from './components/DetailParams'
 import DetailBrokers from './components/DetailBrokers'
@@ -11,6 +11,7 @@ import DetailSchools from './components/DetailSchools'
 import DetailGarden from './components/DetailGarden'
 // import DetailSupport from './components/DetailSupport'
 import DetailLoans from './components/DetailLoans'
+import DetailTrend from './components/DetailTrend'
 interface Iprops {
   id: string
   navigation: any
@@ -18,7 +19,7 @@ interface Iprops {
 
 interface Istate {
   loading: boolean
-  detail: IsecondDetail
+  detail: IsecondHouseDetail
 }
 
 class SecondDetail extends PureComponent<Iprops, Istate> {
@@ -32,20 +33,22 @@ class SecondDetail extends PureComponent<Iprops, Istate> {
       detail: {
         id: '',
         imgs: [],
-        traits: [],
-        title: '',
-        total: '',
-        type: '',
-        acreage: 0,
-        price: 0,
-        budget: '',
-        orientation: '东',
-        floor: 0,
-        decoration: '',
-        number: 0,
-        entrustStartTime: '',
-        entrustEndTime: '',
-        subway: '',
+        info: {
+          traits: [],
+          title: '',
+          total: '',
+          type: '',
+          acreage: 0,
+          price: 0,
+          budget: '',
+          orientation: '东',
+          floor: 0,
+          decoration: '',
+          number: 0,
+          entrustStartTime: '',
+          entrustEndTime: '',
+          subway: '',
+        },
         brokers: [],
         evaluates: [],
         schools: [],
@@ -57,6 +60,11 @@ class SecondDetail extends PureComponent<Iprops, Istate> {
           area: '',
         },
         loans: [],
+        trend: {
+          houseCount: 0,
+          trend: '',
+          items: [],
+        },
       },
     }
   }
@@ -81,20 +89,37 @@ class SecondDetail extends PureComponent<Iprops, Istate> {
     }
   }
 
+  handleScroll = (e: Event) => {
+    console.log(e)
+  }
+
   render() {
     const { navigation } = this.props
     const { loading, detail } = this.state
-    const { imgs, brokers, evaluates, schools, garden, loans } = detail
+    const {
+      imgs,
+      info,
+      brokers,
+      evaluates,
+      schools,
+      garden,
+      loans,
+      trend,
+    } = detail
+    const { name: gradenName } = garden
     return (
       <Loading isShow={loading}>
-        <ScrollView style={{ backgroundColor: '#f5f5f5' }}>
+        <ScrollView
+          style={{ backgroundColor: '#f5f5f5' }}
+          onScroll={this.handleScroll}>
           <DetailSwiper imgs={imgs} navigation={navigation} />
-          <DetailParams detail={detail} />
+          <DetailParams info={info} />
           <DetailBrokers brokers={brokers} />
           <DetailEvaluates evaluates={evaluates} />
           <DetailSchools schools={schools} />
           <DetailGarden garden={garden} />
           <DetailLoans loans={loans} />
+          <DetailTrend trend={trend} gardenName={gradenName} />
           {/* <DetailSupport /> */}
         </ScrollView>
       </Loading>

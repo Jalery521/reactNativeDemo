@@ -2,12 +2,12 @@
 import React, { FC } from 'react'
 import { View, Text, Image, StyleSheet } from 'react-native'
 import Swiper from 'react-native-swiper'
-import { Iinformation } from '../index'
+import { InewInfo } from '@/api/new'
 interface Iprops {
-  information: Iinformation[][]
+  info: InewInfo[][]
 }
-const NewInformation: FC<Iprops> = ({ information }) => {
-  return information.length ? (
+const NewInformation: FC<Iprops> = ({ info }) => {
+  return info.length ? (
     <View style={styles.informationWrapper}>
       <Image
         style={styles.informationIcon}
@@ -18,10 +18,10 @@ const NewInformation: FC<Iprops> = ({ information }) => {
       />
       <View style={{ flex: 1 }}>
         <Swiper horizontal={false} autoplay={true} showsPagination={false}>
-          {information.map((item, index) => {
+          {info.map((item, index) => {
             return (
               <View key={index} style={styles.informationItem}>
-                {item.map(subItem => {
+                {item.map((subItem) => {
                   return <Text key={subItem.id}>● {subItem.title}</Text>
                 })}
               </View>

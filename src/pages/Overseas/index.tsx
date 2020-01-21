@@ -3,7 +3,7 @@ import { View, ImageBackground, Text, StyleSheet, FlatList } from 'react-native'
 import NavHeader from '@/components/NavHeader'
 import { width } from '@/utils'
 import Loading from '@/components/Loading'
-import { getOverseasArea, IareaItem } from '@/api'
+import { getOverseasArea, IoverseasAreaItem } from '@/api/overseas'
 const bannerHeight = (width / 375) * 180
 const areaItemWidth = (width - 30 - 15) / 2
 const areaItemHeight = areaItemWidth * 1.2
@@ -13,7 +13,7 @@ interface Iprops {
 
 interface Istate {
   loading: boolean
-  areaList: IareaItem[]
+  areaList: IoverseasAreaItem[]
 }
 
 class Overseas extends PureComponent<Iprops, Istate> {

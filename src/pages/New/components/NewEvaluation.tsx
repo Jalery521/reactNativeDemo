@@ -2,9 +2,9 @@
 import React, { FC } from 'react'
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
 import Icon from '@/components/Icon'
-import { Ievaluation } from '../index'
+import { InewEvaluation } from '@/api/new'
 interface Iprops {
-  evaluation: Ievaluation
+  evaluation: InewEvaluation
 }
 const NewEvaluation: FC<Iprops> = ({ evaluation }) => {
   return evaluation.id ? (

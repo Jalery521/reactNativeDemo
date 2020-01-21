@@ -7,6 +7,7 @@
 4. `react-navigation`: android/ios 端的页面导航
 5. `redux`: 实现共享数据的响应式存储
 6. `redux-thunk`: 实现异步的 action
+7. `victory-native`: 实现图表功能
 
 ##### 运行项目: yarn && yarn android
 

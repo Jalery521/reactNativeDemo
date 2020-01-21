@@ -1,9 +1,9 @@
 import React, { FC } from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
-import { Ievaluate } from '@/api'
+import { IsecondHouseEvaluate } from '@/api'
 import commonStyle from './styles'
 interface Iprops {
-  evaluates: Ievaluate[]
+  evaluates: IsecondHouseEvaluate[]
 }
 
 const DetailEvaluates: FC<Iprops> = ({ evaluates }) => {

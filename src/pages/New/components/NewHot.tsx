@@ -1,9 +1,9 @@
 // 热门楼盘
 import React, { FC } from 'react'
 import { View, Text, Image, StyleSheet, ScrollView } from 'react-native'
-import { IhotItem } from '../index'
+import { InewHotItem } from '@/api/new'
 interface Iprops {
-  hot: IhotItem[]
+  hot: InewHotItem[]
 }
 const NewHot: FC<Iprops> = ({ hot }) => {
   return hot.length ? (

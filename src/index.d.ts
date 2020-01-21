@@ -29,3 +29,10 @@ interface IhouseItem {
   traits: string[]
   sale: string
 }
+
+
+// banner
+interface Ibanner {
+  id: string
+  uri: string
+}

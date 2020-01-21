@@ -10,7 +10,7 @@ import HomeBanner from './components/HomeBanner'
 import HomeRecommends from './components/HomeRecommends'
 import Footer from '@/components/Footer'
 import Loading from '@/components/Loading'
-import { getHomeAssets, IhomeAssetsResult } from '@/api'
+import { getHomeAssets, IhomeAssetsResult } from '@/api/home'
 interface Iprops {
   navigation: any
 }

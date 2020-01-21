@@ -11,7 +11,7 @@ import {
 } from 'react-native'
 import Icon from '@/components/Icon'
 import commonStyle from '../common/style'
-import { getSecondHouses } from '@/api'
+import { getSecondHouses } from '@/api/second'
 import Footer from '@/components/Footer'
 import Separator from '@/components/Separator'
 import NavHeader from '@/components/NavHeader'

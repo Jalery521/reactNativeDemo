@@ -1,9 +1,10 @@
 // 小Q看房
 import React, { FC } from 'react'
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
+import { InewLookItem } from '@/api/new'
 import Icon from '@/components/Icon'
 interface Iprops {
-  lookList: any[]
+  lookList: InewLookItem[]
 }
 const NewLook: FC<Iprops> = ({ lookList }) => {
   return lookList.length ? (

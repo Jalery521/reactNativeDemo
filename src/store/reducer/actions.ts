@@ -1,5 +1,5 @@
 import { EacionType } from './index'
-import { getUserInfo, IuserInfo } from '../../api'
+import { getUserInfo, IuserInfo } from '@/api/user'
 
 export const changeDrawerStatus = () => {
   return {
