@@ -1609,6 +1609,11 @@ big-integer@^1.6.7:
   resolved "https://registry.yarnpkg.com/big-integer/-/big-integer-1.6.47.tgz#e1e9320e26c4cc81f64fbf4b3bb20e025bf18e2d"
   integrity sha512-9t9f7X3as2XGX8b52GqG6ox0GvIdM86LyIXASJnDCFhYNgt+A+MByQZ3W2PyMRZjEvG5f8TEbSPfEotVuMJnQg==
 
+boolbase@^1.0.0, boolbase@~1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npm.taobao.org/boolbase/download/boolbase-1.0.0.tgz#68dff5fbe60c51eb37725ea9e3ed310dcc1e776e"
+  integrity sha1-aN/1++YMUes3cl6p4+0xDcwed24=
+
 bplist-creator@0.0.7:
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/bplist-creator/-/bplist-creator-0.0.7.tgz#37df1536092824b87c42f957b01344117372ae45"
@@ -2018,6 +2023,29 @@ cross-spawn@^6.0.0, cross-spawn@^6.0.5:
     shebang-command "^1.2.0"
     which "^1.2.9"
 
+css-select@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.npm.taobao.org/css-select/download/css-select-2.1.0.tgz?cache=0&sync_timestamp=1573341911322&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcss-select%2Fdownload%2Fcss-select-2.1.0.tgz#6a34653356635934a81baca68d0255432105dbef"
+  integrity sha1-ajRlM1ZjWTSoG6ymjQJVQyEF2+8=
+  dependencies:
+    boolbase "^1.0.0"
+    css-what "^3.2.1"
+    domutils "^1.7.0"
+    nth-check "^1.0.2"
+
+css-tree@^1.0.0-alpha.39:
+  version "1.0.0-alpha.39"
+  resolved "https://registry.npm.taobao.org/css-tree/download/css-tree-1.0.0-alpha.39.tgz?cache=0&sync_timestamp=1575583846685&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcss-tree%2Fdownload%2Fcss-tree-1.0.0-alpha.39.tgz#2bff3ffe1bb3f776cf7eefd91ee5cba77a149eeb"
+  integrity sha1-K/8//huz93bPfu/ZHuXLp3oUnus=
+  dependencies:
+    mdn-data "2.0.6"
+    source-map "^0.6.1"
+
+css-what@^3.2.1:
+  version "3.2.1"
+  resolved "https://registry.npm.taobao.org/css-what/download/css-what-3.2.1.tgz#f4a8f12421064621b456755e34a03a2c22df5da1"
+  integrity sha1-9KjxJCEGRiG0VnVeNKA6LCLfXaE=
+
 cssom@0.3.x, "cssom@>= 0.3.2 < 0.4.0":
   version "0.3.8"
   resolved "https://registry.yarnpkg.com/cssom/-/cssom-0.3.8.tgz#9f1276f5b2b463f2114d3f2c75250af8c1a36f4a"
@@ -2034,6 +2062,85 @@ csstype@^2.2.0:
   version "2.6.7"
   resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.6.7.tgz#20b0024c20b6718f4eda3853a1f5a1cce7f5e4a5"
   integrity sha512-9Mcn9sFbGBAdmimWb2gLVDtFJzeKtDGIr76TUqmjZrw9LFXBMSU70lcs+C0/7fyCd6iBDqmksUcCOUIkisPHsQ==
+
+d3-array@^1.2.0:
+  version "1.2.4"
+  resolved "https://registry.npm.taobao.org/d3-array/download/d3-array-1.2.4.tgz#635ce4d5eea759f6f605863dbcfc30edc737f71f"
+  integrity sha1-Y1zk1e6nWfb2BYY9vPww7cc39x8=
+
+d3-collection@1:
+  version "1.0.7"
+  resolved "https://registry.npm.taobao.org/d3-collection/download/d3-collection-1.0.7.tgz#349bd2aa9977db071091c13144d5e4f16b5b310e"
+  integrity sha1-NJvSqpl32wcQkcExRNXk8WtbMQ4=
+
+d3-color@1:
+  version "1.4.0"
+  resolved "https://registry.npm.taobao.org/d3-color/download/d3-color-1.4.0.tgz#89c45a995ed773b13314f06460df26d60ba0ecaf"
+  integrity sha1-icRamV7Xc7EzFPBkYN8m1gug7K8=
+
+d3-ease@^1.0.0:
+  version "1.0.6"
+  resolved "https://registry.npm.taobao.org/d3-ease/download/d3-ease-1.0.6.tgz#ebdb6da22dfac0a22222f2d4da06f66c416a0ec0"
+  integrity sha1-69ttoi36wKIiIvLU2gb2bEFqDsA=
+
+d3-format@1:
+  version "1.4.3"
+  resolved "https://registry.npm.taobao.org/d3-format/download/d3-format-1.4.3.tgz?cache=0&sync_timestamp=1577638399481&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fd3-format%2Fdownload%2Fd3-format-1.4.3.tgz#4e8eb4dff3fdcb891a8489ec6e698601c41b96f1"
+  integrity sha1-To603/P9y4kahInsbmmGAcQblvE=
+
+d3-interpolate@1, d3-interpolate@^1.1.1:
+  version "1.4.0"
+  resolved "https://registry.npm.taobao.org/d3-interpolate/download/d3-interpolate-1.4.0.tgz#526e79e2d80daa383f9e0c1c1c7dcc0f0583e987"
+  integrity sha1-Um554tgNqjg/ngwcHH3MDwWD6Yc=
+  dependencies:
+    d3-color "1"
+
+d3-path@1:
+  version "1.0.9"
+  resolved "https://registry.npm.taobao.org/d3-path/download/d3-path-1.0.9.tgz?cache=0&sync_timestamp=1573930859389&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fd3-path%2Fdownload%2Fd3-path-1.0.9.tgz#48c050bb1fe8c262493a8caf5524e3e9591701cf"
+  integrity sha1-SMBQux/owmJJOoyvVSTj6VkXAc8=
+
+d3-scale@^1.0.0:
+  version "1.0.7"
+  resolved "https://registry.npm.taobao.org/d3-scale/download/d3-scale-1.0.7.tgz#fa90324b3ea8a776422bd0472afab0b252a0945d"
+  integrity sha1-+pAySz6op3ZCK9BHKvqwslKglF0=
+  dependencies:
+    d3-array "^1.2.0"
+    d3-collection "1"
+    d3-color "1"
+    d3-format "1"
+    d3-interpolate "1"
+    d3-time "1"
+    d3-time-format "2"
+
+d3-shape@^1.0.0, d3-shape@^1.2.0:
+  version "1.3.7"
+  resolved "https://registry.npm.taobao.org/d3-shape/download/d3-shape-1.3.7.tgz#df63801be07bc986bc54f63789b4fe502992b5d7"
+  integrity sha1-32OAG+B7yYa8VPY3ibT+UCmStdc=
+  dependencies:
+    d3-path "1"
+
+d3-time-format@2:
+  version "2.2.3"
+  resolved "https://registry.npm.taobao.org/d3-time-format/download/d3-time-format-2.2.3.tgz?cache=0&sync_timestamp=1577638399940&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fd3-time-format%2Fdownload%2Fd3-time-format-2.2.3.tgz#0c9a12ee28342b2037e5ea1cf0b9eb4dd75f29cb"
+  integrity sha1-DJoS7ig0KyA35eoc8LnrTddfKcs=
+  dependencies:
+    d3-time "1"
+
+d3-time@1:
+  version "1.1.0"
+  resolved "https://registry.npm.taobao.org/d3-time/download/d3-time-1.1.0.tgz#b1e19d307dae9c900b7e5b25ffc5dcc249a8a0f1"
+  integrity sha1-seGdMH2unJALflsl/8XcwkmooPE=
+
+d3-timer@^1.0.0:
+  version "1.0.10"
+  resolved "https://registry.npm.taobao.org/d3-timer/download/d3-timer-1.0.10.tgz?cache=0&sync_timestamp=1573938297645&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fd3-timer%2Fdownload%2Fd3-timer-1.0.10.tgz#dfe76b8a91748831b13b6d9c793ffbd508dd9de5"
+  integrity sha1-3+dripF0iDGxO22ceT/71QjdneU=
+
+d3-voronoi@^1.1.2:
+  version "1.1.4"
+  resolved "https://registry.npm.taobao.org/d3-voronoi/download/d3-voronoi-1.1.4.tgz#dd3c78d7653d2bb359284ae478645d95944c8297"
+  integrity sha1-3Tx412U9K7NZKErkeGRdlZRMgpc=
 
 dashdash@^1.12.0:
   version "1.14.1"
@@ -2143,6 +2250,18 @@ define-property@^2.0.2:
     is-descriptor "^1.0.2"
     isobject "^3.0.1"
 
+delaunator@^4.0.0:
+  version "4.0.1"
+  resolved "https://registry.npm.taobao.org/delaunator/download/delaunator-4.0.1.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fdelaunator%2Fdownload%2Fdelaunator-4.0.1.tgz#3d779687f57919a7a418f8ab947d3bddb6846957"
+  integrity sha1-PXeWh/V5GaekGPirlH073baEaVc=
+
+delaunay-find@0.0.5:
+  version "0.0.5"
+  resolved "https://registry.npm.taobao.org/delaunay-find/download/delaunay-find-0.0.5.tgz#5fb37e6509da934881b4b16c08898ac89862c097"
+  integrity sha1-X7N+ZQnak0iBtLFsCImKyJhiwJc=
+  dependencies:
+    delaunator "^4.0.0"
+
 delayed-stream@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/delayed-stream/-/delayed-stream-1.0.0.tgz#df3ae199acadfb7d440aaae0b29e2272b24ec619"
@@ -2197,12 +2316,38 @@ doctrine@^3.0.0:
   dependencies:
     esutils "^2.0.2"
 
+dom-serializer@0:
+  version "0.2.2"
+  resolved "https://registry.npm.taobao.org/dom-serializer/download/dom-serializer-0.2.2.tgz?cache=0&sync_timestamp=1573447907918&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fdom-serializer%2Fdownload%2Fdom-serializer-0.2.2.tgz#1afb81f533717175d478655debc5e332d9f9bb51"
+  integrity sha1-GvuB9TNxcXXUeGVd68XjMtn5u1E=
+  dependencies:
+    domelementtype "^2.0.1"
+    entities "^2.0.0"
+
+domelementtype@1:
+  version "1.3.1"
+  resolved "https://registry.npm.taobao.org/domelementtype/download/domelementtype-1.3.1.tgz#d048c44b37b0d10a7f2a3d5fee3f4333d790481f"
+  integrity sha1-0EjESzew0Qp/Kj1f7j9DM9eQSB8=
+
+domelementtype@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.npm.taobao.org/domelementtype/download/domelementtype-2.0.1.tgz#1f8bdfe91f5a78063274e803b4bdcedf6e94f94d"
+  integrity sha1-H4vf6R9aeAYydOgDtL3O326U+U0=
+
 domexception@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/domexception/-/domexception-1.0.1.tgz#937442644ca6a31261ef36e3ec677fe805582c90"
   integrity sha512-raigMkn7CJNNo6Ihro1fzG7wr3fHuYVytzquZKX5n0yizGsTcYgzdIUwj1X9pK0VvjeihV+XiclP+DjwbsSKug==
   dependencies:
     webidl-conversions "^4.0.2"
+
+domutils@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.npm.taobao.org/domutils/download/domutils-1.7.0.tgz#56ea341e834e06e6748af7a1cb25da67ea9f8c2a"
+  integrity sha1-Vuo0HoNOBuZ0ivehyyXaZ+qfjCo=
+  dependencies:
+    dom-serializer "0"
+    domelementtype "1"
 
 ecc-jsbn@~0.1.1:
   version "0.1.2"
@@ -2240,6 +2385,11 @@ end-of-stream@^1.1.0:
   integrity sha512-+uw1inIHVPQoaVuHzRyXd21icM+cnt4CzD5rW+NC1wjOUSTOs+Te7FOv7AhN7vS9x/oIyhLP5PR1H+phQAHu5Q==
   dependencies:
     once "^1.4.0"
+
+entities@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.npm.taobao.org/entities/download/entities-2.0.0.tgz#68d6084cab1b079767540d80e56a39b423e4abf4"
+  integrity sha1-aNYITKsbB5dnVA2A5Wo5tCPkq/Q=
 
 envinfo@^7.1.0:
   version "7.4.0"
@@ -4142,7 +4292,7 @@ lodash.unescape@4.0.1:
   resolved "https://registry.yarnpkg.com/lodash.unescape/-/lodash.unescape-4.0.1.tgz#bf2249886ce514cda112fae9218cdc065211fc9c"
   integrity sha1-vyJJiGzlFM2hEvrpIYzcBlIR/Jw=
 
-lodash@^4.0.0, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.5, lodash@^4.3.0:
+lodash@^4.0.0, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.5, lodash@^4.3.0:
   version "4.17.15"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
   integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
@@ -4211,6 +4361,11 @@ map-visit@^1.0.0:
   integrity sha1-7Nyo8TFE5mDxtb1B8S80edmN+48=
   dependencies:
     object-visit "^1.0.0"
+
+mdn-data@2.0.6:
+  version "2.0.6"
+  resolved "https://registry.npm.taobao.org/mdn-data/download/mdn-data-2.0.6.tgz?cache=0&sync_timestamp=1573816265745&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fmdn-data%2Fdownload%2Fmdn-data-2.0.6.tgz#852dc60fcaa5daa2e8cf6c9189c440ed3e042978"
+  integrity sha1-hS3GD8ql2qLoz2yRicRA7T4EKXg=
 
 mem@^1.1.0:
   version "1.1.0"
@@ -4765,6 +4920,13 @@ npmlog@^4.0.2:
     gauge "~2.7.3"
     set-blocking "~2.0.0"
 
+nth-check@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.npm.taobao.org/nth-check/download/nth-check-1.0.2.tgz#b2bd295c37e3dd58a3bf0700376663ba4d9cf05c"
+  integrity sha1-sr0pXDfj3VijvwcAN2Zjuk2c8Fw=
+  dependencies:
+    boolbase "~1.0.0"
+
 nullthrows@^1.1.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/nullthrows/-/nullthrows-1.1.1.tgz#7818258843856ae971eae4208ad7d7eb19a431b1"
@@ -5243,7 +5405,7 @@ prompts@^2.0.1:
     kleur "^3.0.3"
     sisteransi "^1.0.3"
 
-prop-types@^15.5.10, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -5317,6 +5479,11 @@ react-devtools-core@^3.6.3:
     shell-quote "^1.6.1"
     ws "^3.3.1"
 
+react-fast-compare@^2.0.0:
+  version "2.0.4"
+  resolved "https://registry.npm.taobao.org/react-fast-compare/download/react-fast-compare-2.0.4.tgz#e84b4d455b0fec113e0402c329352715196f81f9"
+  integrity sha1-6EtNRVsP7BE+BALDKTUnFRlvgfk=
+
 react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6, react-is@^16.9.0:
   version "16.10.2"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.10.2.tgz#984120fd4d16800e9a738208ab1fba422d23b5ab"
@@ -5362,6 +5529,14 @@ react-native-screens@^2.0.0-alpha.5:
   integrity sha512-uKVc+JYEC59Dz2RPBI4tnaIB8W6T0dHGY6PjUtvkvaBmZBjfxhpezd3m2t8o913Xarx6EvT2maSH8816+MNJnw==
   dependencies:
     debounce "^1.2.0"
+
+react-native-svg@^11.0.1:
+  version "11.0.1"
+  resolved "https://registry.npm.taobao.org/react-native-svg/download/react-native-svg-11.0.1.tgz#e92e7e9f9cb2604333fd5014fd4edcf62fea6496"
+  integrity sha1-6S5+n5yyYEMz/VAU/U7c9i/qZJY=
+  dependencies:
+    css-select "^2.1.0"
+    css-tree "^1.0.0-alpha.39"
 
 react-native-swiper@^1.6.0-rc.3:
   version "1.6.0-rc.3"
@@ -6612,6 +6787,289 @@ verror@1.10.0:
     assert-plus "^1.0.0"
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
+
+victory-area@^34.0.0:
+  version "34.0.0"
+  resolved "https://registry.npm.taobao.org/victory-area/download/victory-area-34.0.0.tgz#d6d85f694701447ed7e78c8c97af52e56a1a3fd4"
+  integrity sha1-1thfaUcBRH7X54yMl69S5WoaP9Q=
+  dependencies:
+    d3-shape "^1.2.0"
+    lodash "^4.17.15"
+    prop-types "^15.5.8"
+    victory-core "^34.0.0"
+
+victory-axis@^34.0.0:
+  version "34.0.0"
+  resolved "https://registry.npm.taobao.org/victory-axis/download/victory-axis-34.0.0.tgz#8e1fbc4275dccdd0c6089fde3bc42ada3fc82b2b"
+  integrity sha1-jh+8QnXczdDGCJ/eO8Qq2j/IKys=
+  dependencies:
+    lodash "^4.17.15"
+    prop-types "^15.5.8"
+    victory-core "^34.0.0"
+
+victory-bar@^34.0.0:
+  version "34.0.0"
+  resolved "https://registry.npm.taobao.org/victory-bar/download/victory-bar-34.0.0.tgz#22d757b6990954b46d4d206f1d4b8e00169b2bb2"
+  integrity sha1-ItdXtpkJVLRtTSBvHUuOABabK7I=
+  dependencies:
+    d3-shape "^1.2.0"
+    lodash "^4.17.15"
+    prop-types "^15.5.8"
+    victory-core "^34.0.0"
+
+victory-box-plot@^34.0.0:
+  version "34.0.0"
+  resolved "https://registry.npm.taobao.org/victory-box-plot/download/victory-box-plot-34.0.0.tgz#5271500609ca6568e9c56d216e9658461780db1c"
+  integrity sha1-UnFQBgnKZWjpxW0hbpZYRheA2xw=
+  dependencies:
+    d3-array "^1.2.0"
+    lodash "^4.17.15"
+    prop-types "^15.5.8"
+    victory-core "^34.0.0"
+
+victory-brush-container@^34.0.0:
+  version "34.0.0"
+  resolved "https://registry.npm.taobao.org/victory-brush-container/download/victory-brush-container-34.0.0.tgz#b5e71b8cf0e2f2d1a61d1db62235545fc4927334"
+  integrity sha1-tecbjPDi8tGmHR22IjVUX8SSczQ=
+  dependencies:
+    lodash "^4.17.15"
+    prop-types "^15.5.8"
+    victory-core "^34.0.0"
+
+victory-brush-line@^34.0.0:
+  version "34.0.0"
+  resolved "https://registry.npm.taobao.org/victory-brush-line/download/victory-brush-line-34.0.0.tgz#1b00f296eb6c420b544764cc573f56ad0be54632"
+  integrity sha1-GwDylutsQgtUR2TMVz9WrQvlRjI=
+  dependencies:
+    lodash "^4.17.15"
+    prop-types "^15.5.8"
+    victory-core "^34.0.0"
+
+victory-candlestick@^34.0.0:
+  version "34.0.0"
+  resolved "https://registry.npm.taobao.org/victory-candlestick/download/victory-candlestick-34.0.0.tgz#a68dfedeb9b36f1c5f7a0d08df6972b0f69d8ed4"
+  integrity sha1-po3+3rmzbxxfeg0I32lysPadjtQ=
+  dependencies:
+    lodash "^4.17.15"
+    prop-types "^15.5.8"
+    victory-core "^34.0.0"
+
+victory-chart@^34.0.0:
+  version "34.0.0"
+  resolved "https://registry.npm.taobao.org/victory-chart/download/victory-chart-34.0.0.tgz#751443bf599df311717ded38177a6f3e851fb2f8"
+  integrity sha1-dRRDv1md8xFxfe04F3pvPoUfsvg=
+  dependencies:
+    lodash "^4.17.15"
+    prop-types "^15.5.8"
+    react-fast-compare "^2.0.0"
+    victory-axis "^34.0.0"
+    victory-core "^34.0.0"
+    victory-polar-axis "^34.0.0"
+    victory-shared-events "^34.0.0"
+
+victory-core@^34.0.0:
+  version "34.0.0"
+  resolved "https://registry.npm.taobao.org/victory-core/download/victory-core-34.0.0.tgz#f9b6d3c3e329ca98c9f29cb9db02cd1bc33056fb"
+  integrity sha1-+bbTw+MpypjJ8py52wLNG8MwVvs=
+  dependencies:
+    d3-ease "^1.0.0"
+    d3-interpolate "^1.1.1"
+    d3-scale "^1.0.0"
+    d3-shape "^1.2.0"
+    d3-timer "^1.0.0"
+    lodash "^4.17.15"
+    prop-types "^15.5.8"
+    react-fast-compare "^2.0.0"
+
+victory-create-container@^34.0.0:
+  version "34.0.0"
+  resolved "https://registry.npm.taobao.org/victory-create-container/download/victory-create-container-34.0.0.tgz#61fced8fbb7e32b86a7ee0a9671f4e78aa5a410b"
+  integrity sha1-Yfztj7t+MrhqfuCpZx9OeKpaQQs=
+  dependencies:
+    lodash "^4.17.15"
+    victory-brush-container "^34.0.0"
+    victory-core "^34.0.0"
+    victory-cursor-container "^34.0.0"
+    victory-selection-container "^34.0.0"
+    victory-voronoi-container "^34.0.0"
+    victory-zoom-container "^34.0.0"
+
+victory-cursor-container@^34.0.0:
+  version "34.0.0"
+  resolved "https://registry.npm.taobao.org/victory-cursor-container/download/victory-cursor-container-34.0.0.tgz#9539be44513c4355a3433797cd2aa3f7b678807d"
+  integrity sha1-lTm+RFE8Q1WjQzeXzSqj97Z4gH0=
+  dependencies:
+    lodash "^4.17.15"
+    prop-types "^15.5.8"
+    victory-core "^34.0.0"
+
+victory-errorbar@^34.0.0:
+  version "34.0.0"
+  resolved "https://registry.npm.taobao.org/victory-errorbar/download/victory-errorbar-34.0.0.tgz#35d1024e7d596c29087685c9ff4cc3acf5d3df91"
+  integrity sha1-NdECTn1ZbCkIdoXJ/0zDrPXT35E=
+  dependencies:
+    lodash "^4.17.15"
+    prop-types "^15.5.8"
+    victory-core "^34.0.0"
+
+victory-group@^34.0.0:
+  version "34.0.0"
+  resolved "https://registry.npm.taobao.org/victory-group/download/victory-group-34.0.0.tgz#280473a5477389c754c080d08707e9420feeee9d"
+  integrity sha1-KARzpUdzicdUwIDQhwfpQg/u7p0=
+  dependencies:
+    lodash "^4.17.15"
+    prop-types "^15.5.8"
+    react-fast-compare "^2.0.0"
+    victory-core "^34.0.0"
+
+victory-legend@^34.0.0:
+  version "34.0.0"
+  resolved "https://registry.npm.taobao.org/victory-legend/download/victory-legend-34.0.0.tgz#5a7194183225ee3c2bc305c0fcc69bd83c1b6e80"
+  integrity sha1-WnGUGDIl7jwrwwXA/Mab2DwbboA=
+  dependencies:
+    lodash "^4.17.15"
+    prop-types "^15.5.8"
+    victory-core "^34.0.0"
+
+victory-line@^34.0.0:
+  version "34.0.0"
+  resolved "https://registry.npm.taobao.org/victory-line/download/victory-line-34.0.0.tgz#588c8137c2d4827e6df53db5bc8273dfaac623da"
+  integrity sha1-WIyBN8LUgn5t9T21vIJz36rGI9o=
+  dependencies:
+    d3-shape "^1.2.0"
+    lodash "^4.17.15"
+    prop-types "^15.5.8"
+    victory-core "^34.0.0"
+
+victory-native@^34.0.0:
+  version "34.0.0"
+  resolved "https://registry.npm.taobao.org/victory-native/download/victory-native-34.0.0.tgz#47d8ba6a472ed7f3aceacd729de7fbfc94e8e788"
+  integrity sha1-R9i6akcu1/Os6s1ynef7/JTo54g=
+  dependencies:
+    lodash "^4.17.11"
+    prop-types "^15.5.10"
+    react-fast-compare "^2.0.0"
+    victory-area "^34.0.0"
+    victory-axis "^34.0.0"
+    victory-bar "^34.0.0"
+    victory-box-plot "^34.0.0"
+    victory-brush-container "^34.0.0"
+    victory-brush-line "^34.0.0"
+    victory-candlestick "^34.0.0"
+    victory-chart "^34.0.0"
+    victory-core "^34.0.0"
+    victory-create-container "^34.0.0"
+    victory-cursor-container "^34.0.0"
+    victory-errorbar "^34.0.0"
+    victory-group "^34.0.0"
+    victory-legend "^34.0.0"
+    victory-line "^34.0.0"
+    victory-pie "^34.0.0"
+    victory-polar-axis "^34.0.0"
+    victory-scatter "^34.0.0"
+    victory-selection-container "^34.0.0"
+    victory-shared-events "^34.0.0"
+    victory-stack "^34.0.0"
+    victory-tooltip "^34.0.0"
+    victory-voronoi "^34.0.0"
+    victory-voronoi-container "^34.0.0"
+    victory-zoom-container "^34.0.0"
+
+victory-pie@^34.0.0:
+  version "34.0.0"
+  resolved "https://registry.npm.taobao.org/victory-pie/download/victory-pie-34.0.0.tgz#2c0b15d1efef976bf218e12bb209af2a446668c1"
+  integrity sha1-LAsV0e/vl2vyGOErsgmvKkRmaME=
+  dependencies:
+    d3-shape "^1.0.0"
+    lodash "^4.17.15"
+    prop-types "^15.5.8"
+    victory-core "^34.0.0"
+
+victory-polar-axis@^34.0.0:
+  version "34.0.0"
+  resolved "https://registry.npm.taobao.org/victory-polar-axis/download/victory-polar-axis-34.0.0.tgz#50fe2e91ee297863576e8a28aad5516c3a1554b3"
+  integrity sha1-UP4uke4peGNXboooqtVRbDoVVLM=
+  dependencies:
+    lodash "^4.17.15"
+    prop-types "^15.5.8"
+    victory-core "^34.0.0"
+
+victory-scatter@^34.0.0:
+  version "34.0.0"
+  resolved "https://registry.npm.taobao.org/victory-scatter/download/victory-scatter-34.0.0.tgz#5d53964d4cec3417e66ec66d258b01aa2765b3c7"
+  integrity sha1-XVOWTUzsNBfmbsZtJYsBqidls8c=
+  dependencies:
+    lodash "^4.17.15"
+    prop-types "^15.5.8"
+    victory-core "^34.0.0"
+
+victory-selection-container@^34.0.0:
+  version "34.0.0"
+  resolved "https://registry.npm.taobao.org/victory-selection-container/download/victory-selection-container-34.0.0.tgz#4dbdb585d8db00284d88d59cd96e7e6da9185a38"
+  integrity sha1-Tb21hdjbAChNiNWc2W5+bakYWjg=
+  dependencies:
+    lodash "^4.17.15"
+    prop-types "^15.5.8"
+    victory-core "^34.0.0"
+
+victory-shared-events@^34.0.0:
+  version "34.0.0"
+  resolved "https://registry.npm.taobao.org/victory-shared-events/download/victory-shared-events-34.0.0.tgz#3dbf7bf294eb2d46dab7f58c3eee5923aa7003c8"
+  integrity sha1-Pb978pTrLUbat/WMPu5ZI6pwA8g=
+  dependencies:
+    lodash "^4.17.15"
+    prop-types "^15.5.8"
+    react-fast-compare "^2.0.0"
+    victory-core "^34.0.0"
+
+victory-stack@^34.0.0:
+  version "34.0.0"
+  resolved "https://registry.npm.taobao.org/victory-stack/download/victory-stack-34.0.0.tgz#2c24026af033e82834a0d07a671b96c16ea9c72e"
+  integrity sha1-LCQCavAz6Cg0oNB6ZxuWwW6pxy4=
+  dependencies:
+    lodash "^4.17.15"
+    prop-types "^15.5.8"
+    react-fast-compare "^2.0.0"
+    victory-core "^34.0.0"
+
+victory-tooltip@^34.0.0:
+  version "34.0.0"
+  resolved "https://registry.npm.taobao.org/victory-tooltip/download/victory-tooltip-34.0.0.tgz#1e526ad3013c8b2463bb4baab0cdcfbdad5da796"
+  integrity sha1-HlJq0wE8iyRju0uqsM3Pva1dp5Y=
+  dependencies:
+    lodash "^4.17.15"
+    prop-types "^15.5.8"
+    victory-core "^34.0.0"
+
+victory-voronoi-container@^34.0.0:
+  version "34.0.0"
+  resolved "https://registry.npm.taobao.org/victory-voronoi-container/download/victory-voronoi-container-34.0.0.tgz#7069b8f757b896cde83c4d6aee1ff20ace54e000"
+  integrity sha1-cGm491e4ls3oPE1q7h/yCs5U4AA=
+  dependencies:
+    delaunay-find "0.0.5"
+    lodash "^4.17.15"
+    prop-types "^15.5.8"
+    victory-core "^34.0.0"
+    victory-tooltip "^34.0.0"
+
+victory-voronoi@^34.0.0:
+  version "34.0.0"
+  resolved "https://registry.npm.taobao.org/victory-voronoi/download/victory-voronoi-34.0.0.tgz#76f591aa0472b66123201d71c48cc1f421b4922c"
+  integrity sha1-dvWRqgRytmEjIB1xxIzB9CG0kiw=
+  dependencies:
+    d3-voronoi "^1.1.2"
+    lodash "^4.17.15"
+    prop-types "^15.5.8"
+    victory-core "^34.0.0"
+
+victory-zoom-container@^34.0.0:
+  version "34.0.0"
+  resolved "https://registry.npm.taobao.org/victory-zoom-container/download/victory-zoom-container-34.0.0.tgz#5c9e37c132092f6f3f69eac87d20c7598c491c84"
+  integrity sha1-XJ43wTIJL28/aerIfSDHWYxJHIQ=
+  dependencies:
+    lodash "^4.17.15"
+    prop-types "^15.5.8"
+    victory-core "^34.0.0"
 
 vlq@^1.0.0:
   version "1.0.1"

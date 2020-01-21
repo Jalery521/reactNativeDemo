@@ -10,6 +10,7 @@ import DetailEvaluates from './components/DetailEvaluates'
 import DetailSchools from './components/DetailSchools'
 import DetailGarden from './components/DetailGarden'
 // import DetailSupport from './components/DetailSupport'
+import DetailLoans from './components/DetailLoans'
 interface Iprops {
   id: string
   navigation: any
@@ -55,6 +56,7 @@ class SecondDetail extends PureComponent<Iprops, Istate> {
           category: '',
           area: '',
         },
+        loans: [],
       },
     }
   }
@@ -82,7 +84,7 @@ class SecondDetail extends PureComponent<Iprops, Istate> {
   render() {
     const { navigation } = this.props
     const { loading, detail } = this.state
-    const { imgs, brokers, evaluates, schools, garden } = detail
+    const { imgs, brokers, evaluates, schools, garden, loans } = detail
     return (
       <Loading isShow={loading}>
         <ScrollView style={{ backgroundColor: '#f5f5f5' }}>
@@ -92,6 +94,7 @@ class SecondDetail extends PureComponent<Iprops, Istate> {
           <DetailEvaluates evaluates={evaluates} />
           <DetailSchools schools={schools} />
           <DetailGarden garden={garden} />
+          <DetailLoans loans={loans} />
           {/* <DetailSupport /> */}
         </ScrollView>
       </Loading>

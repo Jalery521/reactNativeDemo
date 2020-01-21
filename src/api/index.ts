@@ -169,6 +169,13 @@ export interface Igarden {
   category: string
   area: string
 }
+
+export interface IloanItem {
+  name: string
+  value: string
+  interest?: string
+  proportion: string
+}
 export interface IsecondDetail {
   id: string
   imgs: string[]
@@ -190,7 +197,7 @@ export interface IsecondDetail {
   evaluates: Ievaluate[]
   schools: Ishool[]
   garden: Igarden
-
+  loans: IloanItem[]
 }
 
 export function getSecondDetail(id: string): Promise<{ result: IsecondDetail }> {

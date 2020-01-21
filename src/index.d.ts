@@ -2,6 +2,10 @@ declare module 'react-native-baidu-map' {
   export const MapView: any
   export const Overlay: any
 }
+declare module 'victory-native' {
+  export const VictoryPie: any
+  export const VictoryChart: any
+}
 interface Istore {
   drawerStatus: boolean
   isLogined: boolean
