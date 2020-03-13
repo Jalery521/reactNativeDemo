@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import Icon from '@/components/Icon'
-import { IsecondHouseShool } from '@/api'
+import { IsecondHouseShool } from '@/api/second'
 import commonStyle from './styles'
 interface Iprops {
   schools: IsecondHouseShool[]

@@ -11,7 +11,6 @@ interface Iprops {
 class UserScreen extends PureComponent<Iprops> {
   static navigationOptions = {
     header: () => <NavHeader title='用户中心' isBack={true} />,
-    drawerLockMode: 'unlocked',
   }
 
   constructor(props: Iprops) {

@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native'
 import Icon from '@/components/Icon'
-import { IsecondHouseBroker } from '@/api'
+import { IsecondHouseBroker } from '@/api/second'
 import commonStyle from './styles'
 
 interface Iprops {

@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { View, Text, TouchableOpacity } from 'react-native'
-import { IsecondHouseEvaluate } from '@/api'
+import { IsecondHouseEvaluate } from '@/api/second'
 import commonStyle from './styles'
 interface Iprops {
   evaluates: IsecondHouseEvaluate[]

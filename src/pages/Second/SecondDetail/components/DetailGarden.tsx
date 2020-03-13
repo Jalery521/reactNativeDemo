@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
-import { IsecondHouseGarden } from '@/api'
+import { IsecondHouseGarden } from '@/api/second'
 import commonStyle from './styles'
 interface Iprops {
   garden: IsecondHouseGarden

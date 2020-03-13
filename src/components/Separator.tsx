@@ -1,3 +1,4 @@
+// list中的分割线
 import React, { FC } from 'react'
 import { View } from 'react-native'
 const Separator: FC = () => {

@@ -1,9 +1,31 @@
 import BASE_URL from './baseUrl'
-
+import { TareaType, TpriceType, ImoreQuery } from '@/api/filtration'
+import { TitemValue } from '@/components/Filtration/components/FiltrationSort'
 /**
  * 以下为二手房页面接口
  */
-export function getSecondHouses(): Promise<{ result: IhouseItem[] }> {
+
+
+
+export interface IsecondQueryForm {
+  area: { // 区域筛选项
+    // 区域  |  地铁   | 附近
+    type: TareaType
+    value: string
+  }
+  price: { // 售价筛选项
+    // 总价 | '单价'
+    type: TpriceType
+    value: string
+  }
+  rent: string  // 租金
+  house: string // 户型
+  more: ImoreQuery[]
+  currentPage: number
+  pageSize: number
+  order: TitemValue  // 排序方式
+}
+export function getSecondHouses(queryForm: IsecondQueryForm): Promise<{ result: IhouseItem[] }> {
   return fetch(`${BASE_URL}/getSecondHouses`).then(res => res.json())
 }
 
