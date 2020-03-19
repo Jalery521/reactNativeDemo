@@ -1,7 +1,6 @@
 import React, { FC, useState } from 'react'
 import { FlatList, Text, StyleSheet } from 'react-native'
-
-export type TitemValue = 'default' | 'new' | 'totalLow' | 'totalHigh' | 'priceLow' | 'priceHigh' | 'areaLow' | 'areaHigh' | 'rentLow' | 'rentHigh' | 'lookLow' | 'lookHigh'
+import { TitemValue } from '@/api/filtration'
 
 interface IdataItem {
   label: string

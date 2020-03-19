@@ -91,6 +91,7 @@ class NewScreen extends PureComponent<Iprops, Istate> {
       discountList,
       openList,
     } = this.state
+    const { navigation } = this.props
     return (
       <SafeAreaView style={{ flex: 1 }}>
         <Loading isShow={loading}>
@@ -103,7 +104,7 @@ class NewScreen extends PureComponent<Iprops, Istate> {
             </View>
             <ScrollView>
               <NewSwiper banners={banners} />
-              <NewMenus />
+              <NewMenus navigation={navigation} />
               <NewInformation info={info} />
               <NewHot hot={hot} />
               <NewEvaluation evaluation={evaluation} />

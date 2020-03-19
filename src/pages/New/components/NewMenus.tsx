@@ -3,12 +3,13 @@ import { View, Image, Text, StyleSheet, TouchableOpacity } from 'react-native'
 interface Iprops {
   navigation: any
 }
-const NewMenus: FC = () => {
+const NewMenus: FC<Iprops> = ({ navigation }) => {
   const menus = [
     {
       uri:
         'https://i.qfangimg.com/resource/qfang-mobile/static/img/nav-newhouse-all.png',
       label: '全部楼盘',
+      path: 'NewHouseList'
     },
     {
       uri:
@@ -53,7 +54,8 @@ const NewMenus: FC = () => {
           <TouchableOpacity
             activeOpacity={0.8}
             key={item.label}
-            style={styles.menuItem}>
+            style={styles.menuItem}
+            onPress={() => navigation.navigate(item.path)}>
             <Image style={styles.itemIcon} source={{ uri: item.uri }} />
             <Text>{item.label}</Text>
           </TouchableOpacity>

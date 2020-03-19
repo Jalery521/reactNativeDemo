@@ -15,6 +15,26 @@ export type TmoreType = 'dimension' |   // 面积
   'elevator' |  // 是否有电梯
   'purpose'  // 用途
 
+export type TitemValue = 'default' | 'new' | 'totalLow' | 'totalHigh' | 'priceLow' | 'priceHigh' | 'areaLow' | 'areaHigh' | 'rentLow' | 'rentHigh' | 'lookLow' | 'lookHigh'
+
+export interface ISearchQueryForm {
+  area: { // 区域筛选项
+    // 区域  |  地铁   | 附近
+    type: TareaType
+    value: string
+  }
+  price: { // 售价筛选项
+    // 总价 | '单价'
+    type: TpriceType
+    value: string
+  }
+  rent: string  // 租金
+  house: string // 户型
+  more: ImoreQuery[]
+  currentPage: number
+  pageSize: number
+  order: TitemValue  // 排序方式
+}
 export interface ImoreQuery {
   type: TmoreType
   value: string

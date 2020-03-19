@@ -10,7 +10,7 @@ import {
   Image,
 } from 'react-native'
 import Icon from '@/components/Icon'
-import commonStyle from '../common/style'
+import commonStyle from '../../common/style'
 import { getSecondHouses } from '@/api/second'
 import { ISearchQueryForm } from '@/api/filtration'
 import Footer from '@/components/Footer'
@@ -34,9 +34,9 @@ interface Istate {
   showSkipToTop: boolean
 }
 
-class SecondScreen extends PureComponent<Iprops, Istate> {
+class NewHouseList extends PureComponent<Iprops, Istate> {
   static navigationOptions = {
-    header: () => <NavHeader title='二手房' />,
+    header: () => <NavHeader title='新房' isBack={true} />,
   }
   flatList: any
   constructor(props: Iprops) {
@@ -64,7 +64,7 @@ class SecondScreen extends PureComponent<Iprops, Istate> {
       activeIndex: -1,  // 筛选类别高亮
       showSkipToTop: false
     }
-    this.flatList = React.createRef()
+    this.flatList = React.createRef<any>()
   }
 
   componentDidMount() {
@@ -107,12 +107,12 @@ class SecondScreen extends PureComponent<Iprops, Istate> {
 
   handleFlatListScroll = (e: any) => {
     const { showSkipToTop } = this.state
-    const currentY = e.nativeEvent.contentOffset.y  // 监听滚动距离显示返回顶部功能
-    if (!showSkipToTop && currentY > width) {
+    const { y } = e.nativeEvent.contentOffset
+    if (y >= width && (!showSkipToTop)) {
       this.setState({
         showSkipToTop: true
       })
-    } else if (showSkipToTop && currentY < width) {
+    } else if (y <= width && showSkipToTop) {
       this.setState({
         showSkipToTop: false
       })
@@ -122,7 +122,6 @@ class SecondScreen extends PureComponent<Iprops, Istate> {
   handleSkipToTop = () => {
     this.flatList.scrollToIndex({ index: 0 })
   }
-
 
   render() {
     const { navigation } = this.props
@@ -135,7 +134,7 @@ class SecondScreen extends PureComponent<Iprops, Istate> {
             <View style={styles.searchWrapper}>
               <View style={styles.searchBox}>
                 <Icon name='sousuo' size={16} color='#a0a0a0' />
-                <TextInput placeholder='你想找的小区、商圈' />
+                <TextInput placeholder='你想找的楼盘名、商圈' />
               </View>
               <Filtration isShow={isShow} activeIndex={activeIndex} changeIsShow={changeIsShow} changeActiveIndex={changeActiveIndex} queryForm={queryForm} changeQueryForm={changeQueryForm} />
             </View>
@@ -216,9 +215,7 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     height: 40,
   },
-  skipToTopStyle: {
-    width: 50, height: 50, position: 'absolute', bottom: 30, right: 30, borderRadius: 10, backgroundColor: '#666666', justifyContent: 'center', alignItems: 'center'
-  }
+
 })
 
-export default SecondScreen
+export default NewHouseList
