@@ -39,6 +39,7 @@ class NewHouseList extends PureComponent<Iprops, Istate> {
     header: () => <NavHeader title='新房' isBack={true} />,
   }
   flatList: any
+  isFirstLoad: boolean
   constructor(props: Iprops) {
     super(props)
     this.state = {
@@ -65,6 +66,7 @@ class NewHouseList extends PureComponent<Iprops, Istate> {
       showSkipToTop: false
     }
     this.flatList = React.createRef<any>()
+    this.isFirstLoad = true
   }
 
   componentDidMount() {
@@ -85,7 +87,7 @@ class NewHouseList extends PureComponent<Iprops, Istate> {
   }
 
   requestData = async () => {
-    this.setState({
+    this.isFirstLoad && this.setState({
       loading: true,
     })
     const { tableData, queryForm } = this.state
@@ -98,8 +100,9 @@ class NewHouseList extends PureComponent<Iprops, Istate> {
       this.setState({
         tableData: newTableData,
       })
+      this.isFirstLoad = false
     } finally {
-      this.setState({
+      this.state.loading && this.setState({
         loading: false,
       })
     }
@@ -123,10 +126,17 @@ class NewHouseList extends PureComponent<Iprops, Istate> {
     this.flatList.scrollToIndex({ index: 0 })
   }
 
+
+  // 上拉加载
+  hanldeFlatListReached = () => {
+    this.requestData()
+  }
+
+
   render() {
     const { navigation } = this.props
     const { tableData, loading, isShow, activeIndex, queryForm, showSkipToTop } = this.state
-    const { changeIsShow, changeActiveIndex, changeQueryForm, handleFlatListScroll, handleSkipToTop } = this
+    const { changeIsShow, changeActiveIndex, changeQueryForm, handleFlatListScroll, handleSkipToTop, hanldeFlatListReached } = this
     return (
       <SafeAreaView style={{ flex: 1 }}>
         <Loading isShow={loading}>
@@ -145,6 +155,8 @@ class NewHouseList extends PureComponent<Iprops, Istate> {
               ListFooterComponent={<Footer />}
               ItemSeparatorComponent={Separator}
               onScroll={handleFlatListScroll}
+              onEndReached={hanldeFlatListReached}
+              onEndReachedThreshold={0.2}
               renderItem={({ item }) => {
                 return (
                   <TouchableOpacity
